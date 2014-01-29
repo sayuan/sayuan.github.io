@@ -1,0 +1,173 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="description" content=""><meta name="author" content="Shiao-An Yuan"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>終於，新居落成 | SAY something</title><script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+        displayMath: [ ['$$','$$'], ["\\[","\\]"] ]
+    },
+    displayAlign: 'left', // Change this to 'center' to center equations.
+    "HTML-CSS": {
+        styles: {'.MathJax_Display': {"margin": 0}}
+    }
+});
+</script><link href="../assets/css/all-nocdn.css" rel="stylesheet" type="text/css"><!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
+    <![endif]--><link rel="alternate" type="application/rss+xml" title="RSS" href="../rss.xml"><link rel="stylesheet" type="text/css" href="../assets/css/code.css"></head><body>
+    <section class="social"><ul><li><a href="../index.html" title="Home"><i class="icon-home"></i></a></li>
+            <li><a href="../archive.html" title="Archives"><i class="icon-folder-open-alt"></i></a></li>
+            <li><a href="../categories/index.html" title="Tags"><i class="icon-tags"></i></a></li>
+            <li><a href="../stories/about-me.html" title="About me"><i class="icon-user"></i></a></li>
+            <li><a href="https://github.com/sayuan" title="My Github"><i class="icon-github"></i></a></li>
+            <li><a href="https://plus.google.com/111763383423728987624/posts" title="My Google+"><i class="icon-google-plus"></i></a></li>
+            <li><a href="http://www.linkedin.com/in/sayuan" title="My LinkedIn"><i class="icon-linkedin"></i></a></li>
+            <li><a href="../rss.xml" title="RSS"><i class="icon-rss"></i></a></li>
+
+        </ul></section><section class="page-content"><div class="content" rel="main">
+            
+    <div class="post">
+    
+    <h1 class="p-name" itemprop="headline name">終於，新居落成</h1>
+
+        <div class="meta">
+            <div class="authordate">
+                <time class="timeago" datetime="2014-01-29T21:05:42+08:00">2014-01-29 21:05</time></div>
+            
+
+            
+          |  
+        <a href="finally-my-new-blog.md" id="sourcelink">Source</a>
+
+            
+    <div class="tags">
+        <ul>
+        More posts about:  
+            <li><a class="tag" href="../categories/blog.html">blog</a></li>
+            <li><a class="tag" href="../categories/nikola.html">nikola</a></li>
+            <li><a class="tag" href="../categories/mathjax.html">mathjax</a></li>
+        </ul></div>
+
+        </div>
+        <div class="body">
+            <div><h3>塵埃落定</h3>
+<p>嚷著說要寫 blog 也差不多拖了一、兩年了，除了單純的因為我懶以外，找不到合適的
+static blog generator 也是一大主因。為了讓 blog
+能完全在自己的掌控之中，我必須選一個自己看得懂、改得動的語言所實作的
+generator，因此我首先關注的是以 Python 實作的 <a href="http://blog.getpelican.com/">Pelican</a>。</p>
+<p>確認了 Pelican 有所有我需要的功能：支援 markdown 語法、能夠顯示 LaTex
+語法、syntax highlight 當然也是必要的，還有其他 blog 必備的 tag, RSS, ...
+等等。然後最後是，選一個看得順眼的 theme ...。糟糕，怎麼找不到合適的？</p>
+<p>我這個人除了懶以外，另一個缺點是龜毛，而且常常是龜毛在我沒有能力做得更好的地方。
+我開始嘗試改寫 theme，當然沒有美術細胞的我，即使投入了不少時間，
+卻仍然做不出能看的東西，間接導致我的部落格生涯遲遲無法展開。</p>
+<p>終於，不久前耳聞了另一套 Python 實作的 generator:
+<a href="http://getnikola.com/">Nikola</a>，照慣例掃了一遍所有的 theme，終於看到一個讓我眼睛為之一亮的
+theme: <a href="http://www.damian.oquanta.info/posts/nikolas-zen-theme-finally-released.html">zen</a>，也就是各位現在正在看著的 theme 了。
+終於呀，原來相比起 generator 的功能，我真正需要的只是一個好看的 theme。 :)</p>
+<p>接下來就展示一下 Nikola 在示數學公式和 code 的寫法和其顯示在網頁上的效果吧。</p>
+<h3>Math</h3>
+<p>顯示數學公式其實就只是使用了 <a href="http://www.mathjax.org/">MathJax</a>，沒有什麼特別的地方。</p>
+<ul><li>
+<p>inline math: $e^{ix} = \cos x + i\sin x$</p>
+<p>對應的寫法: <code>$e^{ix} = \cos x + i\sin x$</code></p>
+</li>
+<li>
+<p>display math: $$\sqrt{1+\sqrt[^p!]{1+a^2}}$$</p>
+<p>對應的寫法: <code>$$\sqrt{1+\sqrt[^p\!]{1+a^2}}$$</code></p>
+</li>
+</ul><h3>Syntax Highlight</h3>
+<p>Syntax highlight 則是 <a href="http://pythonhosted.org/Markdown/extensions/code_hilite.html">CodeHilite</a> 和 <a href="pythonhosted.org/Markdown/extensions/fenced_code_blocks.html">Fenced Code Blocks</a> 的功勞。</p>
+<div class="code"><pre><span class="kd">class</span> <span class="nc">HelloWorld</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Hello World!"</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<p>對應的寫法:</p>
+<pre>```java
+class HelloWorld {
+    public static void main(String[] args) {
+        System.out.println("Hello World!");
+    }
+}
+```</pre>
+
+<h3>CJK-space-fix</h3>
+<p>最後來個置入式行銷介紹一下我自己開發的 <a href="https://github.com/sayuan/CJK-space-fix/">CJK-space-fix</a>。</p>
+<p>很多人在寫 markdown 或著其他格式的檔案時，會習慣在不超過 column 80 的位置
+換行。例如:
+</p><pre>
+很多人在寫 markdown 或著其他格式的檔案時，會習慣在不超過 column 80 的位置
+換行。例如:
+</pre>
+<p>這在 Python-Markdown 會被處理成如下
+</p><pre>
+<code>&lt;p&gt;</code>很多人在寫 markdown 或著其他格式的檔案時，會習慣在不超過 column 80 的位置
+換行。例如:<code>&lt;/p&gt;</code>
+</pre>
+<p>然後顯示在瀏覽器上時，就會在 "位置" 和 "換行" 之間有一個多餘的空白，像是這樣：
+</p><pre>
+很多人在寫 markdown 或著其他格式的檔案時，會習慣在不超過 column 80 的位置 換行。例如:
+</pre>
+<p>這在許多以空白作為單字分隔的語言中都不是問題，但是在中文卻會顯得很突兀。</p>
+<p>有些人的解決方式是編輯 markdown 時故意不換行；
+也有些人是在編輯文章時，故意選在標點符號的位置換行。
+當然也有其他人和我一樣用程式解決，但其他人都是在 "markdown 轉 html" 這段
+做處理。我一直認為這是屬於瀏覽器的問題，而瀏覽器的問題就該在瀏覽器上被解決，
+雖然短時間內各家瀏覽器都不會有解決方案，至少我可以自己寫段 javascript
+來處理好這件事，於是這支 script 就誕生了。</p>
+<h3>What's next?</h3>
+<p>老實說，Nikola 也不是個讓我完全滿意的 generator，雖然說是支援
+markdown，但找不到 markdown 的文件，很多功能我也都沒能試出來。</p>
+<p>但要是再這樣挑三揀四，我想我大概永遠也沒有辦法開始 blogging 吧。
+所以還是就先這樣開始吧！不過我想最大的問題應該是我能堅持 blogging 多久呢？</p></div>
+        </div>
+        
+
+            
+        
+        <div id="disqus_thread"></div>
+        <script>
+        var disqus_shortname ="say-something",
+            disqus_url="http://sayuan.github.io/posts/finally-my-new-blog.html",
+        disqus_title="\u7d42\u65bc\uff0c\u65b0\u5c45\u843d\u6210",
+        disqus_identifier="cache/posts/finally-my-new-blog.html",
+        disqus_config = function () {
+            this.language = "en";
+        };
+        (function() {
+            var dsq = document.createElement('script'); dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink" rel="nofollow">Comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+        
+        <script src="../assets/js/mathjax.js"></script></div>
+
+            Contents © 2014 <a href="mailto:shiao.an.yuan@gmail.com">Shiao-An Yuan</a> - 
+Powered by <a href="http://getnikola.com">Nikola</a> - 
+Zen theme based in <a href="https://github.com/arusahni/website-template">Arusahni's website-template</a><br><a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/2.5/ar/">
+<img alt="Creative Commons License BY-NC-SA" style="border-width:0; margin-bottom:12px;" src="http://i.creativecommons.org/l/by-nc-sa/2.5/ar/88x31.png"></a>
+            
+    
+ <!-- Social buttons -->
+ <div id="addthisbox" class="addthis_toolbox addthis_peekaboo_style addthis_default_style addthis_label_style addthis_32x32_style">
+ <a class="addthis_button_more"><i class="icon-share-sign icon-2x"></i>    Share</a>
+ <ul><li><a class="addthis_button_twitter"><i class="icon-twitter icon-2x"></i>    Twitter</a>
+ </li><li><a class="addthis_button_google_plusone_share"><i class="icon-google-plus-sign icon-2x"></i>    Google+</a>
+ </li><li><a class="addthis_button_linkedin"><i class="icon-linkedin icon-2x"></i>    Linkedin</a>
+ </li><li><a class="addthis_button_facebook"><i class="icon-facebook-sign icon-2x"></i>    Facebook</a>
+ </li></ul></div>
+ <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-4f7088a56bb93798"></script><!-- End of social buttons --></div>
+    </section><script src="../assets/js/all-nocdn.js" type="text/javascript"></script><script type="text/javascript">
+            $(function(){
+                $('.timeago').timeago();
+            });
+        </script><script type="text/javascript" src="../assets/js/cjk_space_fix.js"></script><script type="text/javascript">
+    (function () {
+        cjkSpaceFix();
+    })();
+</script></body></html>
