@@ -56,7 +56,7 @@ NAVIGATION_LINKS = {
         ('/archive.html', 'Archives', 'icon-folder-open-alt'),
         ('/categories/index.html', 'Tags', 'icon-tags'),
         # ('/portfolio/portfolio.slides.html', 'Portfolio', 'icon-briefcase'),
-        # ('/stories/about-me.html', 'About me', 'icon-user'),
+        ('/stories/about-me.html', 'About me', 'icon-user'),
         # ('https://twitter.com/damian_avila', 'My Twitter', 'icon-twitter'),
         ('https://github.com/sayuan', 'My Github', 'icon-github'),
         ('https://plus.google.com/111763383423728987624/posts', 'My Google+', 'icon-google-plus'),
@@ -100,6 +100,7 @@ PAGES = (
     ("stories/*.txt", "stories", "story.tmpl"),
     ("stories/*.rst", "stories", "story.tmpl"),
     ("stories/*.ipynb", "stories", "story.tmpl"),
+    ("stories/*.md", "stories", "story.tmpl"),
 )
 
 # One or more folders containing files to be copied as-is into the output.
