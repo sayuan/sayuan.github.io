@@ -526,7 +526,13 @@ EXTRA_HEAD_DATA = """
 # Google analytics or whatever else you use. Added to the bottom of <body>
 # in the default template (base.tmpl).
 BODY_END = """
-    """
+<script type="text/javascript" src="/assets/js/cjk_space_fix.js"></script>
+<script type="text/javascript">
+    (function () {
+        cjkSpaceFix();
+    })();
+</script>
+"""
 
 # The possibility to extract metadata from the filename by using a
 # regular expression.
