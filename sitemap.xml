@@ -5,14 +5,6 @@
     xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
                         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
  <url>
-  <loc>http://sayuan.github.io/2013/02/index.html</loc>
-  <lastmod>2014-01-29</lastmod>
- </url>
- <url>
-  <loc>http://sayuan.github.io/2013/index.html</loc>
-  <lastmod>2014-01-29</lastmod>
- </url>
- <url>
   <loc>http://sayuan.github.io/2014/01/index.html</loc>
   <lastmod>2014-01-30</lastmod>
  </url>
@@ -61,14 +53,6 @@
   <lastmod>2014-01-30</lastmod>
  </url>
  <url>
-  <loc>http://sayuan.github.io/categories/python.html</loc>
-  <lastmod>2014-01-29</lastmod>
- </url>
- <url>
-  <loc>http://sayuan.github.io/categories/python.xml</loc>
-  <lastmod>2014-01-29</lastmod>
- </url>
- <url>
   <loc>http://sayuan.github.io/categories/ydict.html</loc>
   <lastmod>2014-01-30</lastmod>
  </url>
@@ -105,10 +89,6 @@
   <lastmod>2014-01-30</lastmod>
  </url>
  <url>
-  <loc>http://sayuan.github.io/posts/math-works-now.html</loc>
-  <lastmod>2014-01-29</lastmod>
- </url>
- <url>
   <loc>http://sayuan.github.io/posts/ydict.html</loc>
   <lastmod>2014-01-30</lastmod>
  </url>
@@ -119,9 +99,5 @@
  <url>
   <loc>http://sayuan.github.io/stories/about-me.html</loc>
   <lastmod>2014-01-30</lastmod>
- </url>
- <url>
-  <loc>http://sayuan.github.io/stories/finally-my-new-blog.html</loc>
-  <lastmod>2014-01-29</lastmod>
  </url>
 </urlset>

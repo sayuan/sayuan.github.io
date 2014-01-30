@@ -39,13 +39,21 @@ ydict.js 的一個主要設計考量是，parsing 與 display
 另外我也把 parsing 的部份包成 module，讓其他 project
 可以直接引用，雖然我覺得這個功能完全只是雞肋。:p
 
-最後，我也已經將 ydict.js 上傳 npm，因此只要下
-
-    [sudo] npm install -g ydict.js
-
+此外，我也已經將 ydict.js 上傳 npm，因此只要下 `[sudo] npm install -g ydict.js`
 就可以完成安裝了，希望大家會喜歡。
+
+我的好友 Andrew 與 Jeff 也和我一樣倚重 ydict，因此在去年 Yahoo
+字典改版，各家實作卻都尚未支援之前，他們也都各自開發了自己的實作。
+首先是 [Andrew 的 shell script 版][andrew]，使用 w3m 的超簡短作弊寫法，
+麻雀雖小卻是五臟俱全，使用前請先安裝 w3m 套件。
+另外就是 [Jeff 開發的 LiveScript 版][jeff]，和 ydict.js 一樣使用 [cheerio][]
+來 parsing，並且同樣也已經上傳 npm，只要下
+`[sudo] npm install -g jydict` 即可安裝。
 
 [Yahoo 字典]: http://tw.dictionary.yahoo.com/
 [freehaha]: https://github.com/freehaha/ydict
 [fourdollars]: http://fourdollars.blogspot.tw/2008/05/vim-ydict.html
 [ydict.js]: https://github.com/sayuan/ydict.js/
+[andrew]: https://github.com/yongjhih/rc/blob/master/bin/andict
+[jeff]: https://github.com/JeffChien/jydict
+[cheerio]: https://github.com/MatthewMueller/cheerio

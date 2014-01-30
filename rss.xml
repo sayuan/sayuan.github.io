@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/"><channel><title>SAY something</title><link>http://sayuan.github.io/</link><description>Shiao-An Yuan personal blog</description><atom:link href="http://sayuan.github.io/rss.xml" type="application/rss+xml" rel="self"></atom:link><language>en</language><lastBuildDate>Thu, 30 Jan 2014 16:44:03 GMT</lastBuildDate><generator>Nikola &lt;http://getnikola.com/&gt;</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>ydict - node.js 實作</title><link>http://sayuan.github.io/posts/ydict.html</link><description>&lt;div&gt;&lt;p&gt;身為一名 command line 魔人，儘可能的將所有在電腦上的操作在 command line
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/"><channel><title>SAY something</title><link>http://sayuan.github.io/</link><description>Shiao-An Yuan personal blog</description><atom:link href="http://sayuan.github.io/rss.xml" type="application/rss+xml" rel="self"></atom:link><language>en</language><lastBuildDate>Thu, 30 Jan 2014 18:55:55 GMT</lastBuildDate><generator>Nikola &lt;http://getnikola.com/&gt;</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>ydict - node.js 實作</title><link>http://sayuan.github.io/posts/ydict.html</link><description>&lt;div&gt;&lt;p&gt;身為一名 command line 魔人，儘可能的將所有在電腦上的操作在 command line
 之內完成，是一件理所當然的事情，就連查字典也不例外，而 ydict
 就是這樣的工具。&lt;/p&gt;
 &lt;p&gt;&lt;img alt="ydict" src="http://sayuan.github.io/galleries/misc/ydict.png"&gt;&lt;/p&gt;
@@ -23,12 +23,15 @@ parsing，事情也許會簡單很多，於是 &lt;a href="https://github.com/sa
 檔依照格式顯示在螢幕上， 因此在任何一方修改都不會影響到另一方。
 另外我也把 parsing 的部份包成 module，讓其他 project
 可以直接引用，雖然我覺得這個功能完全只是雞肋。:p&lt;/p&gt;
-&lt;p&gt;最後，我也已經將 ydict.js 上傳 npm，因此只要下&lt;/p&gt;
-&lt;div class="code"&gt;&lt;pre&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;sudo&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="n"&gt;npm&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;g&lt;/span&gt; &lt;span class="n"&gt;ydict&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;js&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;就可以完成安裝了，希望大家會喜歡。&lt;/p&gt;&lt;/div&gt;</description><category>ydict</category><category>nodejs</category><guid>http://sayuan.github.io/posts/ydict.html</guid><pubDate>Thu, 30 Jan 2014 07:07:52 GMT</pubDate></item><item><title>終於，新居落成</title><link>http://sayuan.github.io/posts/finally-my-new-blog.html</link><description>&lt;div&gt;&lt;h3&gt;塵埃落定&lt;/h3&gt;
+&lt;p&gt;此外，我也已經將 ydict.js 上傳 npm，因此只要下 &lt;code&gt;[sudo] npm install -g ydict.js&lt;/code&gt;
+就可以完成安裝了，希望大家會喜歡。&lt;/p&gt;
+&lt;p&gt;我的好友 Andrew 與 Jeff 也和我一樣倚重 ydict，因此在去年 Yahoo
+字典改版，各家實作卻都尚未支援之前，他們也都各自開發了自己的實作。
+首先是 &lt;a href="https://github.com/yongjhih/rc/blob/master/bin/andict"&gt;Andrew 的 shell script 版&lt;/a&gt;，使用 w3m 的超簡短作弊寫法，
+麻雀雖小卻是五臟俱全，使用前請先安裝 w3m 套件。
+另外就是 &lt;a href="https://github.com/JeffChien/jydict"&gt;Jeff 開發的 LiveScript 版&lt;/a&gt;，和 ydict.js 一樣使用 &lt;a href="https://github.com/MatthewMueller/cheerio"&gt;cheerio&lt;/a&gt;
+來 parsing，並且同樣也已經上傳 npm，只要下
+&lt;code&gt;[sudo] npm install -g jydict&lt;/code&gt; 即可安裝。&lt;/p&gt;&lt;/div&gt;</description><category>ydict</category><category>nodejs</category><guid>http://sayuan.github.io/posts/ydict.html</guid><pubDate>Thu, 30 Jan 2014 07:07:52 GMT</pubDate></item><item><title>終於，新居落成</title><link>http://sayuan.github.io/posts/finally-my-new-blog.html</link><description>&lt;div&gt;&lt;h3&gt;塵埃落定&lt;/h3&gt;
 &lt;p&gt;嚷著說要寫 blog 也差不多拖了一、兩年了，除了單純的因為我懶以外，找不到合適的
 static blog generator 也是一大主因。為了讓 blog
 能完全在自己的掌控之中，我必須選一個自己看得懂、改得動的語言所實作的

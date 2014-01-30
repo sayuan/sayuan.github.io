@@ -70,12 +70,15 @@ parsing，事情也許會簡單很多，於是 <a href="https://github.com/sayua
 檔依照格式顯示在螢幕上， 因此在任何一方修改都不會影響到另一方。
 另外我也把 parsing 的部份包成 module，讓其他 project
 可以直接引用，雖然我覺得這個功能完全只是雞肋。:p</p>
-<p>最後，我也已經將 ydict.js 上傳 npm，因此只要下</p>
-<div class="code"><pre><span class="p">[</span><span class="n">sudo</span><span class="p">]</span> <span class="n">npm</span> <span class="n">install</span> <span class="o">-</span><span class="n">g</span> <span class="n">ydict</span><span class="p">.</span><span class="n">js</span>
-</pre></div>
-
-
-<p>就可以完成安裝了，希望大家會喜歡。</p></div>
+<p>此外，我也已經將 ydict.js 上傳 npm，因此只要下 <code>[sudo] npm install -g ydict.js</code>
+就可以完成安裝了，希望大家會喜歡。</p>
+<p>我的好友 Andrew 與 Jeff 也和我一樣倚重 ydict，因此在去年 Yahoo
+字典改版，各家實作卻都尚未支援之前，他們也都各自開發了自己的實作。
+首先是 <a href="https://github.com/yongjhih/rc/blob/master/bin/andict">Andrew 的 shell script 版</a>，使用 w3m 的超簡短作弊寫法，
+麻雀雖小卻是五臟俱全，使用前請先安裝 w3m 套件。
+另外就是 <a href="https://github.com/JeffChien/jydict">Jeff 開發的 LiveScript 版</a>，和 ydict.js 一樣使用 <a href="https://github.com/MatthewMueller/cheerio">cheerio</a>
+來 parsing，並且同樣也已經上傳 npm，只要下
+<code>[sudo] npm install -g jydict</code> 即可安裝。</p></div>
             </div>
         </div>
         <div class="post">
