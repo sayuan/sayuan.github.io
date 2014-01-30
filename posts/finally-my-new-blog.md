@@ -16,14 +16,14 @@ static blog generator 也是一大主因。為了讓 blog
 generator，因此我首先關注的是以 Python 實作的 [Pelican][]。
 
 確認了 Pelican 有所有我需要的功能：支援 markdown 語法、能夠顯示 LaTex
-語法、syntax highlight 當然也是必要的，還有其他 blog 必備的 tag, RSS, ...
-等等。然後最後是，選一個看得順眼的 theme ...。糟糕，怎麼找不到合適的？
+語法、syntax highlight 當然也是必要的，還有其他 blog 必備的 tag, RSS, ……等等。
+然後最後是，選一個看得順眼的 theme ……。糟糕，怎麼找不到合適的？
 
 我這個人除了懶以外，另一個缺點是龜毛，而且常常是龜毛在我沒有能力做得更好的地方。
 我開始嘗試改寫 theme，當然沒有美術細胞的我，即使投入了不少時間，
 卻仍然做不出能看的東西，間接導致我的部落格生涯遲遲無法展開。
 
-終於，不久前耳聞了另一套 Python 實作的 generator:
+終於，不久前耳聞了另一套 Python 實作的 generator：
 [Nikola][]，照慣例掃了一遍所有的 theme，終於看到一個讓我眼睛為之一亮的
 theme: [zen][]，也就是各位現在正在看著的 theme 了。
 終於呀，原來相比起 generator 的功能，我真正需要的只是一個好看的 theme。 :)
@@ -58,7 +58,7 @@ class HelloWorld {
 }
 ```
 
-對應的寫法:
+對應的寫法：
 
 <pre>```java
 class HelloWorld {
@@ -77,21 +77,21 @@ class HelloWorld {
 最後來個置入式行銷介紹一下我自己開發的 [CJK-space-fix][]。
 
 很多人在寫 markdown 或著其他格式的檔案時，會習慣在不超過 column 80 的位置
-換行。例如:
+換行。例如：
 <pre>
 很多人在寫 markdown 或著其他格式的檔案時，會習慣在不超過 column 80 的位置
-換行。例如:
+換行。例如：
 </pre>
 
 這在 Python-Markdown 會被處理成如下
 <pre>
 `<p>`很多人在寫 markdown 或著其他格式的檔案時，會習慣在不超過 column 80 的位置
-換行。例如:`</p>`
+換行。例如：`</p>`
 </pre>
 
 然後顯示在瀏覽器上時，就會在 "位置" 和 "換行" 之間有一個多餘的空白，像是這樣：
 <pre>
-很多人在寫 markdown 或著其他格式的檔案時，會習慣在不超過 column 80 的位置 換行。例如:
+很多人在寫 markdown 或著其他格式的檔案時，會習慣在不超過 column 80 的位置 換行。例如：
 </pre>
 
 這在許多以空白作為單字分隔的語言中都不是問題，但是在中文卻會顯得很突兀。
@@ -108,7 +108,7 @@ class HelloWorld {
 ## What's next?
 
 老實說，Nikola 也不是個讓我完全滿意的 generator，雖然說是支援
-markdown，但找不到 markdown 的文件，很多功能我也都沒能試出來。
-
+markdown，但找不到針對 markdown 的說明文件，很多功能我也都沒能試出來。
 但要是再這樣挑三揀四，我想我大概永遠也沒有辦法開始 blogging 吧。
-所以還是就先這樣開始吧！不過我想最大的問題應該是我能堅持 blogging 多久呢？
+所以還是就先這樣吧！後續還有很多問題想要處理，像是站內搜尋、轉換至 HTML5、增加適當的 meta 標籤……等等。
+不過我想最大的問題應該是我能堅持 blogging 多久吧？
