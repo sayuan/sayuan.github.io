@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/"><channel><title>SAY something</title><link>http://sayuan.github.io/</link><description>Shiao-An Yuan personal blog</description><atom:link href="http://sayuan.github.io/rss.xml" type="application/rss+xml" rel="self"></atom:link><language>en</language><lastBuildDate>Thu, 30 Jan 2014 18:55:55 GMT</lastBuildDate><generator>Nikola &lt;http://getnikola.com/&gt;</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>ydict - node.js 實作</title><link>http://sayuan.github.io/posts/ydict.html</link><description>&lt;div&gt;&lt;p&gt;身為一名 command line 魔人，儘可能的將所有在電腦上的操作在 command line
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/"><channel><title>SAY something</title><link>http://sayuan.github.io/</link><description>Shiao-An Yuan personal blog</description><atom:link href="http://sayuan.github.io/rss.xml" type="application/rss+xml" rel="self"></atom:link><language>en</language><lastBuildDate>Thu, 30 Jan 2014 21:08:59 GMT</lastBuildDate><generator>Nikola &lt;http://getnikola.com/&gt;</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>ydict - node.js 實作</title><link>http://sayuan.github.io/posts/ydict.html</link><description>&lt;div&gt;&lt;h3&gt;What is "ydict"&lt;/h3&gt;
+&lt;p&gt;身為一名 command line 魔人，儘可能的將所有在電腦上的操作在 command line
 之內完成，是一件理所當然的事情，就連查字典也不例外，而 ydict
 就是這樣的工具。&lt;/p&gt;
 &lt;p&gt;&lt;img alt="ydict" src="http://sayuan.github.io/galleries/misc/ydict.png"&gt;&lt;/p&gt;
@@ -13,6 +14,7 @@
 &lt;p&gt;使用 ydict 這工具對我來說已經到了不可或缺的地步，但幾乎每隔一段時間 Yahoo
 字典就會改版，而接下來的幾天在作者尚未更新之前，我就會沒有 ydict 可使用。
 而另一方面，我也會希望能針對自己的需求，對 ydict 進行修改。&lt;/p&gt;
+&lt;h3&gt;My works&lt;/h3&gt;
 &lt;p&gt;我也確實試過自己動手修改，但後續要繼續與原作者的版本接軌卻反而成了一件麻煩事。
 而在先前嘗試修改的經驗裡，我覺得必須能容易的更新 parsing 規則，才能夠快速的針對
 Yahoo 字典的改版做出更新。正巧最近我剛學了一點 javascript 與
@@ -23,26 +25,32 @@ parsing，事情也許會簡單很多，於是 &lt;a href="https://github.com/sa
 檔依照格式顯示在螢幕上， 因此在任何一方修改都不會影響到另一方。
 另外我也把 parsing 的部份包成 module，讓其他 project
 可以直接引用，雖然我覺得這個功能完全只是雞肋。:p&lt;/p&gt;
-&lt;p&gt;此外，我也已經將 ydict.js 上傳 npm，因此只要下 &lt;code&gt;[sudo] npm install -g ydict.js&lt;/code&gt;
-就可以完成安裝了，希望大家會喜歡。&lt;/p&gt;
-&lt;p&gt;我的好友 Andrew 與 Jeff 也和我一樣倚重 ydict，因此在去年 Yahoo
-字典改版，各家實作卻都尚未支援之前，他們也都各自開發了自己的實作。
-首先是 &lt;a href="https://github.com/yongjhih/rc/blob/master/bin/andict"&gt;Andrew 的 shell script 版&lt;/a&gt;，使用 w3m 的超簡短作弊寫法，
-麻雀雖小卻是五臟俱全，使用前請先安裝 w3m 套件。
-另外就是 &lt;a href="https://github.com/JeffChien/jydict"&gt;Jeff 開發的 LiveScript 版&lt;/a&gt;，和 ydict.js 一樣使用 &lt;a href="https://github.com/MatthewMueller/cheerio"&gt;cheerio&lt;/a&gt;
-來 parsing，並且同樣也已經上傳 npm，只要下
-&lt;code&gt;[sudo] npm install -g jydict&lt;/code&gt; 即可安裝。&lt;/p&gt;&lt;/div&gt;</description><category>ydict</category><category>nodejs</category><guid>http://sayuan.github.io/posts/ydict.html</guid><pubDate>Thu, 30 Jan 2014 07:07:52 GMT</pubDate></item><item><title>終於，新居落成</title><link>http://sayuan.github.io/posts/finally-my-new-blog.html</link><description>&lt;div&gt;&lt;h3&gt;塵埃落定&lt;/h3&gt;
+&lt;p&gt;此外，我也已經將 ydict.js 上傳 npm，因此只要執行下述指令即可完成安裝，
+希望各位會喜歡。&lt;/p&gt;
+&lt;div class="code"&gt;&lt;pre&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;sudo&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="n"&gt;npm&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;g&lt;/span&gt; &lt;span class="n"&gt;ydict&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;js&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;What else?&lt;/h3&gt;
+&lt;p&gt;我的好友 Andrew 與 Jeff 也和我一樣依賴 ydict，因此在去年 Yahoo
+字典改版，各家實作卻都尚未支援之前，他們也都各自開發了自己的實作。&lt;/p&gt;
+&lt;p&gt;首先是 &lt;a href="https://github.com/yongjhih/rc/blob/master/bin/andict"&gt;Andrew 的 shell script 版&lt;/a&gt;，使用 w3m 的超簡短作弊寫法，
+麻雀雖小卻是五臟俱全。(&lt;strong&gt;使用前請先安裝 w3m 套件。&lt;/strong&gt;)&lt;/p&gt;
+&lt;p&gt;另外就是 &lt;a href="https://github.com/JeffChien/jydict"&gt;Jeff 開發的 LiveScript 版&lt;/a&gt;，和 ydict.js 一樣使用 &lt;a href="https://github.com/MatthewMueller/cheerio"&gt;cheerio&lt;/a&gt;
+來處理 parsing，並且同樣也已經上傳 npm，因此只要執行下述指令即可安裝：&lt;/p&gt;
+&lt;div class="code"&gt;&lt;pre&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;sudo&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="n"&gt;npm&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;g&lt;/span&gt; &lt;span class="n"&gt;jydict&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</description><category>ydict</category><category>nodejs</category><guid>http://sayuan.github.io/posts/ydict.html</guid><pubDate>Thu, 30 Jan 2014 07:07:52 GMT</pubDate></item><item><title>終於，新居落成</title><link>http://sayuan.github.io/posts/finally-my-new-blog.html</link><description>&lt;div&gt;&lt;h3&gt;塵埃落定&lt;/h3&gt;
 &lt;p&gt;嚷著說要寫 blog 也差不多拖了一、兩年了，除了單純的因為我懶以外，找不到合適的
 static blog generator 也是一大主因。為了讓 blog
 能完全在自己的掌控之中，我必須選一個自己看得懂、改得動的語言所實作的
 generator，因此我首先關注的是以 Python 實作的 &lt;a href="http://blog.getpelican.com/"&gt;Pelican&lt;/a&gt;。&lt;/p&gt;
 &lt;p&gt;確認了 Pelican 有所有我需要的功能：支援 markdown 語法、能夠顯示 LaTex
-語法、syntax highlight 當然也是必要的，還有其他 blog 必備的 tag, RSS, ...
-等等。然後最後是，選一個看得順眼的 theme ...。糟糕，怎麼找不到合適的？&lt;/p&gt;
+語法、syntax highlight 當然也是必要的，還有其他 blog 必備的 tag, RSS, ……等等。
+然後最後是，選一個看得順眼的 theme ……。糟糕，怎麼找不到合適的？&lt;/p&gt;
 &lt;p&gt;我這個人除了懶以外，另一個缺點是龜毛，而且常常是龜毛在我沒有能力做得更好的地方。
 我開始嘗試改寫 theme，當然沒有美術細胞的我，即使投入了不少時間，
 卻仍然做不出能看的東西，間接導致我的部落格生涯遲遲無法展開。&lt;/p&gt;
-&lt;p&gt;終於，不久前耳聞了另一套 Python 實作的 generator:
+&lt;p&gt;終於，不久前耳聞了另一套 Python 實作的 generator：
 &lt;a href="http://getnikola.com/"&gt;Nikola&lt;/a&gt;，照慣例掃了一遍所有的 theme，終於看到一個讓我眼睛為之一亮的
 theme: &lt;a href="http://www.damian.oquanta.info/posts/nikolas-zen-theme-finally-released.html"&gt;zen&lt;/a&gt;，也就是各位現在正在看著的 theme 了。
 終於呀，原來相比起 generator 的功能，我真正需要的只是一個好看的 theme。 :)&lt;/p&gt;
@@ -67,7 +75,7 @@ theme: &lt;a href="http://www.damian.oquanta.info/posts/nikolas-zen-theme-finall
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;對應的寫法:&lt;/p&gt;
+&lt;p&gt;對應的寫法：&lt;/p&gt;
 &lt;pre&gt;```java
 class HelloWorld {
     public static void main(String[] args) {
@@ -79,19 +87,19 @@ class HelloWorld {
 &lt;h3&gt;CJK-space-fix&lt;/h3&gt;
 &lt;p&gt;最後來個置入式行銷介紹一下我自己開發的 &lt;a href="https://github.com/sayuan/CJK-space-fix/"&gt;CJK-space-fix&lt;/a&gt;。&lt;/p&gt;
 &lt;p&gt;很多人在寫 markdown 或著其他格式的檔案時，會習慣在不超過 column 80 的位置
-換行。例如:
+換行。例如：
 &lt;/p&gt;&lt;pre&gt;
 很多人在寫 markdown 或著其他格式的檔案時，會習慣在不超過 column 80 的位置
-換行。例如:
+換行。例如：
 &lt;/pre&gt;
 &lt;p&gt;這在 Python-Markdown 會被處理成如下
 &lt;/p&gt;&lt;pre&gt;
 &lt;code&gt;&amp;lt;p&amp;gt;&lt;/code&gt;很多人在寫 markdown 或著其他格式的檔案時，會習慣在不超過 column 80 的位置
-換行。例如:&lt;code&gt;&amp;lt;/p&amp;gt;&lt;/code&gt;
+換行。例如：&lt;code&gt;&amp;lt;/p&amp;gt;&lt;/code&gt;
 &lt;/pre&gt;
 &lt;p&gt;然後顯示在瀏覽器上時，就會在 "位置" 和 "換行" 之間有一個多餘的空白，像是這樣：
 &lt;/p&gt;&lt;pre&gt;
-很多人在寫 markdown 或著其他格式的檔案時，會習慣在不超過 column 80 的位置 換行。例如:
+很多人在寫 markdown 或著其他格式的檔案時，會習慣在不超過 column 80 的位置 換行。例如：
 &lt;/pre&gt;
 &lt;p&gt;這在許多以空白作為單字分隔的語言中都不是問題，但是在中文卻會顯得很突兀。&lt;/p&gt;
 &lt;p&gt;有些人的解決方式是編輯 markdown 時故意不換行；
@@ -102,6 +110,7 @@ class HelloWorld {
 來處理好這件事，於是這支 script 就誕生了。&lt;/p&gt;
 &lt;h3&gt;What's next?&lt;/h3&gt;
 &lt;p&gt;老實說，Nikola 也不是個讓我完全滿意的 generator，雖然說是支援
-markdown，但找不到 markdown 的文件，很多功能我也都沒能試出來。&lt;/p&gt;
-&lt;p&gt;但要是再這樣挑三揀四，我想我大概永遠也沒有辦法開始 blogging 吧。
-所以還是就先這樣開始吧！不過我想最大的問題應該是我能堅持 blogging 多久呢？&lt;/p&gt;&lt;/div&gt;</description><category>blog</category><category>nikola</category><category>mathjax</category><guid>http://sayuan.github.io/posts/finally-my-new-blog.html</guid><pubDate>Wed, 29 Jan 2014 13:05:42 GMT</pubDate></item></channel></rss>
+markdown，但找不到針對 markdown 的說明文件，很多功能我也都沒能試出來。
+但要是再這樣挑三揀四，我想我大概永遠也沒有辦法開始 blogging 吧。
+所以還是就先這樣吧！後續還有很多問題想要處理，像是站內搜尋、轉換至 HTML5、增加適當的 meta 標籤……等等。
+不過我想最大的問題應該是我能堅持 blogging 多久吧？&lt;/p&gt;&lt;/div&gt;</description><category>blog</category><category>nikola</category><category>mathjax</category><guid>http://sayuan.github.io/posts/finally-my-new-blog.html</guid><pubDate>Wed, 29 Jan 2014 13:05:42 GMT</pubDate></item></channel></rss>

@@ -8,6 +8,8 @@
 .. type: text
 -->
 
+## What is "ydict"
+
 身為一名 command line 魔人，儘可能的將所有在電腦上的操作在 command line
 之內完成，是一件理所當然的事情，就連查字典也不例外，而 ydict
 就是這樣的工具。
@@ -27,6 +29,8 @@ ydict 的資料來自於 [Yahoo 字典][]，事實上 ydict
 字典就會改版，而接下來的幾天在作者尚未更新之前，我就會沒有 ydict 可使用。
 而另一方面，我也會希望能針對自己的需求，對 ydict 進行修改。
 
+## My works
+
 我也確實試過自己動手修改，但後續要繼續與原作者的版本接軌卻反而成了一件麻煩事。
 而在先前嘗試修改的經驗裡，我覺得必須能容易的更新 parsing 規則，才能夠快速的針對
 Yahoo 字典的改版做出更新。正巧最近我剛學了一點 javascript 與
@@ -39,16 +43,23 @@ ydict.js 的一個主要設計考量是，parsing 與 display
 另外我也把 parsing 的部份包成 module，讓其他 project
 可以直接引用，雖然我覺得這個功能完全只是雞肋。:p
 
-此外，我也已經將 ydict.js 上傳 npm，因此只要下 `[sudo] npm install -g ydict.js`
-就可以完成安裝了，希望大家會喜歡。
+此外，我也已經將 ydict.js 上傳 npm，因此只要執行下述指令即可完成安裝，
+希望各位會喜歡。
 
-我的好友 Andrew 與 Jeff 也和我一樣倚重 ydict，因此在去年 Yahoo
+    [sudo] npm install -g ydict.js
+
+## What else?
+
+我的好友 Andrew 與 Jeff 也和我一樣依賴 ydict，因此在去年 Yahoo
 字典改版，各家實作卻都尚未支援之前，他們也都各自開發了自己的實作。
+
 首先是 [Andrew 的 shell script 版][andrew]，使用 w3m 的超簡短作弊寫法，
-麻雀雖小卻是五臟俱全，使用前請先安裝 w3m 套件。
+麻雀雖小卻是五臟俱全。(**使用前請先安裝 w3m 套件。**)
+
 另外就是 [Jeff 開發的 LiveScript 版][jeff]，和 ydict.js 一樣使用 [cheerio][]
-來 parsing，並且同樣也已經上傳 npm，只要下
-`[sudo] npm install -g jydict` 即可安裝。
+來處理 parsing，並且同樣也已經上傳 npm，因此只要執行下述指令即可安裝：
+
+    [sudo] npm install -g jydict
 
 [Yahoo 字典]: http://tw.dictionary.yahoo.com/
 [freehaha]: https://github.com/freehaha/ydict
