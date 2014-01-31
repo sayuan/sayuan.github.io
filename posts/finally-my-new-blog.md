@@ -2,7 +2,7 @@
 .. title: 終於，新居落成
 .. slug: finally-my-new-blog
 .. date: 2014/01/29 21:05:42
-.. tags: blog, nikola, mathjax
+.. tags: static blog generator, nikola, mathjax, markdown, CJK-space-fix
 .. link:
 .. description:
 .. type: text
