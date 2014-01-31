@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/"><channel><title>SAY something (ydict)</title><link>http://sayuan.github.io/</link><description></description><atom:link href="http://sayuan.github.io/categories/ydict.xml" type="application/rss+xml" rel="self"></atom:link><language>en</language><lastBuildDate>Thu, 30 Jan 2014 21:01:02 GMT</lastBuildDate><generator>Nikola &lt;http://getnikola.com/&gt;</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>ydict - node.js 實作</title><link>http://sayuan.github.io/posts/ydict.html</link><description>&lt;div&gt;&lt;h3&gt;What is "ydict"&lt;/h3&gt;
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/"><channel><title>SAY something (ydict)</title><link>http://sayuan.github.io/</link><description></description><atom:link href="http://sayuan.github.io/categories/ydict.xml" type="application/rss+xml" rel="self"></atom:link><language>en</language><lastBuildDate>Fri, 31 Jan 2014 15:05:50 GMT</lastBuildDate><generator>Nikola &lt;http://getnikola.com/&gt;</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>ydict - node.js 實作</title><link>http://sayuan.github.io/posts/ydict.html</link><description>&lt;div&gt;&lt;h3&gt;What is "ydict"&lt;/h3&gt;
 &lt;p&gt;身為一名 command line 魔人，儘可能的將所有在電腦上的操作在 command line
 之內完成，是一件理所當然的事情，就連查字典也不例外，而 ydict
 就是這樣的工具。&lt;/p&gt;
@@ -11,13 +11,13 @@
 而各實作也有各自的分支，我現在已經找不出最早是由誰開發的了。
 在眾多版本之中，我使用了最長時間的是 &lt;a href="https://github.com/freehaha/ydict"&gt;freehaha 實作的 Python 版本&lt;/a&gt;，
 其次則是 &lt;a href="http://fourdollars.blogspot.tw/2008/05/vim-ydict.html"&gt;FourDollars 的 Perl 版本&lt;/a&gt;，在此先向兩位作者致上感謝。&lt;/p&gt;
+&lt;h3&gt;My works&lt;/h3&gt;
 &lt;p&gt;使用 ydict 這工具對我來說已經到了不可或缺的地步，但幾乎每隔一段時間 Yahoo
 字典就會改版，而接下來的幾天在作者尚未更新之前，我就會沒有 ydict 可使用。
 而另一方面，我也會希望能針對自己的需求，對 ydict 進行修改。&lt;/p&gt;
-&lt;h3&gt;My works&lt;/h3&gt;
 &lt;p&gt;我也確實試過自己動手修改，但後續要繼續與原作者的版本接軌卻反而成了一件麻煩事。
-而在先前嘗試修改的經驗裡，我覺得必須能容易的更新 parsing 規則，才能夠快速的針對
-Yahoo 字典的改版做出更新。正巧最近我剛學了一點 javascript 與
+而在先前嘗試修改的經驗裡，我覺得必須要有容易更新的 parsing 規則，才能夠快速的針對
+Yahoo 字典的改版做出更新。正巧最近我剛學了一點 JavaScript 與
 node.js，我想如果能像 jQuery 一樣使用 CSS selector 進行
 parsing，事情也許會簡單很多，於是 &lt;a href="https://github.com/sayuan/ydict.js/"&gt;ydict.js&lt;/a&gt; 就此誕生。&lt;/p&gt;
 &lt;p&gt;ydict.js 的一個主要設計考量是，parsing 與 display
@@ -39,4 +39,4 @@ parsing，事情也許會簡單很多，於是 &lt;a href="https://github.com/sa
 &lt;p&gt;另外就是 &lt;a href="https://github.com/JeffChien/jydict"&gt;Jeff 開發的 LiveScript 版&lt;/a&gt;，和 ydict.js 一樣使用 &lt;a href="https://github.com/MatthewMueller/cheerio"&gt;cheerio&lt;/a&gt;
 來處理 parsing，並且同樣也已經上傳 npm，因此只要執行下述指令即可安裝：&lt;/p&gt;
 &lt;div class="code"&gt;&lt;pre&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;sudo&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="n"&gt;npm&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;g&lt;/span&gt; &lt;span class="n"&gt;jydict&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</description><category>ydict</category><category>nodejs</category><guid>http://sayuan.github.io/posts/ydict.html</guid><pubDate>Thu, 30 Jan 2014 07:07:52 GMT</pubDate></item></channel></rss>
+&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</description><category>ydict</category><category>node.js</category><guid>http://sayuan.github.io/posts/ydict.html</guid><pubDate>Thu, 30 Jan 2014 07:07:52 GMT</pubDate></item></channel></rss>

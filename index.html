@@ -41,7 +41,7 @@ MathJax.Hub.Config({
         <ul>
         More posts about:  
             <li><a class="tag" href="categories/ydict.html">ydict</a></li>
-            <li><a class="tag" href="categories/nodejs.html">nodejs</a></li>
+            <li><a class="tag" href="categories/nodejs.html">node.js</a></li>
         </ul></div>
 
             </div>
@@ -58,13 +58,13 @@ MathJax.Hub.Config({
 而各實作也有各自的分支，我現在已經找不出最早是由誰開發的了。
 在眾多版本之中，我使用了最長時間的是 <a href="https://github.com/freehaha/ydict">freehaha 實作的 Python 版本</a>，
 其次則是 <a href="http://fourdollars.blogspot.tw/2008/05/vim-ydict.html">FourDollars 的 Perl 版本</a>，在此先向兩位作者致上感謝。</p>
+<h3>My works</h3>
 <p>使用 ydict 這工具對我來說已經到了不可或缺的地步，但幾乎每隔一段時間 Yahoo
 字典就會改版，而接下來的幾天在作者尚未更新之前，我就會沒有 ydict 可使用。
 而另一方面，我也會希望能針對自己的需求，對 ydict 進行修改。</p>
-<h3>My works</h3>
 <p>我也確實試過自己動手修改，但後續要繼續與原作者的版本接軌卻反而成了一件麻煩事。
-而在先前嘗試修改的經驗裡，我覺得必須能容易的更新 parsing 規則，才能夠快速的針對
-Yahoo 字典的改版做出更新。正巧最近我剛學了一點 javascript 與
+而在先前嘗試修改的經驗裡，我覺得必須要有容易更新的 parsing 規則，才能夠快速的針對
+Yahoo 字典的改版做出更新。正巧最近我剛學了一點 JavaScript 與
 node.js，我想如果能像 jQuery 一樣使用 CSS selector 進行
 parsing，事情也許會簡單很多，於是 <a href="https://github.com/sayuan/ydict.js/">ydict.js</a> 就此誕生。</p>
 <p>ydict.js 的一個主要設計考量是，parsing 與 display
