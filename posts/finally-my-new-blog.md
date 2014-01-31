@@ -70,7 +70,7 @@ class HelloWorld {
 
 [MathJax]: http://www.mathjax.org/
 [CodeHilite]: http://pythonhosted.org/Markdown/extensions/code_hilite.html
-[Fenced Code Blocks]: pythonhosted.org/Markdown/extensions/fenced_code_blocks.html
+[Fenced Code Blocks]: http://pythonhosted.org/Markdown/extensions/fenced_code_blocks.html
 
 ## CJK-space-fix
 
