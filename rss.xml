@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/"><channel><title>SAY something</title><link>http://sayuan.github.io/</link><description>Shiao-An Yuan personal blog</description><atom:link href="http://sayuan.github.io/rss.xml" type="application/rss+xml" rel="self"></atom:link><language>en</language><lastBuildDate>Fri, 31 Jan 2014 21:10:11 GMT</lastBuildDate><generator>Nikola &lt;http://getnikola.com/&gt;</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>ydict - node.js 實作</title><link>http://sayuan.github.io/posts/ydict.html</link><description>&lt;div&gt;&lt;h3&gt;What is "ydict"&lt;/h3&gt;
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/"><channel><title>SAY something</title><link>http://sayuan.github.io/</link><description>Shiao-An Yuan personal blog</description><atom:link href="http://sayuan.github.io/rss.xml" type="application/rss+xml" rel="self"></atom:link><language>en</language><lastBuildDate>Sun, 02 Feb 2014 19:57:05 GMT</lastBuildDate><generator>Nikola &lt;http://getnikola.com/&gt;</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Android CTS 筆記</title><link>http://sayuan.github.io/posts/android-cts.html</link><description>&lt;div&gt;&lt;p&gt;我過去曾經在國內的二線 Android 系統廠服務了約一年半的時間，當時所負責的
+工作之一，就是負責處理 Android CTS 問題。雖然不是所有的 Issue 都由我負責
+到底，但第一關的釐清、分配，和解決最後無明確歸屬的 Issue，都是我的任務。
+而這一年多來追蹤過的 CTS 問題少說也有百項，也因此累積了不少的筆記。&lt;/p&gt;
+&lt;p&gt;2013 年初我離職之後，這些筆記就一直塵封在我的硬碟至今。多虧了最近的年假
+，心血來潮花了整整一天的時間，終於有機會讓這些筆記重見天日。我把它們全部
+都重寫成 markdown 格式，並且上傳至 Github 的 wiki，連結就在&lt;a href="https://github.com/sayuan/Android-CTS-notes"&gt;這裡&lt;/a&gt;。&lt;/p&gt;
+&lt;p&gt;希望這些資訊能給還在和 CTS 奮鬥的工程師們一些幫助，如果其中有任何錯誤與
+不足的部份，還請不吝指出或著直接進行修正。&lt;/p&gt;&lt;/div&gt;</description><category>Android</category><category>CTS</category><guid>http://sayuan.github.io/posts/android-cts.html</guid><pubDate>Sun, 02 Feb 2014 11:25:16 GMT</pubDate></item><item><title>ydict - node.js 實作</title><link>http://sayuan.github.io/posts/ydict.html</link><description>&lt;div&gt;&lt;h3&gt;What is "ydict"&lt;/h3&gt;
 &lt;p&gt;身為一名 command line 魔人，儘可能的將所有在電腦上的操作在 command line
 之內完成，是一件理所當然的事情，就連查字典也不例外，而 ydict
 就是這樣的工具。&lt;/p&gt;

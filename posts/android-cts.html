@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="description" content=""><meta name="author" content="Shiao-An Yuan"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>ydict - node.js 實作 | SAY something</title><script type="text/x-mathjax-config">
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="description" content=""><meta name="author" content="Shiao-An Yuan"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Android CTS 筆記 | SAY something</title><script type="text/x-mathjax-config">
 MathJax.Hub.Config({
     tex2jax: {
         inlineMath: [ ['$','$'], ["\\(","\\)"] ],
@@ -25,82 +25,47 @@ MathJax.Hub.Config({
             
     <div class="post">
     
-    <h1 class="p-name" itemprop="headline name">ydict - node.js 實作</h1>
+    <h1 class="p-name" itemprop="headline name">Android CTS 筆記</h1>
 
         <div class="meta">
             <div class="authordate">
-                <time class="timeago" datetime="2014-01-30T15:07:52+08:00">2014-01-30 15:07</time></div>
+                <time class="timeago" datetime="2014-02-02T19:25:16+08:00">2014-02-02 19:25</time></div>
             
 
             
           |  
-        <a href="ydict.md" id="sourcelink">Source</a>
+        <a href="android-cts.md" id="sourcelink">Source</a>
 
             
     <div class="tags">
         <ul>
         More posts about:  
-            <li><a class="tag" href="../categories/ydict.html">ydict</a></li>
-            <li><a class="tag" href="../categories/nodejs.html">node.js</a></li>
+            <li><a class="tag" href="../categories/android.html">Android</a></li>
+            <li><a class="tag" href="../categories/cts.html">CTS</a></li>
         </ul></div>
 
         </div>
         <div class="body">
-            <div><h3>What is "ydict"</h3>
-<p>身為一名 command line 魔人，儘可能的將所有在電腦上的操作在 command line
-之內完成，是一件理所當然的事情，就連查字典也不例外，而 ydict
-就是這樣的工具。</p>
-<p><img alt="ydict" src="../galleries/misc/ydict.png"></p>
-<p>ydict 的資料來自於 <a href="http://tw.dictionary.yahoo.com/">Yahoo 字典</a>，事實上 ydict
-所作的事情就只是以使用者的輸入詞在 Yahoo 字典上查詢，然後 parsing
-出重要的資訊，並以適合 terminal 的格式顯示在螢幕上。</p>
-<p>但其實 ydict 並不是 "一個" 工具，事實上很多人都曾開發自己的實作，
-而各實作也有各自的分支，我現在已經找不出最早是由誰開發的了。
-在眾多版本之中，我使用了最長時間的是 <a href="https://github.com/freehaha/ydict">freehaha 實作的 Python 版本</a>，
-其次則是 <a href="http://fourdollars.blogspot.tw/2008/05/vim-ydict.html">FourDollars 的 Perl 版本</a>，在此先向兩位作者致上感謝。</p>
-<h3>My works</h3>
-<p>使用 ydict 這工具對我來說已經到了不可或缺的地步，但幾乎每隔一段時間 Yahoo
-字典就會改版，而接下來的幾天在作者尚未更新之前，我就會沒有 ydict 可使用。
-而另一方面，我也會希望能針對自己的需求，對 ydict 進行修改。</p>
-<p>我也確實試過自己動手修改，但後續要繼續與原作者的版本接軌卻反而成了一件麻煩事。
-而在先前嘗試修改的經驗裡，我覺得必須要有容易更新的 parsing 規則，才能夠快速的針對
-Yahoo 字典的改版做出更新。正巧最近我剛學了一點 JavaScript 與
-node.js，我想如果能像 jQuery 一樣使用 CSS selector 進行
-parsing，事情也許會簡單很多，於是 <a href="https://github.com/sayuan/ydict.js/">ydict.js</a> 就此誕生。</p>
-<p>ydict.js 的一個主要設計考量是，parsing 與 display
-必須分離，parsing 的部份只會回傳處理後的 json，而 display 只是單純的將 josn
-檔依照格式顯示在螢幕上， 因此在任何一方修改都不會影響到另一方。
-另外我也把 parsing 的部份包成 module，讓其他 project
-可以直接引用，雖然我覺得這個功能完全只是雞肋。:p</p>
-<p>此外，我也已經將 ydict.js 上傳 npm，因此只要執行下述指令即可完成安裝，
-希望各位會喜歡。</p>
-<div class="code"><pre><span class="p">[</span><span class="n">sudo</span><span class="p">]</span> <span class="n">npm</span> <span class="n">install</span> <span class="o">-</span><span class="n">g</span> <span class="n">ydict</span><span class="p">.</span><span class="n">js</span>
-</pre></div>
-
-
-<h3>What else?</h3>
-<p>我的好友 Andrew 與 Jeff 也和我一樣依賴 ydict，因此在去年 Yahoo
-字典改版，各家實作卻都尚未支援之前，他們也都各自開發了自己的實作。</p>
-<p>首先是 <a href="https://github.com/yongjhih/rc/blob/master/bin/andict">Andrew 的 shell script 版</a>，使用 w3m 的超簡短作弊寫法，
-麻雀雖小卻是五臟俱全。(<strong>使用前請先安裝 w3m 套件。</strong>)</p>
-<p>另外就是 <a href="https://github.com/JeffChien/jydict">Jeff 開發的 LiveScript 版</a>，和 ydict.js 一樣使用 <a href="https://github.com/MatthewMueller/cheerio">cheerio</a>
-來處理 parsing，並且同樣也已經上傳 npm，因此只要執行下述指令即可安裝：</p>
-<div class="code"><pre><span class="p">[</span><span class="n">sudo</span><span class="p">]</span> <span class="n">npm</span> <span class="n">install</span> <span class="o">-</span><span class="n">g</span> <span class="n">jydict</span>
-</pre></div></div>
+            <div><p>我過去曾經在國內的二線 Android 系統廠服務了約一年半的時間，當時所負責的
+工作之一，就是負責處理 Android CTS 問題。雖然不是所有的 Issue 都由我負責
+到底，但第一關的釐清、分配，和解決最後無明確歸屬的 Issue，都是我的任務。
+而這一年多來追蹤過的 CTS 問題少說也有百項，也因此累積了不少的筆記。</p>
+<p>2013 年初我離職之後，這些筆記就一直塵封在我的硬碟至今。多虧了最近的年假
+，心血來潮花了整整一天的時間，終於有機會讓這些筆記重見天日。我把它們全部
+都重寫成 markdown 格式，並且上傳至 Github 的 wiki，連結就在<a href="https://github.com/sayuan/Android-CTS-notes">這裡</a>。</p>
+<p>希望這些資訊能給還在和 CTS 奮鬥的工程師們一些幫助，如果其中有任何錯誤與
+不足的部份，還請不吝指出或著直接進行修正。</p></div>
         </div>
         
         <ul class="pager"><li class="previous">
-                <a href="finally-my-new-blog.html" rel="prev">← Previous post</a>
-            </li>
-            <li class="next">
-                <a href="android-cts.html" rel="next">Next post →</a>
+                <a href="ydict.html" rel="prev">← Previous post</a>
             </li>
         </ul><div id="disqus_thread"></div>
         <script>
         var disqus_shortname ="say-something",
-            disqus_url="http://sayuan.github.io/posts/ydict.html",
-        disqus_title="ydict - node.js \u5be6\u4f5c",
-        disqus_identifier="cache/posts/ydict.html",
+            disqus_url="http://sayuan.github.io/posts/android-cts.html",
+        disqus_title="Android CTS \u7b46\u8a18",
+        disqus_identifier="cache/posts/android-cts.html",
         disqus_config = function () {
             this.language = "en";
         };
