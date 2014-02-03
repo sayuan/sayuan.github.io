@@ -10,7 +10,7 @@
 
 接著來談談當初在負責 CTS 時遇到的最大困難，以及最後解決的方法。
 
-# 什麼是 CTS？
+## 什麼是 CTS？
 
 Android 雖然是 Open Source Project，即任何的廠商都可以自行生產手機，但
 如果想在出廠時內建 Google Play 等 Google 所提供的 APP，就必須與 Google
@@ -24,7 +24,7 @@ Google 提供的 CTS 程式，並產生一份通過所有測試的 Report，Goog
 然而，即使是同一款手機，每一次執行 CTS 都不見得能得到完全相同的結果。這
 部份有可能是手機本身的軟、硬體不穩定，也有可能是來自於 CTS 的 bug。
 
-# 困難點
+## 困難點
 
 由於每次執行 CTS 得到的結果都不同，而只要成功產生一次全部通過的 Report
 就可以提交，那麼是不是可以準備很多台電腦、很多台手機，每天二十四小時的跑
@@ -42,7 +42,7 @@ Google 提供的 CTS 程式，並產生一份通過所有測試的 Report，Goog
 在沒辦法從中學到什麼。**於是這些數不清的 Report，消耗了大量的人力與資源
 ，卻什麼忙也沒幫上。**
 
-# 突破口
+## 突破口
 
 其實不難發覺，關鍵就在這些 Report 上。大部分需要的資訊，這些 Report 上都
 有，只是太多了、太零散了，沒有辦法馬上調出我需要的資訊，例如：「X 測項最
@@ -59,7 +59,7 @@ Google 提供的 CTS 程式，並產生一份通過所有測試的 Report，Goog
 
 [傳簡訊相關的測試]: https://github.com/sayuan/Android-CTS-notes/wiki/android.telephony.cts.SmsManagerTest#wiki-testsendmessages
 
-# 所以，重點是？
+## 所以，重點是？
 
 其實重點就是，我要把這支程式的關鍵部份放出來。[gist 連接在此][]。
 
