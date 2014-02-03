@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/"><channel><title>SAY something (CTS)</title><link>http://sayuan.github.io/</link><description></description><atom:link href="http://sayuan.github.io/categories/cts.xml" type="application/rss+xml" rel="self"></atom:link><language>en</language><lastBuildDate>Mon, 03 Feb 2014 01:10:15 GMT</lastBuildDate><generator>Nikola &lt;http://getnikola.com/&gt;</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Android CTS - 讓 Report 說話</title><link>http://sayuan.github.io/posts/android-cts-report.html</link><description>&lt;div&gt;&lt;p&gt;接著來談談當初在負責 CTS 時遇到的最大困難，以及最後解決的方法。&lt;/p&gt;
-&lt;h2&gt;什麼是 CTS？&lt;/h2&gt;
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/"><channel><title>SAY something (CTS)</title><link>http://sayuan.github.io/</link><description></description><atom:link href="http://sayuan.github.io/categories/cts.xml" type="application/rss+xml" rel="self"></atom:link><language>en</language><lastBuildDate>Mon, 03 Feb 2014 11:38:31 GMT</lastBuildDate><generator>Nikola &lt;http://getnikola.com/&gt;</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Android CTS - 讓 Report 說話</title><link>http://sayuan.github.io/posts/android-cts-report.html</link><description>&lt;div&gt;&lt;p&gt;接著來談談當初在負責 CTS 時遇到的最大困難，以及最後解決的方法。&lt;/p&gt;
+&lt;h3&gt;什麼是 CTS？&lt;/h3&gt;
 &lt;p&gt;Android 雖然是 Open Source Project，即任何的廠商都可以自行生產手機，但
 如果想在出廠時內建 Google Play 等 Google 所提供的 APP，就必須與 Google
 簽合約，即每一款生產的手機都需要通過 CTS 測試。&lt;/p&gt;
@@ -10,7 +10,7 @@ Google 提供的 CTS 程式，並產生一份通過所有測試的 Report，Goog
 後，這樣就算大功告成了。&lt;/p&gt;
 &lt;p&gt;然而，即使是同一款手機，每一次執行 CTS 都不見得能得到完全相同的結果。這
 部份有可能是手機本身的軟、硬體不穩定，也有可能是來自於 CTS 的 bug。&lt;/p&gt;
-&lt;h2&gt;困難點&lt;/h2&gt;
+&lt;h3&gt;困難點&lt;/h3&gt;
 &lt;p&gt;由於每次執行 CTS 得到的結果都不同，而只要成功產生一次全部通過的 Report
 就可以提交，那麼是不是可以準備很多台電腦、很多台手機，每天二十四小時的跑
 ，只要任何一次 ALL PASS 就好？&lt;/p&gt;
@@ -24,7 +24,7 @@ Google 提供的 CTS 程式，並產生一份通過所有測試的 Report，Goog
 容易成功」。這些猜測有時正確、有時錯誤，然而因為 Report 實在太多，我也實
 在沒辦法從中學到什麼。&lt;strong&gt;於是這些數不清的 Report，消耗了大量的人力與資源
 ，卻什麼忙也沒幫上。&lt;/strong&gt;&lt;/p&gt;
-&lt;h2&gt;突破口&lt;/h2&gt;
+&lt;h3&gt;突破口&lt;/h3&gt;
 &lt;p&gt;其實不難發覺，關鍵就在這些 Report 上。大部分需要的資訊，這些 Report 上都
 有，只是太多了、太零散了，沒有辦法馬上調出我需要的資訊，例如：「X 測項最
 近一週的失敗率是否比上週高」、「A 測試者跑 Y 測項時是否比較容易失敗」？&lt;/p&gt;
@@ -35,7 +35,7 @@ Google 提供的 CTS 程式，並產生一份通過所有測試的 Report，Goog
 &lt;p&gt;突然之間，所有的問題都獲得了解答。我們利用這個方式發現各家電信業者在執行
 &lt;a href="https://github.com/sayuan/Android-CTS-notes/wiki/android.telephony.cts.SmsManagerTest#wiki-testsendmessages"&gt;傳簡訊相關的測試&lt;/a&gt;的成功率，從此規定以後都用成功率最高的業者的 SIM 卡
 ；也發現了某測試者因為操作不正確，所以他所負責的報告經常會有額外的狀況。&lt;/p&gt;
-&lt;h2&gt;所以，重點是？&lt;/h2&gt;
+&lt;h3&gt;所以，重點是？&lt;/h3&gt;
 &lt;p&gt;其實重點就是，我要把這支程式的關鍵部份放出來。&lt;a href="https://gist.github.com/sayuan/9d8611179405989d502c"&gt;gist 連接在此&lt;/a&gt;。&lt;/p&gt;
 &lt;p&gt;至於為什麼不放整個網站出來？單純只是因為我的前端寫太爛，不好意思放出來讓
 大家見笑。事實上，這個網站其實非常的簡單，甚至我放出的部份也沒有任何難度
