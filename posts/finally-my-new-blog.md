@@ -32,7 +32,7 @@ theme: [zen][]，也就是各位現在正在看著的 theme 了。
 [Nikola]: http://getnikola.com/
 [Zen]: http://www.damian.oquanta.info/posts/nikolas-zen-theme-finally-released.html
 
-接下來就展示一下 Nikola 在示數學公式和 code 的寫法和其顯示在網頁上的效果吧。
+接下來就展示一下 Nikola 在數學公式和 code 的寫法以及其顯示在網頁上的效果吧。
 
 ## Math
 

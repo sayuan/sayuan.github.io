@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/"><channel><title>SAY something</title><link>http://sayuan.github.io/</link><description>Shiao-An Yuan personal blog</description><atom:link href="http://sayuan.github.io/rss.xml" type="application/rss+xml" rel="self"></atom:link><language>en</language><lastBuildDate>Mon, 03 Feb 2014 11:38:31 GMT</lastBuildDate><generator>Nikola &lt;http://getnikola.com/&gt;</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Android CTS - 讓 Report 說話</title><link>http://sayuan.github.io/posts/android-cts-report.html</link><description>&lt;div&gt;&lt;p&gt;接著來談談當初在負責 CTS 時遇到的最大困難，以及最後解決的方法。&lt;/p&gt;
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/"><channel><title>SAY something</title><link>http://sayuan.github.io/</link><description>Shiao-An Yuan personal blog</description><atom:link href="http://sayuan.github.io/rss.xml" type="application/rss+xml" rel="self"></atom:link><language>en</language><lastBuildDate>Thu, 06 Feb 2014 22:42:48 GMT</lastBuildDate><generator>Nikola &lt;http://getnikola.com/&gt;</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Android CTS - 讓 Report 說話</title><link>http://sayuan.github.io/posts/android-cts-report.html</link><description>&lt;div&gt;&lt;p&gt;接著來談談當初在負責 CTS 時遇到的最大困難，以及最後解決的方法。&lt;/p&gt;
 &lt;h3&gt;什麼是 CTS？&lt;/h3&gt;
 &lt;p&gt;Android 雖然是 Open Source Project，即任何的廠商都可以自行生產手機，但
 如果想在出廠時內建 Google Play 等 Google 所提供的 APP，就必須與 Google
@@ -104,7 +104,7 @@ generator，因此我首先關注的是以 Python 實作的 &lt;a href="http://b
 &lt;a href="http://getnikola.com/"&gt;Nikola&lt;/a&gt;，照慣例掃了一遍所有的 theme，終於看到一個讓我眼睛為之一亮的
 theme: &lt;a href="http://www.damian.oquanta.info/posts/nikolas-zen-theme-finally-released.html"&gt;zen&lt;/a&gt;，也就是各位現在正在看著的 theme 了。
 終於呀，原來相比起 generator 的功能，我真正需要的只是一個好看的 theme。 :)&lt;/p&gt;
-&lt;p&gt;接下來就展示一下 Nikola 在示數學公式和 code 的寫法和其顯示在網頁上的效果吧。&lt;/p&gt;
+&lt;p&gt;接下來就展示一下 Nikola 在數學公式和 code 的寫法以及其顯示在網頁上的效果吧。&lt;/p&gt;
 &lt;h3&gt;Math&lt;/h3&gt;
 &lt;p&gt;顯示數學公式其實就只是使用了 &lt;a href="http://www.mathjax.org/"&gt;MathJax&lt;/a&gt;，沒有什麼特別的地方。&lt;/p&gt;
 &lt;ul&gt;&lt;li&gt;
