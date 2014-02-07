@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/"><channel><title>SAY something</title><link>http://sayuan.github.io/</link><description>Shiao-An Yuan personal blog</description><atom:link href="http://sayuan.github.io/rss.xml" type="application/rss+xml" rel="self"></atom:link><language>en</language><lastBuildDate>Thu, 06 Feb 2014 22:42:48 GMT</lastBuildDate><generator>Nikola &lt;http://getnikola.com/&gt;</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Android CTS - 讓 Report 說話</title><link>http://sayuan.github.io/posts/android-cts-report.html</link><description>&lt;div&gt;&lt;p&gt;接著來談談當初在負責 CTS 時遇到的最大困難，以及最後解決的方法。&lt;/p&gt;
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/"><channel><title>SAY something</title><link>http://sayuan.github.io/</link><description>Shiao-An Yuan personal blog</description><atom:link href="http://sayuan.github.io/rss.xml" type="application/rss+xml" rel="self"></atom:link><language>en</language><lastBuildDate>Fri, 07 Feb 2014 22:42:56 GMT</lastBuildDate><generator>Nikola &lt;http://getnikola.com/&gt;</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Android CTS - 讓 Report 說話</title><link>http://sayuan.github.io/posts/android-cts-report.html</link><description>&lt;div&gt;&lt;p&gt;接著來談談當初在負責 CTS 時遇到的最大困難，以及最後解決的方法。&lt;/p&gt;
 &lt;h3&gt;什麼是 CTS？&lt;/h3&gt;
 &lt;p&gt;Android 雖然是 Open Source Project，即任何的廠商都可以自行生產手機，但
 如果想在出廠時內建 Google Play 等 Google 所提供的 APP，就必須與 Google
@@ -163,4 +163,4 @@ class HelloWorld {
 markdown，但找不到針對 markdown 的說明文件，很多功能我也都沒能試出來。
 但要是再這樣挑三揀四，我想我大概永遠也沒有辦法開始 blogging 吧。
 所以還是就先這樣吧！後續還有很多問題想要處理，像是站內搜尋、轉換至 HTML5、增加適當的 meta 標籤……等等。
-不過我想最大的問題應該是我能堅持 blogging 多久吧？&lt;/p&gt;&lt;/div&gt;</description><category>static blog generator</category><category>nikola</category><category>mathjax</category><category>markdown</category><category>CJK-space-fix</category><guid>http://sayuan.github.io/posts/finally-my-new-blog.html</guid><pubDate>Wed, 29 Jan 2014 13:05:42 GMT</pubDate></item></channel></rss>
+不過我想最大的問題應該是我能堅持 blogging 多久吧？&lt;/p&gt;&lt;/div&gt;</description><category>static blog generator</category><category>Nikola</category><category>mathjax</category><category>Markdown</category><category>CJK-space-fix</category><guid>http://sayuan.github.io/posts/finally-my-new-blog.html</guid><pubDate>Wed, 29 Jan 2014 13:05:42 GMT</pubDate></item></channel></rss>
