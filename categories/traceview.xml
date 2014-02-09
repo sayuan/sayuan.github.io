@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/"><channel><title>SAY something (Android)</title><link>http://sayuan.github.io/</link><description></description><atom:link href="http://sayuan.github.io/categories/android.xml" type="application/rss+xml" rel="self"></atom:link><language>en</language><lastBuildDate>Mon, 10 Feb 2014 01:31:27 GMT</lastBuildDate><generator>Nikola &lt;http://getnikola.com/&gt;</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Android Java 層 Debug 工具介紹 (1)</title><link>http://sayuan.github.io/posts/android-java-debugging-1.html</link><description>&lt;div&gt;&lt;p&gt;今天又從硬碟裡翻出一份還在前公司時製作的內訓資料，是當時所有我會的 Android Java
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/"><channel><title>SAY something (traceview)</title><link>http://sayuan.github.io/</link><description></description><atom:link href="http://sayuan.github.io/categories/traceview.xml" type="application/rss+xml" rel="self"></atom:link><language>en</language><lastBuildDate>Mon, 10 Feb 2014 01:31:27 GMT</lastBuildDate><generator>Nikola &lt;http://getnikola.com/&gt;</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Android Java 層 Debug 工具介紹 (1)</title><link>http://sayuan.github.io/posts/android-java-debugging-1.html</link><description>&lt;div&gt;&lt;p&gt;今天又從硬碟裡翻出一份還在前公司時製作的內訓資料，是當時所有我會的 Android Java
 debug 工具的介紹，於是整理之後就成為了現在這篇文章。&lt;/p&gt;
 &lt;p&gt;本文中提及的工具與使用方法我都已測試過，即使在目前在最新的 Android 4.4
 上也還能正常使用，但畢竟這些已經是一年前的資料了，或許已經有更新的工具能替代
@@ -86,54 +86,4 @@ source code，也能將所需的 code 插入，因此正好可以拿來安插第
 所需的 code，細節將會在後續的文章中說明。&lt;/p&gt;
 &lt;p&gt;篇幅好像差不多了，那麼就先在此打住吧。
 接下來預計還會寫一至兩篇文章介紹 remote debugging 與 reverse engineering
-tool，希望我能早日完成。:)&lt;/p&gt;&lt;/div&gt;</description><category>Android</category><category>debugging</category><category>coloredlogcat</category><category>traceview</category><guid>http://sayuan.github.io/posts/android-java-debugging-1.html</guid><pubDate>Sun, 09 Feb 2014 12:36:56 GMT</pubDate></item><item><title>Android CTS - 讓 Report 說話</title><link>http://sayuan.github.io/posts/android-cts-report.html</link><description>&lt;div&gt;&lt;p&gt;接著來談談當初在負責 CTS 時遇到的最大困難，以及最後解決的方法。&lt;/p&gt;
-&lt;h3&gt;什麼是 CTS？&lt;/h3&gt;
-&lt;p&gt;Android 雖然是 Open Source Project，即任何的廠商都可以自行生產手機，但
-如果想在出廠時內建 Google Play 等 Google 所提供的 APP，就必須與 Google
-簽合約，即每一款生產的手機都需要通過 CTS 測試。&lt;/p&gt;
-&lt;p&gt;CTS 測試包含上萬筆測項，能否順利通過將影響手機是否能正式出貨，因此對各系
-統廠而言，這都會是一個相當重要的任務。通過 CTS 的方式，是由廠商自行執行
-Google 提供的 CTS 程式，並產生一份通過所有測試的 Report，Google 審核無誤
-後，這樣就算大功告成了。&lt;/p&gt;
-&lt;p&gt;然而，即使是同一款手機，每一次執行 CTS 都不見得能得到完全相同的結果。這
-部份有可能是手機本身的軟、硬體不穩定，也有可能是來自於 CTS 的 bug。&lt;/p&gt;
-&lt;h3&gt;困難點&lt;/h3&gt;
-&lt;p&gt;由於每次執行 CTS 得到的結果都不同，而只要成功產生一次全部通過的 Report
-就可以提交，那麼是不是可以準備很多台電腦、很多台手機，每天二十四小時的跑
-，只要任何一次 ALL PASS 就好？&lt;/p&gt;
-&lt;p&gt;是的，這樣確實沒有問題。於是公司安排了一部分的測試人力負責運行 CTS，早期
-是一天產出一份，後來不知道怎麼搞的，變成兩組人馬在做，有時候一天會產生近
-十份報表。&lt;/p&gt;
-&lt;p&gt;如果是問題已經被解決的差不多的階段，這樣做確實很合理；但如果有些測試尚未
-被解決，百分百會失敗，這樣做就不是很有意義了。而每一份報告送來給我時，通
-常還會附上測試者自己的觀察，例如：「某個測試最近失敗的機率好像變高了」、
-「同個型號的 A 手機一直失敗、但 B 手機就沒問題」、「晚上再開始跑好像比較
-容易成功」。這些猜測有時正確、有時錯誤，然而因為 Report 實在太多，我也實
-在沒辦法從中學到什麼。&lt;strong&gt;於是這些數不清的 Report，消耗了大量的人力與資源
-，卻什麼忙也沒幫上。&lt;/strong&gt;&lt;/p&gt;
-&lt;h3&gt;突破口&lt;/h3&gt;
-&lt;p&gt;其實不難發覺，關鍵就在這些 Report 上。大部分需要的資訊，這些 Report 上都
-有，只是太多了、太零散了，沒有辦法馬上調出我需要的資訊，例如：「X 測項最
-近一週的失敗率是否比上週高」、「A 測試者跑 Y 測項時是否比較容易失敗」？&lt;/p&gt;
-&lt;p&gt;而解決的方法也就更簡單了，我花了三天時間寫了一個網頁，提供一個界面讓測試
-者上傳 Report。程式收到 Report 後，就會擷取所有重要資訊，包含手機名稱與
-識別碼、測試者的名字、執行時間和所有發生失敗的測試，並將這些資料統統丟進
-資料庫。&lt;/p&gt;
-&lt;p&gt;突然之間，所有的問題都獲得了解答。我們利用這個方式發現各家電信業者在執行
-&lt;a href="https://github.com/sayuan/Android-CTS-notes/wiki/android.telephony.cts.SmsManagerTest#wiki-testsendmessages"&gt;傳簡訊相關的測試&lt;/a&gt;的成功率，從此規定以後都用成功率最高的業者的 SIM 卡
-；也發現了某測試者因為操作不正確，所以他所負責的報告經常會有額外的狀況。&lt;/p&gt;
-&lt;h3&gt;所以，重點是？&lt;/h3&gt;
-&lt;p&gt;其實重點就是，我要把這支程式的關鍵部份放出來。&lt;a href="https://gist.github.com/sayuan/9d8611179405989d502c"&gt;gist 連接在此&lt;/a&gt;。&lt;/p&gt;
-&lt;p&gt;至於為什麼不放整個網站出來？單純只是因為我的前端寫太爛，不好意思放出來讓
-大家見笑。事實上，這個網站其實非常的簡單，甚至我放出的部份也沒有任何難度
-，只是單純的 parsing XML 並存進資料庫而已，真要說有難度的地方，也只是
-parsing 時比較費工而已。所以我放出 parsing 的部份，希望有需要的人可以在
-略做修改的情況下就能夠使用，如果在使用上有遭遇什麼困難，也歡迎與我聯繫。&lt;/p&gt;&lt;/div&gt;</description><category>Android</category><category>CTS</category><guid>http://sayuan.github.io/posts/android-cts-report.html</guid><pubDate>Sun, 02 Feb 2014 15:37:47 GMT</pubDate></item><item><title>Android CTS 筆記</title><link>http://sayuan.github.io/posts/android-cts.html</link><description>&lt;div&gt;&lt;p&gt;我過去曾經在國內的二線 Android 系統廠服務了約一年半的時間，當時所負責的
-工作之一，就是負責處理 Android CTS 問題。雖然不是所有的 Issue 都由我負責
-到底，但第一關的釐清、分配，和解決最後無明確歸屬的 Issue，都是我的任務。
-而這一年多來追蹤過的 CTS 問題少說也有百項，也因此累積了不少的筆記。&lt;/p&gt;
-&lt;p&gt;2013 年初我離職之後，這些筆記就一直塵封在我的硬碟至今。多虧了最近的年假
-，心血來潮花了整整一天的時間，終於有機會讓這些筆記重見天日。我把它們全部
-都重寫成 markdown 格式，並且上傳至 Github 的 wiki，連結就在&lt;a href="https://github.com/sayuan/Android-CTS-notes"&gt;這裡&lt;/a&gt;。&lt;/p&gt;
-&lt;p&gt;希望這些資訊能給還在和 CTS 奮鬥的工程師們一些幫助，如果其中有任何錯誤與
-不足的部份，還請不吝指出或著直接進行修正。&lt;/p&gt;&lt;/div&gt;</description><category>Android</category><category>CTS</category><guid>http://sayuan.github.io/posts/android-cts.html</guid><pubDate>Sun, 02 Feb 2014 11:25:16 GMT</pubDate></item></channel></rss>
+tool，希望我能早日完成。:)&lt;/p&gt;&lt;/div&gt;</description><category>Android</category><category>debugging</category><category>coloredlogcat</category><category>traceview</category><guid>http://sayuan.github.io/posts/android-java-debugging-1.html</guid><pubDate>Sun, 09 Feb 2014 12:36:56 GMT</pubDate></item></channel></rss>
