@@ -125,7 +125,7 @@ dmtracedump -g callgraph.png calc.trace
 第二種方法在使用上有個限制，即操作的手機必須是 Engineering build，或著所觀察的
 App 具有 debuggable flag。
 
-不過即使兩像條件都不具備也不用擔心，您還是可以用後續文章將會提到的 reverse
+不過即使兩項條件都不具備也不用擔心，您還是可以用後續文章將會提到的 reverse
 engineering tool: `apktool`，將原本的 apk 檔解開、加上 debuggable
 flag、重新包裝回 apk 檔，然後就能開心的使用了。運用這種重新打包的手法，就算沒有
 source code，也能將所需的 code 插入，因此正好可以拿來安插第一種 profiling
