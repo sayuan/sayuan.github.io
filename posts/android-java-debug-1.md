@@ -98,7 +98,7 @@ Debug.stopMethodTracing();
 ![Start Profiling](/galleries/android-java-debug/start_profiling.png)
 
 第二個方法則是直接在 Android Device Monitor 工具內，選好要 profiling 的
-process，然後點下圖中被藍色圓圈圈起的按鈕，並在打算停止 profiling
+process，然後點上圖中被藍色圓圈圈起的按鈕，並在打算停止 profiling
 時再按一下即可。
 
 ![Traceview](/galleries/android-java-debug/traceview.png)
