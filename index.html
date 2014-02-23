@@ -24,6 +24,137 @@ MathJax.Hub.Config({
         </ul></section><section class="page-content"><div class="content" rel="main">
             
         <div class="post">
+            <h1 class="title"><a href="posts/network-topology-by-graphviz.html">使用 Graphviz 繪製網路拓樸</a></h1>
+            <div class="meta">
+                <div class="authordate">
+                    <time class="timeago" datetime="2014-02-23T22:02:59+08:00">2014-02-23 22:02</time></div>
+                <div class="stats">
+                    
+        
+    <p>
+        <a href="posts/network-topology-by-graphviz.html#disqus_thread" data-disqus-identifier="cache/posts/network-topology-by-graphviz.html">Comments</a>
+
+
+                </p></div>
+                
+    <div class="tags">
+        <ul>
+        More posts about:  
+            <li><a class="tag" href="categories/graphviz.html">Graphviz</a></li>
+            <li><a class="tag" href="categories/dot.html">Dot</a></li>
+            <li><a class="tag" href="categories/network.html">Network</a></li>
+        </ul></div>
+
+            </div>
+            <div class="body">
+                <div><p>自從離開了 Android 產業之後，我加入了一間與網路服務相關的新創公司。
+在工作內容上，經常會需要理解對方的網路環境，而解決這個問題最好的方法，
+就是事先準備好一份網路拓樸並歸檔。</p>
+<h3>Requirements</h3>
+<p>因此，接下來的任務就是尋找一個適合我們的 Diagram Editor，以下是我們的需求：</p>
+<ol><li>跨平台：公司內三種作業系統都有人使用，需要選擇一個各種平台上都能使用的檔案
+   格式，開放格式尤佳。</li>
+<li>簡單：單就繪圖操作的部份，希望是連非技術人員也能夠使用。</li>
+<li>容易修改：當網路架構有些微變動時，希望能夠很容易的完成修改，不需要大量的微
+   調各節點的位置。</li>
+<li>版本控制：不管是使用什麼格式，版本控制都是必要的，但 binary 檔案管理起來總
+   是比較麻煩。</li>
+</ol><p>其實不難看出來，會列出這種需求，我根本就只是想內定 <a href="http://www.graphviz.org/">Graphviz</a> 嘛！確實如此，
+但在 <strong>簡單</strong> 這個項目上，Graphviz 卻似乎是最差的選擇，不把這個問題處理好，我看
+大概很難順利將 Graphviz 導入公司。</p>
+<p>我們暫且先不論 Graphviz 是否足夠簡單，還是先把環境準備好，實際畫張圖來看看。</p>
+<h3>Installation</h3>
+<p>其實在我進行 <del>survey</del> 內定之前，就已經先透過 Google 找了一遍，出乎意料
+的只找到了一篇：<a href="http://itsecworks.com/2012/03/16/networking-topology-with-graphviz/">Network topology with graphviz</a>。</p>
+<p>不過有總比沒有好，試著依樣畫葫蘆跑一遍，結果卻是 <code>dot</code> 執行時出現錯誤。查了才知
+道，原來 Graphviz 到了版本 2.29 之後 <code>node</code> 才開始支援 <code>image</code> 屬性。但我所使用
+的 Ubuntu 12.04 的套件庫中的版本只到 2.26，且一直到 14.04 才開始使用更新的版本。</p>
+<p>這種類似的事情遇多了，最簡單的方法就是找個現成的 <code>PPA</code>，通常我會從官方維護的開始
+找起，於是：</p>
+<div class="code"><pre><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">add</span><span class="o">-</span><span class="n">repository</span> <span class="n">ppa</span><span class="o">:</span><span class="n">gviz</span><span class="o">-</span><span class="n">adm</span><span class="o">/</span><span class="n">graphviz</span><span class="o">-</span><span class="n">dev</span>
+</pre></div>
+
+
+<p>接著要安裝時，<code>apt</code> 卻又出現錯誤：</p>
+<div class="code"><pre><span class="n">graphviz</span> <span class="o">:</span> <span class="n">Depends</span><span class="o">:</span> <span class="n">libgraphviz4</span> <span class="o">(&gt;=</span> <span class="mf">2.18</span><span class="o">)</span> <span class="n">but</span> <span class="n">it</span> <span class="k">is</span> <span class="n">not</span> <span class="n">going</span> <span class="n">to</span> <span class="n">be</span> <span class="n">installed</span>
+</pre></div>
+
+
+<p>好在 <a href="http://askubuntu.com/">Ask Ubuntu</a> 上早有<a href="http://askubuntu.com/questions/196230/how-do-i-install-graphviz-2-29-in-12-04">解答</a>，照著做即可：</p>
+<div class="code"><pre><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">update</span>
+<span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">remove</span> <span class="n">libcdt4</span> <span class="n">libpathplan4</span>
+<span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">graphviz</span>
+</pre></div>
+
+
+<h3>Images</h3>
+<p>裝好新版本的 Graphviz 後，還需要用來表示各種節點的圖片，這裡我所選擇的是
+<a href="http://www.cisco.com/web/about/ac50/ac47/2.html">Cisco 免費提供的 icons</a>。</p>
+<p>Cisco 提供的圖片格式是 <code>JPEG</code>，而根據 Graphviz 的文件，應該是有支援 <code>JPEG</code>，
+但不知道是哪裡出了問題，我並沒有辦法順利使用，所以我是自行轉成 <code>PNG</code>。</p>
+<h3>Results</h3>
+<p>最後的結果就是下圖：</p>
+<p><img alt="Topology" src="galleries/misc/topology.png"></p>
+<p>而上圖對應的 dot 原始檔如下：</p>
+<div class="code"><pre><span class="n">graph</span> <span class="n">G</span> <span class="p">{</span>
+    <span class="n">node</span> <span class="p">[</span><span class="n">shape</span><span class="o">=</span><span class="n">none</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mf">1.2</span><span class="p">]</span>
+    <span class="n">rankdir</span><span class="o">=</span><span class="n">LR</span>
+
+    <span class="c1">// Modems</span>
+    <span class="n">node</span> <span class="p">[</span><span class="n">labelloc</span><span class="o">=</span><span class="s">"b"</span><span class="p">,</span> <span class="n">image</span><span class="o">=</span><span class="s">"icons/modem.png"</span><span class="p">]</span> <span class="p">{</span>
+        <span class="s">"Modem 1"</span>
+        <span class="s">"Modem 2"</span>
+    <span class="p">}</span>
+
+    <span class="c1">// Routers</span>
+    <span class="n">node</span> <span class="p">[</span><span class="n">labelloc</span><span class="o">=</span><span class="s">"b"</span><span class="p">,</span> <span class="n">image</span><span class="o">=</span><span class="s">"icons/atm router.png"</span><span class="p">]</span> <span class="p">{</span>
+        <span class="s">"Router"</span>
+    <span class="p">}</span>
+
+    <span class="c1">// Switches</span>
+    <span class="n">node</span> <span class="p">[</span><span class="n">labelloc</span><span class="o">=</span><span class="s">"b"</span><span class="p">,</span> <span class="n">image</span><span class="o">=</span><span class="s">"icons/atm switch.png"</span><span class="p">]</span> <span class="p">{</span>
+        <span class="s">"Switch"</span>
+    <span class="p">}</span>
+
+    <span class="c1">// Access Points</span>
+    <span class="n">node</span> <span class="p">[</span><span class="n">labelloc</span><span class="o">=</span><span class="s">"b"</span><span class="p">,</span> <span class="n">image</span><span class="o">=</span><span class="s">"icons/wireless router.png"</span><span class="p">]</span> <span class="p">{</span>
+        <span class="s">"AP 1"</span>
+        <span class="s">"AP 2"</span>
+    <span class="p">}</span>
+
+    <span class="c1">// Sub-networks</span>
+    <span class="n">node</span> <span class="p">[</span><span class="n">labelloc</span><span class="o">=</span><span class="s">"c"</span><span class="p">,</span> <span class="n">image</span><span class="o">=</span><span class="s">"icons/cloud.png"</span><span class="p">]</span> <span class="p">{</span>
+        <span class="s">"WAN"</span>
+    <span class="p">}</span>
+
+    <span class="c1">// Relationships</span>
+    <span class="s">"WAN"</span> <span class="o">--</span> <span class="p">{</span><span class="s">"Modem 1"</span><span class="p">,</span> <span class="s">"Modem 2"</span><span class="p">}</span> <span class="p">{</span>
+        <span class="p">{</span><span class="s">"Modem 1"</span><span class="p">,</span> <span class="s">"Modem 2"</span><span class="p">}</span> <span class="o">--</span> <span class="s">"Router"</span> <span class="p">{</span>
+            <span class="s">"Router"</span> <span class="o">--</span> <span class="s">"Switch"</span> <span class="p">{</span>
+                <span class="s">"Switch"</span> <span class="o">--</span> <span class="p">{</span><span class="s">"AP 1"</span><span class="p">,</span> <span class="s">"AP 2"</span><span class="p">}</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p>如果是曾經接觸過 <code>dot</code> 的讀者，或許會覺得我所使用的語法很怪異，因為原始碼中的
+那些大括號與縮排，在 <code>dot</code> 語言中其實是完全沒有作用的，我這樣寫的目的，純粹是
+想降低使用 Graphviz 繪製網路拓樸的學習難度。以下是我的一些考量：</p>
+<ol><li>將 <strong>宣告</strong> 與 <strong>建立關聯</strong> 的部份完全區分開，規定關聯一定要寫在最後面。</li>
+<li>將節點宣告的概念，由原先的 <strong>修改後續 node 的 default attributes</strong>，
+   變成簡單的 <strong>集合中的元素</strong>。</li>
+<li>由於我們所需要繪製的網路圖只會是樹狀結構，使用縮排可以更方便閱讀。</li>
+</ol><h3>Conclusion</h3>
+<p>我們實際的使用方式是將網路拓樸紀錄在 Redmine 的 wiki 內，
+而<a href="https://github.com/tckz/redmine-wiki_graphviz_plugin">這裡有一個 plugin</a>，能夠直接將 wiki 中的純文字的 dot，在預覽和儲存後直接以
+轉換後的圖片顯示，實在是方常方便。</p>
+<p>然而使用 Graphviz 有其極限，對於複雜的網路拓樸，或著對美觀極度要求時，使用其他
+的軟體搭配仍然有其必要。</p></div>
+            </div>
+        </div>
+        <div class="post">
             <h1 class="title"><a href="posts/android-java-debugging-2.html">Android Java 層 Debug 工具介紹 (2)</a></h1>
             <div class="meta">
                 <div class="authordate">

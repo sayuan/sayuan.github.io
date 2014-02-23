@@ -1,5 +1,109 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/"><channel><title>SAY something</title><link>http://sayuan.github.io/</link><description>Shiao-An Yuan personal blog</description><atom:link href="http://sayuan.github.io/rss.xml" type="application/rss+xml" rel="self"></atom:link><language>en</language><lastBuildDate>Sat, 15 Feb 2014 02:31:36 GMT</lastBuildDate><generator>Nikola &lt;http://getnikola.com/&gt;</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Android Java 層 Debug 工具介紹 (2)</title><link>http://sayuan.github.io/posts/android-java-debugging-2.html</link><description>&lt;div&gt;&lt;p&gt;在系列文的&lt;a href="http://sayuan.github.io/posts/android-java-debugging-1.html"&gt;第一篇文章&lt;/a&gt;中，我已經介紹過 Log Viewer 與
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/"><channel><title>SAY something</title><link>http://sayuan.github.io/</link><description>Shiao-An Yuan personal blog</description><atom:link href="http://sayuan.github.io/rss.xml" type="application/rss+xml" rel="self"></atom:link><language>en</language><lastBuildDate>Sun, 02 Mar 2014 16:51:14 GMT</lastBuildDate><generator>Nikola &lt;http://getnikola.com/&gt;</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>使用 Graphviz 繪製網路拓樸</title><link>http://sayuan.github.io/posts/network-topology-by-graphviz.html</link><description>&lt;div&gt;&lt;p&gt;自從離開了 Android 產業之後，我加入了一間與網路服務相關的新創公司。
+在工作內容上，經常會需要理解對方的網路環境，而解決這個問題最好的方法，
+就是事先準備好一份網路拓樸並歸檔。&lt;/p&gt;
+&lt;h3&gt;Requirements&lt;/h3&gt;
+&lt;p&gt;因此，接下來的任務就是尋找一個適合我們的 Diagram Editor，以下是我們的需求：&lt;/p&gt;
+&lt;ol&gt;&lt;li&gt;跨平台：公司內三種作業系統都有人使用，需要選擇一個各種平台上都能使用的檔案
+   格式，開放格式尤佳。&lt;/li&gt;
+&lt;li&gt;簡單：單就繪圖操作的部份，希望是連非技術人員也能夠使用。&lt;/li&gt;
+&lt;li&gt;容易修改：當網路架構有些微變動時，希望能夠很容易的完成修改，不需要大量的微
+   調各節點的位置。&lt;/li&gt;
+&lt;li&gt;版本控制：不管是使用什麼格式，版本控制都是必要的，但 binary 檔案管理起來總
+   是比較麻煩。&lt;/li&gt;
+&lt;/ol&gt;&lt;p&gt;其實不難看出來，會列出這種需求，我根本就只是想內定 &lt;a href="http://www.graphviz.org/"&gt;Graphviz&lt;/a&gt; 嘛！確實如此，
+但在 &lt;strong&gt;簡單&lt;/strong&gt; 這個項目上，Graphviz 卻似乎是最差的選擇，不把這個問題處理好，我看
+大概很難順利將 Graphviz 導入公司。&lt;/p&gt;
+&lt;p&gt;我們暫且先不論 Graphviz 是否足夠簡單，還是先把環境準備好，實際畫張圖來看看。&lt;/p&gt;
+&lt;h3&gt;Installation&lt;/h3&gt;
+&lt;p&gt;其實在我進行 &lt;del&gt;survey&lt;/del&gt; 內定之前，就已經先透過 Google 找了一遍，出乎意料
+的只找到了一篇：&lt;a href="http://itsecworks.com/2012/03/16/networking-topology-with-graphviz/"&gt;Network topology with graphviz&lt;/a&gt;。&lt;/p&gt;
+&lt;p&gt;不過有總比沒有好，試著依樣畫葫蘆跑一遍，結果卻是 &lt;code&gt;dot&lt;/code&gt; 執行時出現錯誤。查了才知
+道，原來 Graphviz 到了版本 2.29 之後 &lt;code&gt;node&lt;/code&gt; 才開始支援 &lt;code&gt;image&lt;/code&gt; 屬性。但我所使用
+的 Ubuntu 12.04 的套件庫中的版本只到 2.26，且一直到 14.04 才開始使用更新的版本。&lt;/p&gt;
+&lt;p&gt;這種類似的事情遇多了，最簡單的方法就是找個現成的 &lt;code&gt;PPA&lt;/code&gt;，通常我會從官方維護的開始
+找起，於是：&lt;/p&gt;
+&lt;div class="code"&gt;&lt;pre&gt;&lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;apt&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;add&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;repository&lt;/span&gt; &lt;span class="n"&gt;ppa&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="n"&gt;gviz&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;adm&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;graphviz&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;dev&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;接著要安裝時，&lt;code&gt;apt&lt;/code&gt; 卻又出現錯誤：&lt;/p&gt;
+&lt;div class="code"&gt;&lt;pre&gt;&lt;span class="n"&gt;graphviz&lt;/span&gt; &lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;Depends&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;libgraphviz4&lt;/span&gt; &lt;span class="o"&gt;(&amp;gt;=&lt;/span&gt; &lt;span class="mf"&gt;2.18&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="n"&gt;but&lt;/span&gt; &lt;span class="n"&gt;it&lt;/span&gt; &lt;span class="k"&gt;is&lt;/span&gt; &lt;span class="n"&gt;not&lt;/span&gt; &lt;span class="n"&gt;going&lt;/span&gt; &lt;span class="n"&gt;to&lt;/span&gt; &lt;span class="n"&gt;be&lt;/span&gt; &lt;span class="n"&gt;installed&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;好在 &lt;a href="http://askubuntu.com/"&gt;Ask Ubuntu&lt;/a&gt; 上早有&lt;a href="http://askubuntu.com/questions/196230/how-do-i-install-graphviz-2-29-in-12-04"&gt;解答&lt;/a&gt;，照著做即可：&lt;/p&gt;
+&lt;div class="code"&gt;&lt;pre&gt;&lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;apt&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;get&lt;/span&gt; &lt;span class="n"&gt;update&lt;/span&gt;
+&lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;apt&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;get&lt;/span&gt; &lt;span class="n"&gt;remove&lt;/span&gt; &lt;span class="n"&gt;libcdt4&lt;/span&gt; &lt;span class="n"&gt;libpathplan4&lt;/span&gt;
+&lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;apt&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;get&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="n"&gt;graphviz&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;Images&lt;/h3&gt;
+&lt;p&gt;裝好新版本的 Graphviz 後，還需要用來表示各種節點的圖片，這裡我所選擇的是
+&lt;a href="http://www.cisco.com/web/about/ac50/ac47/2.html"&gt;Cisco 免費提供的 icons&lt;/a&gt;。&lt;/p&gt;
+&lt;p&gt;Cisco 提供的圖片格式是 &lt;code&gt;JPEG&lt;/code&gt;，而根據 Graphviz 的文件，應該是有支援 &lt;code&gt;JPEG&lt;/code&gt;，
+但不知道是哪裡出了問題，我並沒有辦法順利使用，所以我是自行轉成 &lt;code&gt;PNG&lt;/code&gt;。&lt;/p&gt;
+&lt;h3&gt;Results&lt;/h3&gt;
+&lt;p&gt;最後的結果就是下圖：&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Topology" src="http://sayuan.github.io/galleries/misc/topology.png"&gt;&lt;/p&gt;
+&lt;p&gt;而上圖對應的 dot 原始檔如下：&lt;/p&gt;
+&lt;div class="code"&gt;&lt;pre&gt;&lt;span class="n"&gt;graph&lt;/span&gt; &lt;span class="n"&gt;G&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="n"&gt;node&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;shape&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;none&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;height&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mf"&gt;1.2&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+    &lt;span class="n"&gt;rankdir&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;LR&lt;/span&gt;
+
+    &lt;span class="c1"&gt;// Modems&lt;/span&gt;
+    &lt;span class="n"&gt;node&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;labelloc&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;"b"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;image&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;"icons/modem.png"&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+        &lt;span class="s"&gt;"Modem 1"&lt;/span&gt;
+        &lt;span class="s"&gt;"Modem 2"&lt;/span&gt;
+    &lt;span class="p"&gt;}&lt;/span&gt;
+
+    &lt;span class="c1"&gt;// Routers&lt;/span&gt;
+    &lt;span class="n"&gt;node&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;labelloc&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;"b"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;image&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;"icons/atm router.png"&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+        &lt;span class="s"&gt;"Router"&lt;/span&gt;
+    &lt;span class="p"&gt;}&lt;/span&gt;
+
+    &lt;span class="c1"&gt;// Switches&lt;/span&gt;
+    &lt;span class="n"&gt;node&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;labelloc&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;"b"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;image&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;"icons/atm switch.png"&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+        &lt;span class="s"&gt;"Switch"&lt;/span&gt;
+    &lt;span class="p"&gt;}&lt;/span&gt;
+
+    &lt;span class="c1"&gt;// Access Points&lt;/span&gt;
+    &lt;span class="n"&gt;node&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;labelloc&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;"b"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;image&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;"icons/wireless router.png"&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+        &lt;span class="s"&gt;"AP 1"&lt;/span&gt;
+        &lt;span class="s"&gt;"AP 2"&lt;/span&gt;
+    &lt;span class="p"&gt;}&lt;/span&gt;
+
+    &lt;span class="c1"&gt;// Sub-networks&lt;/span&gt;
+    &lt;span class="n"&gt;node&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;labelloc&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;"c"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;image&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;"icons/cloud.png"&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+        &lt;span class="s"&gt;"WAN"&lt;/span&gt;
+    &lt;span class="p"&gt;}&lt;/span&gt;
+
+    &lt;span class="c1"&gt;// Relationships&lt;/span&gt;
+    &lt;span class="s"&gt;"WAN"&lt;/span&gt; &lt;span class="o"&gt;--&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="s"&gt;"Modem 1"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;"Modem 2"&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+        &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="s"&gt;"Modem 1"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;"Modem 2"&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt; &lt;span class="o"&gt;--&lt;/span&gt; &lt;span class="s"&gt;"Router"&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+            &lt;span class="s"&gt;"Router"&lt;/span&gt; &lt;span class="o"&gt;--&lt;/span&gt; &lt;span class="s"&gt;"Switch"&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+                &lt;span class="s"&gt;"Switch"&lt;/span&gt; &lt;span class="o"&gt;--&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="s"&gt;"AP 1"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;"AP 2"&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;
+            &lt;span class="p"&gt;}&lt;/span&gt;
+        &lt;span class="p"&gt;}&lt;/span&gt;
+    &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;如果是曾經接觸過 &lt;code&gt;dot&lt;/code&gt; 的讀者，或許會覺得我所使用的語法很怪異，因為原始碼中的
+那些大括號與縮排，在 &lt;code&gt;dot&lt;/code&gt; 語言中其實是完全沒有作用的，我這樣寫的目的，純粹是
+想降低使用 Graphviz 繪製網路拓樸的學習難度。以下是我的一些考量：&lt;/p&gt;
+&lt;ol&gt;&lt;li&gt;將 &lt;strong&gt;宣告&lt;/strong&gt; 與 &lt;strong&gt;建立關聯&lt;/strong&gt; 的部份完全區分開，規定關聯一定要寫在最後面。&lt;/li&gt;
+&lt;li&gt;將節點宣告的概念，由原先的 &lt;strong&gt;修改後續 node 的 default attributes&lt;/strong&gt;，
+   變成簡單的 &lt;strong&gt;集合中的元素&lt;/strong&gt;。&lt;/li&gt;
+&lt;li&gt;由於我們所需要繪製的網路圖只會是樹狀結構，使用縮排可以更方便閱讀。&lt;/li&gt;
+&lt;/ol&gt;&lt;h3&gt;Conclusion&lt;/h3&gt;
+&lt;p&gt;我們實際的使用方式是將網路拓樸紀錄在 Redmine 的 wiki 內，
+而&lt;a href="https://github.com/tckz/redmine-wiki_graphviz_plugin"&gt;這裡有一個 plugin&lt;/a&gt;，能夠直接將 wiki 中的純文字的 dot，在預覽和儲存後直接以
+轉換後的圖片顯示，實在是方常方便。&lt;/p&gt;
+&lt;p&gt;然而使用 Graphviz 有其極限，對於複雜的網路拓樸，或著對美觀極度要求時，使用其他
+的軟體搭配仍然有其必要。&lt;/p&gt;&lt;/div&gt;</description><category>Graphviz</category><category>Dot</category><category>Network</category><guid>http://sayuan.github.io/posts/network-topology-by-graphviz.html</guid><pubDate>Sun, 23 Feb 2014 14:02:59 GMT</pubDate></item><item><title>Android Java 層 Debug 工具介紹 (2)</title><link>http://sayuan.github.io/posts/android-java-debugging-2.html</link><description>&lt;div&gt;&lt;p&gt;在系列文的&lt;a href="http://sayuan.github.io/posts/android-java-debugging-1.html"&gt;第一篇文章&lt;/a&gt;中，我已經介紹過 Log Viewer 與
 Profiler，而這次所要介紹的內容則是 Debugger，以及一些 Reverse Engineering 工具。
 那麼，就先從 Debugger 開始吧。&lt;/p&gt;
 &lt;h3&gt;Remote Debugging&lt;/h3&gt;
