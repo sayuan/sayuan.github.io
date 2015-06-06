@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/"><channel><title>SAY something (ydict)</title><link>http://sayuan.github.io/</link><description></description><atom:link href="http://sayuan.github.io/categories/ydict.xml" type="application/rss+xml" rel="self"></atom:link><language>en</language><lastBuildDate>Sun, 23 Feb 2014 22:39:42 GMT</lastBuildDate><generator>Nikola &lt;http://getnikola.com/&gt;</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>ydict - node.js 實作</title><link>http://sayuan.github.io/posts/ydict.html</link><description>&lt;div&gt;&lt;h3&gt;What is "ydict"&lt;/h3&gt;
+<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/"><channel><title>SAY something (ydict)</title><link>http://sayuan.github.io/</link><description></description><atom:link href="http://sayuan.github.io/categories/ydict.xml" type="application/rss+xml" rel="self"></atom:link><language>en</language><lastBuildDate>Sat, 06 Jun 2015 15:16:18 GMT</lastBuildDate><generator>http://getnikola.com/</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>ydict - node.js 實作</title><link>http://sayuan.github.io/posts/ydict.html</link><dc:creator>Shiao-An Yuan</dc:creator><description>&lt;div&gt;&lt;h3&gt;What is "ydict"&lt;/h3&gt;
 &lt;p&gt;身為一名 command line 魔人，儘可能的將所有在電腦上的操作在 command line
 之內完成，是一件理所當然的事情，就連查字典也不例外，而 ydict
 就是這樣的工具。&lt;/p&gt;
@@ -27,8 +27,8 @@ parsing，事情也許會簡單很多，於是 &lt;a href="https://github.com/sa
 可以直接引用，雖然我覺得這個功能完全只是雞肋。:p&lt;/p&gt;
 &lt;p&gt;此外，我也已經將 ydict.js 上傳 npm，因此只要執行下述指令即可完成安裝，
 希望各位會喜歡。&lt;/p&gt;
-&lt;div class="code"&gt;&lt;pre&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;sudo&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="n"&gt;npm&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;g&lt;/span&gt; &lt;span class="n"&gt;ydict&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;js&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
+&lt;pre class="code literal-block"&gt;[sudo] npm install -g ydict.js
+&lt;/pre&gt;
 
 
 &lt;h3&gt;What else?&lt;/h3&gt;
@@ -38,5 +38,5 @@ parsing，事情也許會簡單很多，於是 &lt;a href="https://github.com/sa
 麻雀雖小卻是五臟俱全。(&lt;strong&gt;使用前請先安裝 w3m 套件。&lt;/strong&gt;)&lt;/p&gt;
 &lt;p&gt;另外就是 &lt;a href="https://github.com/JeffChien/jydict"&gt;Jeff 開發的 LiveScript 版&lt;/a&gt;，和 ydict.js 一樣使用 &lt;a href="https://github.com/MatthewMueller/cheerio"&gt;cheerio&lt;/a&gt;
 來處理 parsing，並且同樣也已經上傳 npm，因此只要執行下述指令即可安裝：&lt;/p&gt;
-&lt;div class="code"&gt;&lt;pre&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;sudo&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="n"&gt;npm&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;g&lt;/span&gt; &lt;span class="n"&gt;jydict&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</description><category>ydict</category><category>node.js</category><guid>http://sayuan.github.io/posts/ydict.html</guid><pubDate>Thu, 30 Jan 2014 07:07:52 GMT</pubDate></item></channel></rss>
+&lt;pre class="code literal-block"&gt;[sudo] npm install -g jydict
+&lt;/pre&gt;&lt;/div&gt;</description><category>node.js</category><category>ydict</category><guid>http://sayuan.github.io/posts/ydict.html</guid><pubDate>Thu, 30 Jan 2014 07:07:52 GMT</pubDate></item></channel></rss>

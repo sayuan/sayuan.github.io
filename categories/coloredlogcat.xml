@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/"><channel><title>SAY something (coloredlogcat)</title><link>http://sayuan.github.io/</link><description></description><atom:link href="http://sayuan.github.io/categories/coloredlogcat.xml" type="application/rss+xml" rel="self"></atom:link><language>en</language><lastBuildDate>Sun, 23 Feb 2014 22:39:42 GMT</lastBuildDate><generator>Nikola &lt;http://getnikola.com/&gt;</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Android Java 層 Debug 工具介紹 (1)</title><link>http://sayuan.github.io/posts/android-java-debugging-1.html</link><description>&lt;div&gt;&lt;p&gt;今天又從硬碟裡翻出一份還在前公司時製作的內訓資料，是當時所有我會的 Android Java
+<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/"><channel><title>SAY something (coloredlogcat)</title><link>http://sayuan.github.io/</link><description></description><atom:link href="http://sayuan.github.io/categories/coloredlogcat.xml" type="application/rss+xml" rel="self"></atom:link><language>en</language><lastBuildDate>Sat, 06 Jun 2015 15:16:18 GMT</lastBuildDate><generator>http://getnikola.com/</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Android Java 層 Debug 工具介紹 (1)</title><link>http://sayuan.github.io/posts/android-java-debugging-1.html</link><dc:creator>Shiao-An Yuan</dc:creator><description>&lt;div&gt;&lt;p&gt;今天又從硬碟裡翻出一份還在前公司時製作的內訓資料，是當時所有我會的 Android Java
 debug 工具的介紹，於是整理之後就成為了現在這篇文章。&lt;/p&gt;
 &lt;p&gt;本文中提及的工具與使用方法我都已測試過，即使在目前在最新的 Android 4.4
 上也還能正常使用，但畢竟這些已經是一年前的資料了，或許已經有更新的工具能替代
@@ -15,16 +15,20 @@ logcat&lt;/code&gt; 的輸出，並加上顏色與對齊後輸出的工具。&lt
 &lt;p&gt;&lt;img alt="coloredlogcat" src="http://sayuan.github.io/galleries/android-java-debug/colorcat.png"&gt;&lt;/p&gt;
 &lt;p&gt;由於原作者釋出 &lt;code&gt;Colored Logcat&lt;/code&gt; 之後沒有持續維護，因此在 Github 及 Google Code
 上都可以找到其他人的分支。我自己所使用的版本則是對其做了兩個修改：&lt;/p&gt;
-&lt;ol&gt;&lt;li&gt;增加 -v 參數使其可顯示每一筆 log 的時間&lt;/li&gt;
+&lt;ol&gt;
+&lt;li&gt;增加 -v 參數使其可顯示每一筆 log 的時間&lt;/li&gt;
 &lt;li&gt;補上原實作漏了的 log 層級：FATAL&lt;/li&gt;
-&lt;/ol&gt;&lt;p&gt;或許有人會問，這種工具怎麼看都還是比不上 &lt;code&gt;ADT&lt;/code&gt; 內建的 Log Viewer 呀，究竟
+&lt;/ol&gt;
+&lt;p&gt;或許有人會問，這種工具怎麼看都還是比不上 &lt;code&gt;ADT&lt;/code&gt; 內建的 Log Viewer 呀，究竟
 command line 有何神奇魔力？這些工具單獨使用的話確實是不怎麼樣，但厲害的地方在於
 它們可以很輕鬆的搭配其他 shell 指令而組合出更多彈性的功能，例如：&lt;/p&gt;
-&lt;ol&gt;&lt;li&gt;搭配 grep 以過濾關鍵字&lt;/li&gt;
+&lt;ol&gt;
+&lt;li&gt;搭配 grep 以過濾關鍵字&lt;/li&gt;
 &lt;li&gt;將輸出 redirect (或 tee) 至檔案，方便後續處理&lt;/li&gt;
 &lt;li&gt;如果有使用 screen, tmux，還可以隨時暫停，並在畫面上搜尋關鍵字&lt;/li&gt;
-&lt;/ol&gt;&lt;h4&gt;Debug function&lt;/h4&gt;
-&lt;div class="code"&gt;&lt;pre&gt;&lt;span class="kd"&gt;public&lt;/span&gt; &lt;span class="kd"&gt;static&lt;/span&gt; &lt;span class="kt"&gt;void&lt;/span&gt; &lt;span class="nf"&gt;debug&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;Object&lt;/span&gt;&lt;span class="o"&gt;...&lt;/span&gt; &lt;span class="n"&gt;arr&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
+&lt;/ol&gt;
+&lt;h4&gt;Debug function&lt;/h4&gt;
+&lt;pre class="code literal-block"&gt;&lt;span class="kd"&gt;public&lt;/span&gt; &lt;span class="kd"&gt;static&lt;/span&gt; &lt;span class="kt"&gt;void&lt;/span&gt; &lt;span class="nf"&gt;debug&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;Object&lt;/span&gt;&lt;span class="o"&gt;...&lt;/span&gt; &lt;span class="n"&gt;arr&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
     &lt;span class="n"&gt;StackTraceElement&lt;/span&gt; &lt;span class="n"&gt;call&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;Thread&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;currentThread&lt;/span&gt;&lt;span class="o"&gt;().&lt;/span&gt;&lt;span class="na"&gt;getStackTrace&lt;/span&gt;&lt;span class="o"&gt;()[&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="o"&gt;];&lt;/span&gt;
     &lt;span class="n"&gt;String&lt;/span&gt; &lt;span class="n"&gt;className&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;call&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;getClassName&lt;/span&gt;&lt;span class="o"&gt;();&lt;/span&gt;
     &lt;span class="n"&gt;className&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;className&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;substring&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;className&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;lastIndexOf&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="sc"&gt;'.'&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="o"&gt;);&lt;/span&gt;
@@ -32,7 +36,7 @@ command line 有何神奇魔力？這些工具單獨使用的話確實是不怎�
             &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;className&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="s"&gt;"."&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;call&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;getMethodName&lt;/span&gt;&lt;span class="o"&gt;()&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="s"&gt;" "&lt;/span&gt;
             &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;java&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;util&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;Arrays&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;deepToString&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;arr&lt;/span&gt;&lt;span class="o"&gt;));&lt;/span&gt;
 &lt;span class="o"&gt;}&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
+&lt;/pre&gt;
 
 
 &lt;p&gt;這個其實既不是 Log Viewer，也不能算是 debug tool，勉強只能算是個小技巧吧。
@@ -48,14 +52,14 @@ deepToString，所以連陣列內容都能印出。&lt;/p&gt;
 的&lt;a href="http://developer.android.com/tools/debugging/debugging-tracing.html"&gt;教學&lt;/a&gt;，所以我就只以圖片與簡短描述帶過。&lt;/p&gt;
 &lt;p&gt;執行 profiler 共有兩種方式，第一種方式是在程式中安插程式碼：&lt;/p&gt;
 &lt;h4&gt;第一種&lt;/h4&gt;
-&lt;div class="code"&gt;&lt;pre&gt;&lt;span class="c1"&gt;// start tracing to "/sdcard/calc.trace"&lt;/span&gt;
+&lt;pre class="code literal-block"&gt;&lt;span class="c1"&gt;// start tracing to "/sdcard/calc.trace"&lt;/span&gt;
 &lt;span class="n"&gt;Debug&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;startMethodTracing&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s"&gt;"calc"&lt;/span&gt;&lt;span class="o"&gt;);&lt;/span&gt;
 
 &lt;span class="c1"&gt;// 做 profiling 的區域&lt;/span&gt;
 
 &lt;span class="c1"&gt;// stop tracing&lt;/span&gt;
 &lt;span class="n"&gt;Debug&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;stopMethodTracing&lt;/span&gt;&lt;span class="o"&gt;();&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
+&lt;/pre&gt;
 
 
 &lt;p&gt;上述這個方法比較麻煩，但能確保 profiling 的對象只有自己關心的區域。&lt;/p&gt;
@@ -70,8 +74,8 @@ process，然後點上圖中被藍色圓圈圈起的按鈕，並在打算停止 
 &lt;p&gt;第一種方法執行完的 trace file 會存在 SD card 內，而第二種則是存在
 &lt;code&gt;/tmp/ddms....&lt;/code&gt;，可以從分頁名稱上得到確切的檔名。&lt;/p&gt;
 &lt;p&gt;有了 trace file，接著只要執行：&lt;/p&gt;
-&lt;div class="code"&gt;&lt;pre&gt;&lt;span class="n"&gt;dmtracedump&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;g&lt;/span&gt; &lt;span class="n"&gt;callgraph&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;png&lt;/span&gt; &lt;span class="n"&gt;calc&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;trace&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
+&lt;pre class="code literal-block"&gt;dmtracedump -g callgraph.png calc.trace
+&lt;/pre&gt;
 
 
 &lt;p&gt;就可以得到如下的 call graph。&lt;/p&gt;
@@ -86,4 +90,4 @@ source code，也能將所需的 code 插入，因此正好可以拿來安插第
 所需的 code，細節將會在後續的文章中說明。&lt;/p&gt;
 &lt;p&gt;篇幅好像差不多了，那麼就先在此打住吧。
 接下來預計還會寫一至兩篇文章介紹 remote debugging 與 reverse engineering
-tool，希望我能早日完成。:)&lt;/p&gt;&lt;/div&gt;</description><category>Android</category><category>debugging</category><category>coloredlogcat</category><category>traceview</category><guid>http://sayuan.github.io/posts/android-java-debugging-1.html</guid><pubDate>Sun, 09 Feb 2014 12:36:56 GMT</pubDate></item></channel></rss>
+tool，希望我能早日完成。:)&lt;/p&gt;&lt;/div&gt;</description><category>Android</category><category>coloredlogcat</category><category>debugging</category><category>traceview</category><guid>http://sayuan.github.io/posts/android-java-debugging-1.html</guid><pubDate>Sun, 09 Feb 2014 12:36:56 GMT</pubDate></item></channel></rss>

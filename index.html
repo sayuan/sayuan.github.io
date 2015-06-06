@@ -1,18 +1,35 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="description" content="Shiao-An Yuan personal blog"><meta name="author" content="Shiao-An Yuan"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>SAY something | SAY something</title><script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-    tex2jax: {
-        inlineMath: [ ['$','$'], ["\\(","\\)"] ],
-        displayMath: [ ['$$','$$'], ["\\[","\\]"] ]
-    },
-    displayAlign: 'left', // Change this to 'center' to center equations.
-    "HTML-CSS": {
-        styles: {'.MathJax_Display': {"margin": 0}}
-    }
-});
-</script><link href="assets/css/all-nocdn.css" rel="stylesheet" type="text/css"><!--[if lt IE 9]>
-      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
-    <![endif]--><link rel="alternate" type="application/rss+xml" title="RSS" href="rss.xml"><link rel="stylesheet" type="text/css" href="assets/css/code.css"></head><body>
-    <section class="social"><ul><li><a href="#" title="Home"><i class="icon-home"></i></a></li>
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article# " lang="en">
+    <head>
+    <meta charset="utf-8">
+    <meta name="description" content="Shiao-An Yuan personal blog">
+    <meta name="viewport" content="width=device-width">
+    <title>SAY something | SAY something</title>
+
+    
+            <link href="assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+
+    
+            <link rel="alternate" type="application/rss+xml" title="RSS" href="rss.xml">
+
+      <link rel="canonical" href="http://sayuan.github.io/index.html">
+
+
+
+    
+        <!--[if lt IE 9]><script src="/assets/js/html5.js"></script><![endif]-->
+
+    
+
+
+
+
+</head>
+<body>
+    <section class="social">
+        <ul>
+        
+            <li><a href="#" title="Home"><i class="icon-home"></i></a></li>
             <li><a href="archive.html" title="Archives"><i class="icon-folder-open-alt"></i></a></li>
             <li><a href="categories/index.html" title="Tags"><i class="icon-tags"></i></a></li>
             <li><a href="stories/about-me.html" title="About me"><i class="icon-user"></i></a></li>
@@ -21,45 +38,52 @@ MathJax.Hub.Config({
             <li><a href="http://www.linkedin.com/in/sayuan" title="My LinkedIn"><i class="icon-linkedin"></i></a></li>
             <li><a href="rss.xml" title="RSS"><i class="icon-rss"></i></a></li>
 
-        </ul></section><section class="page-content"><div class="content" rel="main">
+        </ul>
+    </section>
+    <section class="page-content">
+        <div class="content" rel="main">
             
         <div class="post">
             <h1 class="title"><a href="posts/network-topology-by-graphviz.html">使用 Graphviz 繪製網路拓樸</a></h1>
             <div class="meta">
                 <div class="authordate">
-                    <time class="timeago" datetime="2014-02-23T22:02:59+08:00">2014-02-23 22:02</time></div>
+                    <time class="timeago" datetime="2014-02-23T22:02:59+08:00">2014-02-23 22:02</time>
+                </div>
                 <div class="stats">
                     
         
-    <p>
-        <a href="posts/network-topology-by-graphviz.html#disqus_thread" data-disqus-identifier="cache/posts/network-topology-by-graphviz.html">Comments</a>
+    <a href="posts/network-topology-by-graphviz.html#disqus_thread" data-disqus-identifier="cache/posts/network-topology-by-graphviz.html">Comments</a>
 
 
-                </p></div>
-                
-    <div class="tags">
+                </div>
+            
+        <div itemprop="keywords" class="tags">
         <ul>
-        More posts about:  
-            <li><a class="tag" href="categories/graphviz.html">Graphviz</a></li>
-            <li><a class="tag" href="categories/dot.html">Dot</a></li>
-            <li><a class="tag" href="categories/network.html">Network</a></li>
-        </ul></div>
+        Tags : 
+           <li><a class="tag p-category" href="categories/dot.html" rel="tag">Dot</a></li>
+           <li><a class="tag p-category" href="categories/graphviz.html" rel="tag">Graphviz</a></li>
+           <li><a class="tag p-category" href="categories/network.html" rel="tag">Network</a></li>
+        </ul>
+        </div>
 
             </div>
             <div class="body">
-                <div><p>自從離開了 Android 產業之後，我加入了一間與網路服務相關的新創公司。
+                <div>
+<p>自從離開了 Android 產業之後，我加入了一間與網路服務相關的新創公司。
 在工作內容上，經常會需要理解對方的網路環境，而解決這個問題最好的方法，
 就是事先準備好一份網路拓樸並歸檔。</p>
 <h3>Requirements</h3>
 <p>因此，接下來的任務就是尋找一個適合我們的 Diagram Editor，以下是我們的需求：</p>
-<ol><li>跨平台：公司內三種作業系統都有人使用，需要選擇一個各種平台上都能使用的檔案
+<ol>
+<li>跨平台：公司內三種作業系統都有人使用，需要選擇一個各種平台上都能使用的檔案
    格式，開放格式尤佳。</li>
 <li>簡單：單就繪圖操作的部份，希望是連非技術人員也能夠使用。</li>
 <li>容易修改：當網路架構有些微變動時，希望能夠很容易的完成修改，不需要大量的微
    調各節點的位置。</li>
 <li>版本控制：不管是使用什麼格式，版本控制都是必要的，但 binary 檔案管理起來總
    是比較麻煩。</li>
-</ol><p>其實不難看出來，會列出這種需求，我根本就只是想內定 <a href="http://www.graphviz.org/">Graphviz</a> 嘛！確實如此，
+</ol>
+<p>其實不難看出來，會列出這種需求，我根本就只是想內定 <a href="http://www.graphviz.org/">Graphviz</a> 嘛！確實如此，
 但在 <strong>簡單</strong> 這個項目上，Graphviz 卻似乎是最差的選擇，不把這個問題處理好，我看
 大概很難順利將 Graphviz 導入公司。</p>
 <p>我們暫且先不論 Graphviz 是否足夠簡單，還是先把環境準備好，實際畫張圖來看看。</p>
@@ -71,20 +95,20 @@ MathJax.Hub.Config({
 的 Ubuntu 12.04 的套件庫中的版本只到 2.26，且一直到 14.04 才開始使用更新的版本。</p>
 <p>這種類似的事情遇多了，最簡單的方法就是找個現成的 <code>PPA</code>，通常我會從官方維護的開始
 找起，於是：</p>
-<div class="code"><pre><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">add</span><span class="o">-</span><span class="n">repository</span> <span class="n">ppa</span><span class="o">:</span><span class="n">gviz</span><span class="o">-</span><span class="n">adm</span><span class="o">/</span><span class="n">graphviz</span><span class="o">-</span><span class="n">dev</span>
-</pre></div>
+<pre class="code literal-block">sudo apt-add-repository ppa:gviz-adm/graphviz-dev
+</pre>
 
 
 <p>接著要安裝時，<code>apt</code> 卻又出現錯誤：</p>
-<div class="code"><pre><span class="n">graphviz</span> <span class="o">:</span> <span class="n">Depends</span><span class="o">:</span> <span class="n">libgraphviz4</span> <span class="o">(&gt;=</span> <span class="mf">2.18</span><span class="o">)</span> <span class="n">but</span> <span class="n">it</span> <span class="k">is</span> <span class="n">not</span> <span class="n">going</span> <span class="n">to</span> <span class="n">be</span> <span class="n">installed</span>
-</pre></div>
+<pre class="code literal-block"><span class="n">graphviz</span> <span class="o">:</span> <span class="n">Depends</span><span class="o">:</span> <span class="n">libgraphviz4</span> <span class="o">(&gt;=</span> <span class="mf">2.18</span><span class="o">)</span> <span class="n">but</span> <span class="n">it</span> <span class="k">is</span> <span class="n">not</span> <span class="n">going</span> <span class="n">to</span> <span class="n">be</span> <span class="n">installed</span>
+</pre>
 
 
 <p>好在 <a href="http://askubuntu.com/">Ask Ubuntu</a> 上早有<a href="http://askubuntu.com/questions/196230/how-do-i-install-graphviz-2-29-in-12-04">解答</a>，照著做即可：</p>
-<div class="code"><pre><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">update</span>
-<span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">remove</span> <span class="n">libcdt4</span> <span class="n">libpathplan4</span>
-<span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">graphviz</span>
-</pre></div>
+<pre class="code literal-block">sudo apt-get update
+sudo apt-get remove libcdt4 libpathplan4
+sudo apt-get install graphviz
+</pre>
 
 
 <h3>Images</h3>
@@ -96,101 +120,108 @@ MathJax.Hub.Config({
 <p>最後的結果就是下圖：</p>
 <p><img alt="Topology" src="galleries/misc/topology.png"></p>
 <p>而上圖對應的 dot 原始檔如下：</p>
-<div class="code"><pre><span class="n">graph</span> <span class="n">G</span> <span class="p">{</span>
-    <span class="n">node</span> <span class="p">[</span><span class="n">shape</span><span class="o">=</span><span class="n">none</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mf">1.2</span><span class="p">]</span>
-    <span class="n">rankdir</span><span class="o">=</span><span class="n">LR</span>
+<pre class="code literal-block">graph G {
+    node [shape=none, height=1.2]
+    rankdir=LR
 
-    <span class="c1">// Modems</span>
-    <span class="n">node</span> <span class="p">[</span><span class="n">labelloc</span><span class="o">=</span><span class="s">"b"</span><span class="p">,</span> <span class="n">image</span><span class="o">=</span><span class="s">"icons/modem.png"</span><span class="p">]</span> <span class="p">{</span>
-        <span class="s">"Modem 1"</span>
-        <span class="s">"Modem 2"</span>
-    <span class="p">}</span>
+    // Modems
+    node [labelloc="b", image="icons/modem.png"] {
+        "Modem 1"
+        "Modem 2"
+    }
 
-    <span class="c1">// Routers</span>
-    <span class="n">node</span> <span class="p">[</span><span class="n">labelloc</span><span class="o">=</span><span class="s">"b"</span><span class="p">,</span> <span class="n">image</span><span class="o">=</span><span class="s">"icons/atm router.png"</span><span class="p">]</span> <span class="p">{</span>
-        <span class="s">"Router"</span>
-    <span class="p">}</span>
+    // Routers
+    node [labelloc="b", image="icons/atm router.png"] {
+        "Router"
+    }
 
-    <span class="c1">// Switches</span>
-    <span class="n">node</span> <span class="p">[</span><span class="n">labelloc</span><span class="o">=</span><span class="s">"b"</span><span class="p">,</span> <span class="n">image</span><span class="o">=</span><span class="s">"icons/atm switch.png"</span><span class="p">]</span> <span class="p">{</span>
-        <span class="s">"Switch"</span>
-    <span class="p">}</span>
+    // Switches
+    node [labelloc="b", image="icons/atm switch.png"] {
+        "Switch"
+    }
 
-    <span class="c1">// Access Points</span>
-    <span class="n">node</span> <span class="p">[</span><span class="n">labelloc</span><span class="o">=</span><span class="s">"b"</span><span class="p">,</span> <span class="n">image</span><span class="o">=</span><span class="s">"icons/wireless router.png"</span><span class="p">]</span> <span class="p">{</span>
-        <span class="s">"AP 1"</span>
-        <span class="s">"AP 2"</span>
-    <span class="p">}</span>
+    // Access Points
+    node [labelloc="b", image="icons/wireless router.png"] {
+        "AP 1"
+        "AP 2"
+    }
 
-    <span class="c1">// Sub-networks</span>
-    <span class="n">node</span> <span class="p">[</span><span class="n">labelloc</span><span class="o">=</span><span class="s">"c"</span><span class="p">,</span> <span class="n">image</span><span class="o">=</span><span class="s">"icons/cloud.png"</span><span class="p">]</span> <span class="p">{</span>
-        <span class="s">"WAN"</span>
-    <span class="p">}</span>
+    // Sub-networks
+    node [labelloc="c", image="icons/cloud.png"] {
+        "WAN"
+    }
 
-    <span class="c1">// Relationships</span>
-    <span class="s">"WAN"</span> <span class="o">--</span> <span class="p">{</span><span class="s">"Modem 1"</span><span class="p">,</span> <span class="s">"Modem 2"</span><span class="p">}</span> <span class="p">{</span>
-        <span class="p">{</span><span class="s">"Modem 1"</span><span class="p">,</span> <span class="s">"Modem 2"</span><span class="p">}</span> <span class="o">--</span> <span class="s">"Router"</span> <span class="p">{</span>
-            <span class="s">"Router"</span> <span class="o">--</span> <span class="s">"Switch"</span> <span class="p">{</span>
-                <span class="s">"Switch"</span> <span class="o">--</span> <span class="p">{</span><span class="s">"AP 1"</span><span class="p">,</span> <span class="s">"AP 2"</span><span class="p">}</span>
-            <span class="p">}</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-</pre></div>
+    // Relationships
+    "WAN" -- {"Modem 1", "Modem 2"} {
+        {"Modem 1", "Modem 2"} -- "Router" {
+            "Router" -- "Switch" {
+                "Switch" -- {"AP 1", "AP 2"}
+            }
+        }
+    }
+}
+</pre>
 
 
 <p>如果是曾經接觸過 <code>dot</code> 的讀者，或許會覺得我所使用的語法很怪異，因為原始碼中的
 那些大括號與縮排，在 <code>dot</code> 語言中其實是完全沒有作用的，我這樣寫的目的，純粹是
 想降低使用 Graphviz 繪製網路拓樸的學習難度。以下是我的一些考量：</p>
-<ol><li>將 <strong>宣告</strong> 與 <strong>建立關聯</strong> 的部份完全區分開，規定關聯一定要寫在最後面。</li>
+<ol>
+<li>將 <strong>宣告</strong> 與 <strong>建立關聯</strong> 的部份完全區分開，規定關聯一定要寫在最後面。</li>
 <li>將節點宣告的概念，由原先的 <strong>修改後續 node 的 default attributes</strong>，
    變成簡單的 <strong>集合中的元素</strong>。</li>
 <li>由於我們所需要繪製的網路圖只會是樹狀結構，使用縮排可以更方便閱讀。</li>
-</ol><h3>Conclusion</h3>
+</ol>
+<h3>Conclusion</h3>
 <p>我們實際的使用方式是將網路拓樸紀錄在 Redmine 的 wiki 內，
 而<a href="https://github.com/tckz/redmine-wiki_graphviz_plugin">這裡有一個 plugin</a>，能夠直接將 wiki 中的純文字的 dot，在預覽和儲存後直接以
 轉換後的圖片顯示，實在是方常方便。</p>
 <p>然而使用 Graphviz 有其極限，對於複雜的網路拓樸，或著對美觀極度要求時，使用其他
-的軟體搭配仍然有其必要。</p></div>
+的軟體搭配仍然有其必要。</p>
+</div>
             </div>
         </div>
         <div class="post">
             <h1 class="title"><a href="posts/android-java-debugging-2.html">Android Java 層 Debug 工具介紹 (2)</a></h1>
             <div class="meta">
                 <div class="authordate">
-                    <time class="timeago" datetime="2014-02-15T02:22:56+08:00">2014-02-15 02:22</time></div>
+                    <time class="timeago" datetime="2014-02-15T02:22:56+08:00">2014-02-15 02:22</time>
+                </div>
                 <div class="stats">
                     
         
-    <p>
-        <a href="posts/android-java-debugging-2.html#disqus_thread" data-disqus-identifier="cache/posts/android-java-debug-2.html">Comments</a>
+    <a href="posts/android-java-debugging-2.html#disqus_thread" data-disqus-identifier="cache/posts/android-java-debug-2.html">Comments</a>
 
 
-                </p></div>
-                
-    <div class="tags">
+                </div>
+            
+        <div itemprop="keywords" class="tags">
         <ul>
-        More posts about:  
-            <li><a class="tag" href="categories/android.html">Android</a></li>
-            <li><a class="tag" href="categories/debugging.html">debugging</a></li>
-            <li><a class="tag" href="categories/eclipse.html">Eclipse</a></li>
-            <li><a class="tag" href="categories/apktool.html">apktool</a></li>
-        </ul></div>
+        Tags : 
+           <li><a class="tag p-category" href="categories/android.html" rel="tag">Android</a></li>
+           <li><a class="tag p-category" href="categories/apktool.html" rel="tag">apktool</a></li>
+           <li><a class="tag p-category" href="categories/debugging.html" rel="tag">debugging</a></li>
+           <li><a class="tag p-category" href="categories/eclipse.html" rel="tag">Eclipse</a></li>
+        </ul>
+        </div>
 
             </div>
             <div class="body">
-                <div><p>在系列文的<a href="posts/android-java-debugging-1.html">第一篇文章</a>中，我已經介紹過 Log Viewer 與
+                <div>
+<p>在系列文的<a href="posts/android-java-debugging-1.html">第一篇文章</a>中，我已經介紹過 Log Viewer 與
 Profiler，而這次所要介紹的內容則是 Debugger，以及一些 Reverse Engineering 工具。
 那麼，就先從 Debugger 開始吧。</p>
 <h3>Remote Debugging</h3>
 <p>對於 Android App 開發者來說，在 Android 上 debug 是在自然不過的事了。
 您只需要準備好專案，點一下 <code>Debug</code> 按鈕，IDE 就自動進入 debug 模式，接著無論是
 下中斷點、單步執行，或是查看變數內容……等，一切皆任君差遣，但……</p>
-<ol><li>如果不是透過 IDE 啟動的程式執行到一半，出現了預期之外的狀況，這時您還能不
+<ol>
+<li>如果不是透過 IDE 啟動的程式執行到一半，出現了預期之外的狀況，這時您還能不
    能透過 Debugger 進行 debug 呢？</li>
 <li>若是執行的程式沒有建立專案，甚至沒有 Source Code 時，Debugger 還能有所作為嗎？</li>
 <li>又或著是系統廠 RD 最想要的功能，能不能對系統 Service 進行 debug？</li>
-</ol><p>上述三個問題的答案都是 YES，當然其中也會有一些前提必須滿足，像是 debug 的對象必
+</ol>
+<p>上述三個問題的答案都是 YES，當然其中也會有一些前提必須滿足，像是 debug 的對象必
 須具有 debuggable flag，或著手機本身 image 為 Engineer build。在前一篇文章中我也
 提過了，不需要太擔心這個條件無法滿足，因為下一個章節就會來解決這件事。:)</p>
 <p>我在這裡所要介紹的技巧，其實就和對 App 進行 debug 本質上是一樣的，只不過操作的
@@ -237,13 +268,13 @@ Android Device Monitor 也好，總之只要是這個畫面都好。</p>
 並沒有因此就變得較好讀，但早就有現成的 Java decompiler 可以搭配使用，例如
 <a href="http://jd.benow.ca/#jd-gui">JD-GUI</a> 就是一個常見的搭配。</p>
 <p>dex2jar 的執行方式非常的簡單，直接吃 apk 即可：</p>
-<div class="code"><pre><span class="n">dex2jar</span><span class="p">.</span><span class="n">sh</span> <span class="n">CtsVerifier</span><span class="p">.</span><span class="n">apk</span>
-</pre></div>
+<pre class="code literal-block">dex2jar.sh CtsVerifier.apk
+</pre>
 
 
 <p>產生的檔案是 <code>CtsVerifier_dex2jar.jar</code>，接著用 <code>jd-gui</code> 開啟：</p>
-<div class="code"><pre><span class="n">jd</span><span class="o">-</span><span class="n">gui</span> <span class="n">CtsVerifier_dex2jar</span><span class="p">.</span><span class="n">jar</span>
-</pre></div>
+<pre class="code literal-block">jd-gui CtsVerifier_dex2jar.jar
+</pre>
 
 
 <p><img alt="jd-gui" src="galleries/android-java-debug/jd-gui.png"></p>
@@ -255,13 +286,13 @@ JD-GUI 更好。</p>
 但若是遇到應付不了的情形，或許這時候就該呼叫 apktool 了。</p>
 <h4>apktool</h4>
 <p><a href="https://code.google.com/p/android-apktool/">apktool</a> 是一個 <code>decode</code> / <code>rebuild</code> apk 的工具，將 apk 解開後的目錄結構如下：</p>
-<div class="code"><pre><span class="n">AndroidManifest</span><span class="p">.</span><span class="n">xml</span>
-<span class="n">apktool</span><span class="p">.</span><span class="n">yml</span>
-<span class="n">assets</span>
-<span class="n">lib</span>
-<span class="n">res</span>
-<span class="n">smali</span>
-</pre></div>
+<pre class="code literal-block">AndroidManifest.xml
+apktool.yml
+assets
+lib
+res
+smali
+</pre>
 
 
 <p>前面提了好幾次的 debuggable flag 就在 AndroidManifest.xml 裡，開啟 debuggable
@@ -275,16 +306,20 @@ dalvik bytecode 反組譯之後的結果。</p>
 <a href="http://pallergabor.uw.hu/androidblog/dalvik_opcodes.html">Dalvik opcodes</a>。</p>
 <p>關於 smali 細節語法的說明，似乎不適合繼續寫在這篇文章內了，因此我這裡就貼一小段
 source code 與實際產生的 smali 做對照，供各位做參考：</p>
-<ul><li>source code (截取自 CtsVerifier)</li>
-</ul><div class="code"><pre>    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">add</span><span class="o">(</span><span class="n">TestListItem</span> <span class="n">item</span><span class="o">)</span> <span class="o">{</span>
+<ul>
+<li>source code (截取自 CtsVerifier)</li>
+</ul>
+<pre class="code literal-block">    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">add</span><span class="o">(</span><span class="n">TestListItem</span> <span class="n">item</span><span class="o">)</span> <span class="o">{</span>
         <span class="n">mRows</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">item</span><span class="o">);</span>
         <span class="n">notifyDataSetChanged</span><span class="o">();</span>
     <span class="o">}</span>
-</pre></div>
+</pre>
 
 
-<ul><li>smali</li>
-</ul><div class="code"><pre><span class="c"># virtual methods</span>
+<ul>
+<li>smali</li>
+</ul>
+<pre class="code literal-block"><span class="c"># virtual methods</span>
 <span class="k">.method</span> <span class="k">public</span> <span class="nf">add</span><span class="p">(</span><span class="kt">L</span>com/android/cts/verifier/<span class="nc">TestListAdapter$TestListItem</span>;<span class="p">)</span><span class="kt">V</span>    <span class="c"># 回傳值為 void</span>
 <span class="k">    .locals</span> <span class="mi">1</span>   <span class="c"># 除了參數以外只有一個變數，即 v0</span>
 <span class="k">    .parameter</span> <span class="s">"item"</span>
@@ -301,52 +336,64 @@ source code 與實際產生的 smali 做對照，供各位做參考：</p>
 <span class="k">    .line</span> <span class="mi">39</span>
     return-void
 <span class="k">.end method</span>
-</pre></div>
+</pre>
 
 
 <p>smali 的語法其實並不難，因此在理解之後，少量的修改程式邏輯或著安插其他程式碼，
 也都不會是什麼困難的事了。</p>
 <h3>Conclusion</h3>
 <p>這次兩篇文章共介紹了四種類型的工具，說明一下我使用各種工具的時機：</p>
-<ul><li>Log viewer<ul><li>尋找問題發生點</li>
+<ul>
+<li>Log viewer<ul>
+<li>尋找問題發生點</li>
 <li>了解流程，除了訊息本身以外，也很容易藉由文字找出對應的程式位置</li>
-</ul></li>
-<li>Profiler<ul><li>找出程式瓶頸與需要最佳化的位置</li>
+</ul>
+</li>
+<li>Profiler<ul>
+<li>找出程式瓶頸與需要最佳化的位置</li>
 <li>畫 call graph 幫助了解執行流程</li>
-</ul></li>
-<li>Debugger<ul><li>觀察各 thread 的 method stack 與變數內容</li>
-</ul></li>
-<li>Reverse Engineering tools<ul><li>不得已沒有 source code 的時候才用 XD</li>
-</ul></li>
-</ul></div>
+</ul>
+</li>
+<li>Debugger<ul>
+<li>觀察各 thread 的 method stack 與變數內容</li>
+</ul>
+</li>
+<li>Reverse Engineering tools<ul>
+<li>不得已沒有 source code 的時候才用 XD</li>
+</ul>
+</li>
+</ul>
+</div>
             </div>
         </div>
         <div class="post">
             <h1 class="title"><a href="posts/android-java-debugging-1.html">Android Java 層 Debug 工具介紹 (1)</a></h1>
             <div class="meta">
                 <div class="authordate">
-                    <time class="timeago" datetime="2014-02-09T20:36:56+08:00">2014-02-09 20:36</time></div>
+                    <time class="timeago" datetime="2014-02-09T20:36:56+08:00">2014-02-09 20:36</time>
+                </div>
                 <div class="stats">
                     
         
-    <p>
-        <a href="posts/android-java-debugging-1.html#disqus_thread" data-disqus-identifier="cache/posts/android-java-debug-1.html">Comments</a>
+    <a href="posts/android-java-debugging-1.html#disqus_thread" data-disqus-identifier="cache/posts/android-java-debug-1.html">Comments</a>
 
 
-                </p></div>
-                
-    <div class="tags">
+                </div>
+            
+        <div itemprop="keywords" class="tags">
         <ul>
-        More posts about:  
-            <li><a class="tag" href="categories/android.html">Android</a></li>
-            <li><a class="tag" href="categories/debugging.html">debugging</a></li>
-            <li><a class="tag" href="categories/coloredlogcat.html">coloredlogcat</a></li>
-            <li><a class="tag" href="categories/traceview.html">traceview</a></li>
-        </ul></div>
+        Tags : 
+           <li><a class="tag p-category" href="categories/android.html" rel="tag">Android</a></li>
+           <li><a class="tag p-category" href="categories/coloredlogcat.html" rel="tag">coloredlogcat</a></li>
+           <li><a class="tag p-category" href="categories/debugging.html" rel="tag">debugging</a></li>
+           <li><a class="tag p-category" href="categories/traceview.html" rel="tag">traceview</a></li>
+        </ul>
+        </div>
 
             </div>
             <div class="body">
-                <div><p>今天又從硬碟裡翻出一份還在前公司時製作的內訓資料，是當時所有我會的 Android Java
+                <div>
+<p>今天又從硬碟裡翻出一份還在前公司時製作的內訓資料，是當時所有我會的 Android Java
 debug 工具的介紹，於是整理之後就成為了現在這篇文章。</p>
 <p>本文中提及的工具與使用方法我都已測試過，即使在目前在最新的 Android 4.4
 上也還能正常使用，但畢竟這些已經是一年前的資料了，或許已經有更新的工具能替代
@@ -362,16 +409,20 @@ logcat</code> 的輸出，並加上顏色與對齊後輸出的工具。</p>
 <p><img alt="coloredlogcat" src="galleries/android-java-debug/colorcat.png"></p>
 <p>由於原作者釋出 <code>Colored Logcat</code> 之後沒有持續維護，因此在 Github 及 Google Code
 上都可以找到其他人的分支。我自己所使用的版本則是對其做了兩個修改：</p>
-<ol><li>增加 -v 參數使其可顯示每一筆 log 的時間</li>
+<ol>
+<li>增加 -v 參數使其可顯示每一筆 log 的時間</li>
 <li>補上原實作漏了的 log 層級：FATAL</li>
-</ol><p>或許有人會問，這種工具怎麼看都還是比不上 <code>ADT</code> 內建的 Log Viewer 呀，究竟
+</ol>
+<p>或許有人會問，這種工具怎麼看都還是比不上 <code>ADT</code> 內建的 Log Viewer 呀，究竟
 command line 有何神奇魔力？這些工具單獨使用的話確實是不怎麼樣，但厲害的地方在於
 它們可以很輕鬆的搭配其他 shell 指令而組合出更多彈性的功能，例如：</p>
-<ol><li>搭配 grep 以過濾關鍵字</li>
+<ol>
+<li>搭配 grep 以過濾關鍵字</li>
 <li>將輸出 redirect (或 tee) 至檔案，方便後續處理</li>
 <li>如果有使用 screen, tmux，還可以隨時暫停，並在畫面上搜尋關鍵字</li>
-</ol><h4>Debug function</h4>
-<div class="code"><pre><span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">debug</span><span class="o">(</span><span class="n">Object</span><span class="o">...</span> <span class="n">arr</span><span class="o">)</span> <span class="o">{</span>
+</ol>
+<h4>Debug function</h4>
+<pre class="code literal-block"><span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">debug</span><span class="o">(</span><span class="n">Object</span><span class="o">...</span> <span class="n">arr</span><span class="o">)</span> <span class="o">{</span>
     <span class="n">StackTraceElement</span> <span class="n">call</span> <span class="o">=</span> <span class="n">Thread</span><span class="o">.</span><span class="na">currentThread</span><span class="o">().</span><span class="na">getStackTrace</span><span class="o">()[</span><span class="mi">3</span><span class="o">];</span>
     <span class="n">String</span> <span class="n">className</span> <span class="o">=</span> <span class="n">call</span><span class="o">.</span><span class="na">getClassName</span><span class="o">();</span>
     <span class="n">className</span> <span class="o">=</span> <span class="n">className</span><span class="o">.</span><span class="na">substring</span><span class="o">(</span><span class="n">className</span><span class="o">.</span><span class="na">lastIndexOf</span><span class="o">(</span><span class="sc">'.'</span><span class="o">)</span> <span class="o">+</span> <span class="mi">1</span><span class="o">);</span>
@@ -379,7 +430,7 @@ command line 有何神奇魔力？這些工具單獨使用的話確實是不怎�
             <span class="o">+</span> <span class="n">className</span> <span class="o">+</span> <span class="s">"."</span> <span class="o">+</span> <span class="n">call</span><span class="o">.</span><span class="na">getMethodName</span><span class="o">()</span> <span class="o">+</span> <span class="s">" "</span>
             <span class="o">+</span> <span class="n">java</span><span class="o">.</span><span class="na">util</span><span class="o">.</span><span class="na">Arrays</span><span class="o">.</span><span class="na">deepToString</span><span class="o">(</span><span class="n">arr</span><span class="o">));</span>
 <span class="o">}</span>
-</pre></div>
+</pre>
 
 
 <p>這個其實既不是 Log Viewer，也不能算是 debug tool，勉強只能算是個小技巧吧。
@@ -395,14 +446,14 @@ deepToString，所以連陣列內容都能印出。</p>
 的<a href="http://developer.android.com/tools/debugging/debugging-tracing.html">教學</a>，所以我就只以圖片與簡短描述帶過。</p>
 <p>執行 profiler 共有兩種方式，第一種方式是在程式中安插程式碼：</p>
 <h4>第一種</h4>
-<div class="code"><pre><span class="c1">// start tracing to "/sdcard/calc.trace"</span>
+<pre class="code literal-block"><span class="c1">// start tracing to "/sdcard/calc.trace"</span>
 <span class="n">Debug</span><span class="o">.</span><span class="na">startMethodTracing</span><span class="o">(</span><span class="s">"calc"</span><span class="o">);</span>
 
 <span class="c1">// 做 profiling 的區域</span>
 
 <span class="c1">// stop tracing</span>
 <span class="n">Debug</span><span class="o">.</span><span class="na">stopMethodTracing</span><span class="o">();</span>
-</pre></div>
+</pre>
 
 
 <p>上述這個方法比較麻煩，但能確保 profiling 的對象只有自己關心的區域。</p>
@@ -417,8 +468,8 @@ process，然後點上圖中被藍色圓圈圈起的按鈕，並在打算停止 
 <p>第一種方法執行完的 trace file 會存在 SD card 內，而第二種則是存在
 <code>/tmp/ddms....</code>，可以從分頁名稱上得到確切的檔名。</p>
 <p>有了 trace file，接著只要執行：</p>
-<div class="code"><pre><span class="n">dmtracedump</span> <span class="o">-</span><span class="n">g</span> <span class="n">callgraph</span><span class="p">.</span><span class="n">png</span> <span class="n">calc</span><span class="p">.</span><span class="n">trace</span>
-</pre></div>
+<pre class="code literal-block">dmtracedump -g callgraph.png calc.trace
+</pre>
 
 
 <p>就可以得到如下的 call graph。</p>
@@ -433,33 +484,36 @@ source code，也能將所需的 code 插入，因此正好可以拿來安插第
 所需的 code，細節將會在後續的文章中說明。</p>
 <p>篇幅好像差不多了，那麼就先在此打住吧。
 接下來預計還會寫一至兩篇文章介紹 remote debugging 與 reverse engineering
-tool，希望我能早日完成。:)</p></div>
+tool，希望我能早日完成。:)</p>
+</div>
             </div>
         </div>
         <div class="post">
             <h1 class="title"><a href="posts/android-cts-report.html">Android CTS - 讓 Report 說話</a></h1>
             <div class="meta">
                 <div class="authordate">
-                    <time class="timeago" datetime="2014-02-02T23:37:47+08:00">2014-02-02 23:37</time></div>
+                    <time class="timeago" datetime="2014-02-02T23:37:47+08:00">2014-02-02 23:37</time>
+                </div>
                 <div class="stats">
                     
         
-    <p>
-        <a href="posts/android-cts-report.html#disqus_thread" data-disqus-identifier="cache/posts/android-cts-report.html">Comments</a>
+    <a href="posts/android-cts-report.html#disqus_thread" data-disqus-identifier="cache/posts/android-cts-report.html">Comments</a>
 
 
-                </p></div>
-                
-    <div class="tags">
+                </div>
+            
+        <div itemprop="keywords" class="tags">
         <ul>
-        More posts about:  
-            <li><a class="tag" href="categories/android.html">Android</a></li>
-            <li><a class="tag" href="categories/cts.html">CTS</a></li>
-        </ul></div>
+        Tags : 
+           <li><a class="tag p-category" href="categories/android.html" rel="tag">Android</a></li>
+           <li><a class="tag p-category" href="categories/cts.html" rel="tag">CTS</a></li>
+        </ul>
+        </div>
 
             </div>
             <div class="body">
-                <div><p>接著來談談當初在負責 CTS 時遇到的最大困難，以及最後解決的方法。</p>
+                <div>
+<p>接著來談談當初在負責 CTS 時遇到的最大困難，以及最後解決的方法。</p>
 <h3>什麼是 CTS？</h3>
 <p>Android 雖然是 Open Source Project，即任何的廠商都可以自行生產手機，但
 如果想在出廠時內建 Google Play 等 Google 所提供的 APP，就必須與 Google
@@ -501,33 +555,36 @@ Google 提供的 CTS 程式，並產生一份通過所有測試的 Report，Goog
 大家見笑。事實上，這個網站其實非常的簡單，甚至我放出的部份也沒有任何難度
 ，只是單純的 parsing XML 並存進資料庫而已，真要說有難度的地方，也只是
 parsing 時比較費工而已。所以我放出 parsing 的部份，希望有需要的人可以在
-略做修改的情況下就能夠使用，如果在使用上有遭遇什麼困難，也歡迎與我聯繫。</p></div>
+略做修改的情況下就能夠使用，如果在使用上有遭遇什麼困難，也歡迎與我聯繫。</p>
+</div>
             </div>
         </div>
         <div class="post">
             <h1 class="title"><a href="posts/android-cts.html">Android CTS 筆記</a></h1>
             <div class="meta">
                 <div class="authordate">
-                    <time class="timeago" datetime="2014-02-02T19:25:16+08:00">2014-02-02 19:25</time></div>
+                    <time class="timeago" datetime="2014-02-02T19:25:16+08:00">2014-02-02 19:25</time>
+                </div>
                 <div class="stats">
                     
         
-    <p>
-        <a href="posts/android-cts.html#disqus_thread" data-disqus-identifier="cache/posts/android-cts.html">Comments</a>
+    <a href="posts/android-cts.html#disqus_thread" data-disqus-identifier="cache/posts/android-cts.html">Comments</a>
 
 
-                </p></div>
-                
-    <div class="tags">
+                </div>
+            
+        <div itemprop="keywords" class="tags">
         <ul>
-        More posts about:  
-            <li><a class="tag" href="categories/android.html">Android</a></li>
-            <li><a class="tag" href="categories/cts.html">CTS</a></li>
-        </ul></div>
+        Tags : 
+           <li><a class="tag p-category" href="categories/android.html" rel="tag">Android</a></li>
+           <li><a class="tag p-category" href="categories/cts.html" rel="tag">CTS</a></li>
+        </ul>
+        </div>
 
             </div>
             <div class="body">
-                <div><p>我過去曾經在國內的二線 Android 系統廠服務了約一年半的時間，當時所負責的
+                <div>
+<p>我過去曾經在國內的二線 Android 系統廠服務了約一年半的時間，當時所負責的
 工作之一，就是負責處理 Android CTS 問題。雖然不是所有的 Issue 都由我負責
 到底，但第一關的釐清、分配，和解決最後無明確歸屬的 Issue，都是我的任務。
 而這一年多來追蹤過的 CTS 問題少說也有百項，也因此累積了不少的筆記。</p>
@@ -535,33 +592,36 @@ parsing 時比較費工而已。所以我放出 parsing 的部份，希望有需
 ，心血來潮花了整整一天的時間，終於有機會讓這些筆記重見天日。我把它們全部
 都重寫成 markdown 格式，並且上傳至 Github 的 wiki，連結就在<a href="https://github.com/sayuan/Android-CTS-notes">這裡</a>。</p>
 <p>希望這些資訊能給還在和 CTS 奮鬥的工程師們一些幫助，如果其中有任何錯誤與
-不足的部份，還請不吝指出或著直接進行修正。</p></div>
+不足的部份，還請不吝指出或著直接進行修正。</p>
+</div>
             </div>
         </div>
         <div class="post">
             <h1 class="title"><a href="posts/ydict.html">ydict - node.js 實作</a></h1>
             <div class="meta">
                 <div class="authordate">
-                    <time class="timeago" datetime="2014-01-30T15:07:52+08:00">2014-01-30 15:07</time></div>
+                    <time class="timeago" datetime="2014-01-30T15:07:52+08:00">2014-01-30 15:07</time>
+                </div>
                 <div class="stats">
                     
         
-    <p>
-        <a href="posts/ydict.html#disqus_thread" data-disqus-identifier="cache/posts/ydict.html">Comments</a>
+    <a href="posts/ydict.html#disqus_thread" data-disqus-identifier="cache/posts/ydict.html">Comments</a>
 
 
-                </p></div>
-                
-    <div class="tags">
+                </div>
+            
+        <div itemprop="keywords" class="tags">
         <ul>
-        More posts about:  
-            <li><a class="tag" href="categories/ydict.html">ydict</a></li>
-            <li><a class="tag" href="categories/nodejs.html">node.js</a></li>
-        </ul></div>
+        Tags : 
+           <li><a class="tag p-category" href="categories/nodejs.html" rel="tag">node.js</a></li>
+           <li><a class="tag p-category" href="categories/ydict.html" rel="tag">ydict</a></li>
+        </ul>
+        </div>
 
             </div>
             <div class="body">
-                <div><h3>What is "ydict"</h3>
+                <div>
+<h3>What is "ydict"</h3>
 <p>身為一名 command line 魔人，儘可能的將所有在電腦上的操作在 command line
 之內完成，是一件理所當然的事情，就連查字典也不例外，而 ydict
 就是這樣的工具。</p>
@@ -589,8 +649,8 @@ parsing，事情也許會簡單很多，於是 <a href="https://github.com/sayua
 可以直接引用，雖然我覺得這個功能完全只是雞肋。:p</p>
 <p>此外，我也已經將 ydict.js 上傳 npm，因此只要執行下述指令即可完成安裝，
 希望各位會喜歡。</p>
-<div class="code"><pre><span class="p">[</span><span class="n">sudo</span><span class="p">]</span> <span class="n">npm</span> <span class="n">install</span> <span class="o">-</span><span class="n">g</span> <span class="n">ydict</span><span class="p">.</span><span class="n">js</span>
-</pre></div>
+<pre class="code literal-block">[sudo] npm install -g ydict.js
+</pre>
 
 
 <h3>What else?</h3>
@@ -600,37 +660,40 @@ parsing，事情也許會簡單很多，於是 <a href="https://github.com/sayua
 麻雀雖小卻是五臟俱全。(<strong>使用前請先安裝 w3m 套件。</strong>)</p>
 <p>另外就是 <a href="https://github.com/JeffChien/jydict">Jeff 開發的 LiveScript 版</a>，和 ydict.js 一樣使用 <a href="https://github.com/MatthewMueller/cheerio">cheerio</a>
 來處理 parsing，並且同樣也已經上傳 npm，因此只要執行下述指令即可安裝：</p>
-<div class="code"><pre><span class="p">[</span><span class="n">sudo</span><span class="p">]</span> <span class="n">npm</span> <span class="n">install</span> <span class="o">-</span><span class="n">g</span> <span class="n">jydict</span>
-</pre></div></div>
+<pre class="code literal-block">[sudo] npm install -g jydict
+</pre>
+</div>
             </div>
         </div>
         <div class="post">
             <h1 class="title"><a href="posts/finally-my-new-blog.html">終於，新居落成</a></h1>
             <div class="meta">
                 <div class="authordate">
-                    <time class="timeago" datetime="2014-01-29T21:05:42+08:00">2014-01-29 21:05</time></div>
+                    <time class="timeago" datetime="2014-01-29T21:05:42+08:00">2014-01-29 21:05</time>
+                </div>
                 <div class="stats">
                     
         
-    <p>
-        <a href="posts/finally-my-new-blog.html#disqus_thread" data-disqus-identifier="cache/posts/finally-my-new-blog.html">Comments</a>
+    <a href="posts/finally-my-new-blog.html#disqus_thread" data-disqus-identifier="cache/posts/finally-my-new-blog.html">Comments</a>
 
 
-                </p></div>
-                
-    <div class="tags">
+                </div>
+            
+        <div itemprop="keywords" class="tags">
         <ul>
-        More posts about:  
-            <li><a class="tag" href="categories/static-blog-generator.html">static blog generator</a></li>
-            <li><a class="tag" href="categories/nikola.html">Nikola</a></li>
-            <li><a class="tag" href="categories/mathjax.html">mathjax</a></li>
-            <li><a class="tag" href="categories/markdown.html">Markdown</a></li>
-            <li><a class="tag" href="categories/cjk-space-fix.html">CJK-space-fix</a></li>
-        </ul></div>
+        Tags : 
+           <li><a class="tag p-category" href="categories/cjk-space-fix.html" rel="tag">CJK-space-fix</a></li>
+           <li><a class="tag p-category" href="categories/markdown.html" rel="tag">Markdown</a></li>
+           <li><a class="tag p-category" href="categories/mathjax.html" rel="tag">mathjax</a></li>
+           <li><a class="tag p-category" href="categories/nikola.html" rel="tag">Nikola</a></li>
+           <li><a class="tag p-category" href="categories/static-blog-generator.html" rel="tag">static blog generator</a></li>
+        </ul>
+        </div>
 
             </div>
             <div class="body">
-                <div><h3>塵埃落定</h3>
+                <div>
+<h3>塵埃落定</h3>
 <p>嚷著說要寫 blog 也差不多拖了一、兩年了，除了單純的因為我懶以外，找不到合適的
 static blog generator 也是一大主因。為了讓 blog
 能完全在自己的掌控之中，我必須選一個自己看得懂、改得動的語言所實作的
@@ -648,7 +711,8 @@ theme: <a href="http://www.damian.oquanta.info/posts/nikolas-zen-theme-finally-r
 <p>接下來就展示一下 Nikola 在數學公式和 code 的寫法以及其顯示在網頁上的效果吧。</p>
 <h3>Math</h3>
 <p>顯示數學公式其實就只是使用了 <a href="http://www.mathjax.org/">MathJax</a>，沒有什麼特別的地方。</p>
-<ul><li>
+<ul>
+<li>
 <p>inline math: $e^{ix} = \cos x + i\sin x$</p>
 <p>對應的寫法: <code>$e^{ix} = \cos x + i\sin x$</code></p>
 </li>
@@ -656,14 +720,15 @@ theme: <a href="http://www.damian.oquanta.info/posts/nikolas-zen-theme-finally-r
 <p>display math: $$\sqrt{1+\sqrt[^p!]{1+a^2}}$$</p>
 <p>對應的寫法: <code>$$\sqrt{1+\sqrt[^p\!]{1+a^2}}$$</code></p>
 </li>
-</ul><h3>Syntax Highlight</h3>
+</ul>
+<h3>Syntax Highlight</h3>
 <p>Syntax highlight 則是 <a href="http://pythonhosted.org/Markdown/extensions/code_hilite.html">CodeHilite</a> 和 <a href="http://pythonhosted.org/Markdown/extensions/fenced_code_blocks.html">Fenced Code Blocks</a> 的功勞。</p>
-<div class="code"><pre><span class="kd">class</span> <span class="nc">HelloWorld</span> <span class="o">{</span>
+<pre class="code literal-block"><span class="kd">class</span> <span class="nc">HelloWorld</span> <span class="o">{</span>
     <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
         <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Hello World!"</span><span class="o">);</span>
     <span class="o">}</span>
 <span class="o">}</span>
-</pre></div>
+</pre>
 
 
 <p>對應的寫法：</p>
@@ -679,17 +744,20 @@ class HelloWorld {
 <p>最後來個置入式行銷介紹一下我自己開發的 <a href="https://github.com/sayuan/CJK-space-fix/">CJK-space-fix</a>。</p>
 <p>很多人在寫 markdown 或著其他格式的檔案時，會習慣在不超過 column 80 的位置
 換行。例如：
-</p><pre>
+</p>
+<pre>
 很多人在寫 markdown 或著其他格式的檔案時，會習慣在不超過 column 80 的位置
 換行。例如：
 </pre>
 <p>這在 Python-Markdown 會被處理成如下
-</p><pre>
+</p>
+<pre>
 <code>&lt;p&gt;</code>很多人在寫 markdown 或著其他格式的檔案時，會習慣在不超過 column 80 的位置
 換行。例如：<code>&lt;/p&gt;</code>
 </pre>
 <p>然後顯示在瀏覽器上時，就會在 "位置" 和 "換行" 之間有一個多餘的空白，像是這樣：
-</p><pre>
+</p>
+<pre>
 很多人在寫 markdown 或著其他格式的檔案時，會習慣在不超過 column 80 的位置 換行。例如：
 </pre>
 <p>這在許多以空白作為單字分隔的語言中都不是問題，但是在中文卻會顯得很突兀。</p>
@@ -704,40 +772,40 @@ class HelloWorld {
 markdown，但找不到針對 markdown 的說明文件，很多功能我也都沒能試出來。
 但要是再這樣挑三揀四，我想我大概永遠也沒有辦法開始 blogging 吧。
 所以還是就先這樣吧！後續還有很多問題想要處理，像是站內搜尋、轉換至 HTML5、增加適當的 meta 標籤……等等。
-不過我想最大的問題應該是我能堅持 blogging 多久吧？</p></div>
+不過我想最大的問題應該是我能堅持 blogging 多久吧？</p>
+</div>
             </div>
         </div>
     
 
     
         
-       <script>var disqus_shortname="say-something";(function(){var a=document.createElement("script");a.async=true;a.src="//"+disqus_shortname+".disqus.com/count.js";(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(a)}());</script><script src="assets/js/mathjax.js" type="text/javascript"></script>
+       <script>var disqus_shortname="say-something";(function(){var a=document.createElement("script");a.async=true;a.src="//"+disqus_shortname+".disqus.com/count.js";(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(a)}());</script>
 
 
-            Contents © 2014 <a href="mailto:shiao.an.yuan@gmail.com">Shiao-An Yuan</a> - 
-Powered by <a href="http://getnikola.com">Nikola</a> - 
-Zen theme based in <a href="https://github.com/arusahni/website-template">Arusahni's website-template</a><br><a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">
+    
+        <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({tex2jax: {inlineMath: [['$latex ','$'], ['\\(','\\)']]}});</script>
+        <script src="assets/js/mathjax.js"></script>
+
+
+             
+        <footer id="footer" role="contentinfo">
+            <p>Contents © 2015         <a href="mailto:shiao.an.yuan@gmail.com">Shiao-An Yuan</a> - Powered by         <a href="https://getnikola.com" rel="nofollow">Nikola</a>         
+<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">
 <img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-sa/4.0/88x31.png"></a><br>
 This work is licensed under a
 <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/deed.en_US">
 Creative Commons Attribution-ShareAlike 4.0 International License
-</a>.
+</a>.</p>
             
+        </footer>
+
+        </div>
+    </section>
     
- <!-- Social buttons -->
- <div id="addthisbox" class="addthis_toolbox addthis_peekaboo_style addthis_default_style addthis_label_style addthis_32x32_style">
- <a class="addthis_button_more"><i class="icon-share-sign icon-2x"></i>    Share</a>
- <ul><li><a class="addthis_button_twitter"><i class="icon-twitter icon-2x"></i>    Twitter</a>
- </li><li><a class="addthis_button_google_plusone_share"><i class="icon-google-plus-sign icon-2x"></i>    Google+</a>
- </li><li><a class="addthis_button_linkedin"><i class="icon-linkedin icon-2x"></i>    Linkedin</a>
- </li><li><a class="addthis_button_facebook"><i class="icon-facebook-sign icon-2x"></i>    Facebook</a>
- </li></ul></div>
- <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-4f7088a56bb93798"></script><!-- End of social buttons --></div>
-    </section><script src="assets/js/all-nocdn.js" type="text/javascript"></script><script type="text/javascript">
-            $(function(){
-                $('.timeago').timeago();
-            });
-        </script><script type="text/javascript" src="assets/js/cjk_space_fix.js"></script><script type="text/javascript">
+<script type="text/javascript" src="assets/js/cjk_space_fix.js"></script>
+<script type="text/javascript">
   cjkSpaceFix();
 
   // Google Analytics
@@ -748,4 +816,19 @@ Creative Commons Attribution-ShareAlike 4.0 International License
 
   ga('create', 'UA-47613541-1', 'sayuan.github.io');
   ga('send', 'pageview');
-</script></body></html>
+</script>
+
+    
+    
+            <script src="assets/js/all-nocdn.js" type="text/javascript"></script>
+    
+
+    
+        <script type="text/javascript">
+            $(function(){
+                $('.timeago').timeago();
+            });
+        </script>
+    
+</body>
+</html>
