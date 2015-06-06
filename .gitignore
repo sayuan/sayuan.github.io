@@ -2,4 +2,5 @@
 /output
 /themes
 /conf.pyc
-/.doit.db
+/.doit.db*
+__pycache__
