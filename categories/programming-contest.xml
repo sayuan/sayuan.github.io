@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>SAY something (programming contest)</title><link>http://sayuan.github.io/</link><description></description><atom:link rel="self" href="http://sayuan.github.io/categories/programming-contest.xml" type="application/rss+xml"></atom:link><language>en</language><lastBuildDate>Sat, 06 Jun 2015 17:01:56 GMT</lastBuildDate><generator>http://getnikola.com/</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>程式競賽小技巧 - Binary Search</title><link>http://sayuan.github.io/posts/binary-search.html</link><dc:creator>Shiao-An Yuan</dc:creator><description>&lt;div&gt;&lt;p&gt;最近在 &lt;a href="https://kaif.io"&gt;Kaif&lt;/a&gt; 開了一個 &lt;a href="https://kaif.io/z/programming-contest"&gt;程式競賽&lt;/a&gt; 區，打算在上面提一些我在競賽中學到的技巧，
+不過既然我有一個很久沒動筆的 Blog，不如就直接寫在這裡，再把連結貼到 Kaif 吧。&lt;/p&gt;
+&lt;p&gt;Binary Search 在程式競賽中，指的不是用來檢查元素在 sorted list 中位置的方法，
+而是一種解題技巧。適用 Binary Search 的題目，通常會有兩個特性：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;目的是要求出某個變數 "滿足某個條件" 的最小值，
+   且變數超出此值後也都會繼續滿足此條件。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;無法使用有效率的方法計算出答案，但只要給變數任意的值，
+   都能容易的判斷出是否滿足條件。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;在針對整數域時，我的 code 會像是這樣：&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;&lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;lower&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+&lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;upper&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;1000000&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;                    &lt;span class="c1"&gt;// 某個大到一定滿足條件的值&lt;/span&gt;
+&lt;span class="k"&gt;while&lt;/span&gt; &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;lower&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt; &lt;span class="n"&gt;upper&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
+    &lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;mid&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;lower&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="n"&gt;upper&lt;/span&gt;&lt;span class="o"&gt;)/&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+    &lt;span class="kt"&gt;boolean&lt;/span&gt; &lt;span class="n"&gt;satisfied&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;check&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;mid&lt;/span&gt;&lt;span class="o"&gt;);&lt;/span&gt;     &lt;span class="c1"&gt;// 將 mid 代入檢查是否滿足&lt;/span&gt;
+    &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;satified&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="n"&gt;upper&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;mid&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+    &lt;span class="k"&gt;else&lt;/span&gt; &lt;span class="n"&gt;lower&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;mid&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+&lt;span class="o"&gt;}&lt;/span&gt;
+&lt;/pre&gt;
+
+
+&lt;p&gt;離開 &lt;code&gt;while&lt;/code&gt; 迴圈時，&lt;code&gt;lower&lt;/code&gt; 會與 &lt;code&gt;upper&lt;/code&gt; 相等，並且就是所求答案。&lt;/p&gt;
+&lt;p&gt;那麼在實數域會有什麼不同呢？這就是我覺得有意思的地方了。
+由於浮點數精確度的關係，是有可能發生 &lt;code&gt;mid&lt;/code&gt; 等於 &lt;code&gt;lower&lt;/code&gt; 的情況，導致形成無窮迴圈。&lt;/p&gt;
+&lt;p&gt;好在我們知道比較浮點數應該要允許一點誤差。通常我的習慣是加上一個常數
+&lt;code&gt;Є&lt;/code&gt;，於是 code 會長這樣：&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;&lt;span class="kd"&gt;public&lt;/span&gt; &lt;span class="kd"&gt;static&lt;/span&gt; &lt;span class="kd"&gt;final&lt;/span&gt; &lt;span class="kt"&gt;double&lt;/span&gt; &lt;span class="n"&gt;EPSILON&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="n"&gt;e&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;8&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+
+&lt;span class="k"&gt;while&lt;/span&gt; &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;lower&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="n"&gt;EPSILON&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt; &lt;span class="n"&gt;upper&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
+    &lt;span class="c1"&gt;// ...&lt;/span&gt;
+&lt;span class="o"&gt;}&lt;/span&gt;
+&lt;/pre&gt;
+
+
+&lt;p&gt;使用這個技巧，只要你選擇了 "適當" 的 &lt;code&gt;Є&lt;/code&gt;，程式就會是可以正確運行的。
+但什麼情況下會出問題呢？&lt;/p&gt;
+&lt;p&gt;當你的 &lt;code&gt;lower&lt;/code&gt; 很大，而 &lt;code&gt;Є&lt;/code&gt; 很小時，同樣有可能發生 &lt;code&gt;lower+EPSILON==lower&lt;/code&gt; 的情況。&lt;/p&gt;
+&lt;p&gt;那有沒有更好的方法？看看以下的 code 吧。&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;&lt;span class="kt"&gt;double&lt;/span&gt; &lt;span class="n"&gt;lower&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mf"&gt;0.0&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+&lt;span class="kt"&gt;double&lt;/span&gt; &lt;span class="n"&gt;upper&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="n"&gt;e30&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+&lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;times&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt; &lt;span class="n"&gt;times&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="mi"&gt;50&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt; &lt;span class="n"&gt;times&lt;/span&gt;&lt;span class="o"&gt;++)&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;      &lt;span class="c1"&gt;// 注意這行&lt;/span&gt;
+    &lt;span class="kt"&gt;double&lt;/span&gt; &lt;span class="n"&gt;mid&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;lower&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="n"&gt;upper&lt;/span&gt;&lt;span class="o"&gt;)/&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+    &lt;span class="kt"&gt;boolean&lt;/span&gt; &lt;span class="n"&gt;satisfied&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;check&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;mid&lt;/span&gt;&lt;span class="o"&gt;);&lt;/span&gt;
+    &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;satisfied&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="n"&gt;upper&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;mid&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+    &lt;span class="k"&gt;else&lt;/span&gt; &lt;span class="n"&gt;lower&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;mid&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+&lt;span class="o"&gt;}&lt;/span&gt;
+&lt;/pre&gt;
+
+
+&lt;p&gt;結果就是什麼都不要管，固定跑個足夠次數就好。:p&lt;/p&gt;
+&lt;p&gt;我自己習慣跑 50 次，但也看過其他參賽者使用 40, 100, 200 次。&lt;/p&gt;&lt;/div&gt;</description><category>algorithm</category><category>competitive programming</category><category>programming contest</category><guid>http://sayuan.github.io/posts/binary-search.html</guid><pubDate>Sat, 06 Jun 2015 15:33:28 GMT</pubDate></item></channel></rss>

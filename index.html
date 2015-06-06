@@ -44,6 +44,91 @@
         <div class="content" rel="main">
             
         <div class="post">
+            <h1 class="title"><a href="posts/binary-search.html">程式競賽小技巧 - Binary Search</a></h1>
+            <div class="meta">
+                <div class="authordate">
+                    <time class="timeago" datetime="2015-06-06T23:33:28+08:00">2015-06-06 23:33</time>
+                </div>
+                <div class="stats">
+                    
+        
+    <a href="posts/binary-search.html#disqus_thread" data-disqus-identifier="cache/posts/binary-search.html">Comments</a>
+
+
+                </div>
+            
+        <div itemprop="keywords" class="tags">
+        <ul>
+        Tags : 
+           <li><a class="tag p-category" href="categories/algorithm.html" rel="tag">algorithm</a></li>
+           <li><a class="tag p-category" href="categories/competitive-programming.html" rel="tag">competitive programming</a></li>
+           <li><a class="tag p-category" href="categories/programming-contest.html" rel="tag">programming contest</a></li>
+        </ul>
+        </div>
+
+            </div>
+            <div class="body">
+                <div>
+<p>最近在 <a href="https://kaif.io">Kaif</a> 開了一個 <a href="https://kaif.io/z/programming-contest">程式競賽</a> 區，打算在上面提一些我在競賽中學到的技巧，
+不過既然我有一個很久沒動筆的 Blog，不如就直接寫在這裡，再把連結貼到 Kaif 吧。</p>
+<p>Binary Search 在程式競賽中，指的不是用來檢查元素在 sorted list 中位置的方法，
+而是一種解題技巧。適用 Binary Search 的題目，通常會有兩個特性：</p>
+<ol>
+<li>
+<p>目的是要求出某個變數 "滿足某個條件" 的最小值，
+   且變數超出此值後也都會繼續滿足此條件。</p>
+</li>
+<li>
+<p>無法使用有效率的方法計算出答案，但只要給變數任意的值，
+   都能容易的判斷出是否滿足條件。</p>
+</li>
+</ol>
+<p>在針對整數域時，我的 code 會像是這樣：</p>
+<pre class="code literal-block"><span class="kt">int</span> <span class="n">lower</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+<span class="kt">int</span> <span class="n">upper</span> <span class="o">=</span> <span class="mi">1000000</span><span class="o">;</span>                    <span class="c1">// 某個大到一定滿足條件的值</span>
+<span class="k">while</span> <span class="o">(</span><span class="n">lower</span> <span class="o">&lt;</span> <span class="n">upper</span><span class="o">)</span> <span class="o">{</span>
+    <span class="kt">int</span> <span class="n">mid</span> <span class="o">=</span> <span class="o">(</span><span class="n">lower</span><span class="o">+</span><span class="n">upper</span><span class="o">)/</span><span class="mi">2</span><span class="o">;</span>
+    <span class="kt">boolean</span> <span class="n">satisfied</span> <span class="o">=</span> <span class="n">check</span><span class="o">(</span><span class="n">mid</span><span class="o">);</span>     <span class="c1">// 將 mid 代入檢查是否滿足</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">satified</span><span class="o">)</span> <span class="n">upper</span> <span class="o">=</span> <span class="n">mid</span><span class="o">;</span>
+    <span class="k">else</span> <span class="n">lower</span> <span class="o">=</span> <span class="n">mid</span><span class="o">+</span><span class="mi">1</span><span class="o">;</span>
+<span class="o">}</span>
+</pre>
+
+
+<p>離開 <code>while</code> 迴圈時，<code>lower</code> 會與 <code>upper</code> 相等，並且就是所求答案。</p>
+<p>那麼在實數域會有什麼不同呢？這就是我覺得有意思的地方了。
+由於浮點數精確度的關係，是有可能發生 <code>mid</code> 等於 <code>lower</code> 的情況，導致形成無窮迴圈。</p>
+<p>好在我們知道比較浮點數應該要允許一點誤差。通常我的習慣是加上一個常數
+<code>Є</code>，於是 code 會長這樣：</p>
+<pre class="code literal-block"><span class="kd">public</span> <span class="kd">static</span> <span class="kd">final</span> <span class="kt">double</span> <span class="n">EPSILON</span> <span class="o">=</span> <span class="mi">1</span><span class="n">e</span><span class="o">-</span><span class="mi">8</span><span class="o">;</span>
+
+<span class="k">while</span> <span class="o">(</span><span class="n">lower</span><span class="o">+</span><span class="n">EPSILON</span> <span class="o">&lt;</span> <span class="n">upper</span><span class="o">)</span> <span class="o">{</span>
+    <span class="c1">// ...</span>
+<span class="o">}</span>
+</pre>
+
+
+<p>使用這個技巧，只要你選擇了 "適當" 的 <code>Є</code>，程式就會是可以正確運行的。
+但什麼情況下會出問題呢？</p>
+<p>當你的 <code>lower</code> 很大，而 <code>Є</code> 很小時，同樣有可能發生 <code>lower+EPSILON==lower</code> 的情況。</p>
+<p>那有沒有更好的方法？看看以下的 code 吧。</p>
+<pre class="code literal-block"><span class="kt">double</span> <span class="n">lower</span> <span class="o">=</span> <span class="mf">0.0</span><span class="o">;</span>
+<span class="kt">double</span> <span class="n">upper</span> <span class="o">=</span> <span class="mi">1</span><span class="n">e30</span><span class="o">;</span>
+<span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">times</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span> <span class="n">times</span><span class="o">&lt;</span><span class="mi">50</span><span class="o">;</span> <span class="n">times</span><span class="o">++)</span> <span class="o">{</span>      <span class="c1">// 注意這行</span>
+    <span class="kt">double</span> <span class="n">mid</span> <span class="o">=</span> <span class="o">(</span><span class="n">lower</span><span class="o">+</span><span class="n">upper</span><span class="o">)/</span><span class="mi">2</span><span class="o">;</span>
+    <span class="kt">boolean</span> <span class="n">satisfied</span> <span class="o">=</span> <span class="n">check</span><span class="o">(</span><span class="n">mid</span><span class="o">);</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">satisfied</span><span class="o">)</span> <span class="n">upper</span> <span class="o">=</span> <span class="n">mid</span><span class="o">;</span>
+    <span class="k">else</span> <span class="n">lower</span> <span class="o">=</span> <span class="n">mid</span><span class="o">;</span>
+<span class="o">}</span>
+</pre>
+
+
+<p>結果就是什麼都不要管，固定跑個足夠次數就好。:p</p>
+<p>我自己習慣跑 50 次，但也看過其他參賽者使用 40, 100, 200 次。</p>
+</div>
+            </div>
+        </div>
+        <div class="post">
             <h1 class="title"><a href="posts/network-topology-by-graphviz.html">使用 Graphviz 繪製網路拓樸</a></h1>
             <div class="meta">
                 <div class="authordate">

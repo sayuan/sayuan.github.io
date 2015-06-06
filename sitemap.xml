@@ -14,11 +14,19 @@
  </url>
  <url>
   <loc>http://sayuan.github.io/2014/index.html</loc>
-  <lastmod>2015-06-06</lastmod>
+  <lastmod>2015-06-07</lastmod>
+ </url>
+ <url>
+  <loc>http://sayuan.github.io/2015/index.html</loc>
+  <lastmod>2015-06-07</lastmod>
  </url>
  <url>
   <loc>http://sayuan.github.io/archive.html</loc>
-  <lastmod>2015-06-06</lastmod>
+  <lastmod>2015-06-07</lastmod>
+ </url>
+ <url>
+  <loc>http://sayuan.github.io/categories/algorithm.html</loc>
+  <lastmod>2015-06-07</lastmod>
  </url>
  <url>
   <loc>http://sayuan.github.io/categories/android.html</loc>
@@ -39,6 +47,10 @@
  <url>
   <loc>http://sayuan.github.io/categories/coloredlogcat.html</loc>
   <lastmod>2015-06-06</lastmod>
+ </url>
+ <url>
+  <loc>http://sayuan.github.io/categories/competitive-programming.html</loc>
+  <lastmod>2015-06-07</lastmod>
  </url>
  <url>
   <loc>http://sayuan.github.io/categories/cts.html</loc>
@@ -89,6 +101,10 @@
   <lastmod>2015-06-06</lastmod>
  </url>
  <url>
+  <loc>http://sayuan.github.io/categories/programming-contest.html</loc>
+  <lastmod>2015-06-07</lastmod>
+ </url>
+ <url>
   <loc>http://sayuan.github.io/categories/static-blog-generator.html</loc>
   <lastmod>2015-06-06</lastmod>
  </url>
@@ -114,7 +130,7 @@
  </url>
  <url>
   <loc>http://sayuan.github.io/index.html</loc>
-  <lastmod>2015-06-06</lastmod>
+  <lastmod>2015-06-07</lastmod>
  </url>
  <url>
   <loc>http://sayuan.github.io/listings/index.html</loc>
@@ -135,6 +151,10 @@
  <url>
   <loc>http://sayuan.github.io/posts/android-java-debugging-2.html</loc>
   <lastmod>2015-06-06</lastmod>
+ </url>
+ <url>
+  <loc>http://sayuan.github.io/posts/binary-search.html</loc>
+  <lastmod>2015-06-07</lastmod>
  </url>
  <url>
   <loc>http://sayuan.github.io/posts/finally-my-new-blog.html</loc>
