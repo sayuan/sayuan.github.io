@@ -131,7 +131,7 @@ NAVIGATION_LINKS = {
         ('/categories/index.html', 'Tags', 'icon-tags'),
         # ('/portfolio/portfolio.slides.html', 'Portfolio', 'icon-briefcase'),
         ('/stories/about-me.html', 'About me', 'icon-user'),
-        # ('https://twitter.com/damian_avila', 'My Twitter', 'icon-twitter'),
+        ('https://twitter.com/shiaoanyuan', 'My Twitter', 'icon-twitter'),
         ('https://github.com/sayuan', 'My Github', 'icon-github'),
         ('https://plus.google.com/111763383423728987624/posts', 'My Google+', 'icon-google-plus'),
         ('http://www.linkedin.com/in/sayuan', 'My LinkedIn', 'icon-linkedin'),
