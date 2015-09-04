@@ -5,171 +5,151 @@
     xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
                         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
  <url>
-  <loc>http://sayuan.github.io/2014/01/index.html</loc>
-  <lastmod>2014-02-23</lastmod>
- </url>
- <url>
-  <loc>http://sayuan.github.io/2014/02/index.html</loc>
-  <lastmod>2014-03-02</lastmod>
- </url>
- <url>
   <loc>http://sayuan.github.io/2014/index.html</loc>
-  <lastmod>2015-08-27</lastmod>
+  <lastmod>2015-09-05</lastmod>
  </url>
  <url>
   <loc>http://sayuan.github.io/2015/index.html</loc>
-  <lastmod>2015-08-27</lastmod>
+  <lastmod>2015-09-05</lastmod>
  </url>
  <url>
   <loc>http://sayuan.github.io/archive.html</loc>
-  <lastmod>2015-08-27</lastmod>
+  <lastmod>2015-09-05</lastmod>
  </url>
  <url>
   <loc>http://sayuan.github.io/categories/algorithm.html</loc>
-  <lastmod>2015-08-27</lastmod>
+  <lastmod>2015-09-05</lastmod>
  </url>
  <url>
   <loc>http://sayuan.github.io/categories/android.html</loc>
-  <lastmod>2015-08-27</lastmod>
+  <lastmod>2015-09-05</lastmod>
  </url>
  <url>
   <loc>http://sayuan.github.io/categories/apktool.html</loc>
-  <lastmod>2015-08-27</lastmod>
- </url>
- <url>
-  <loc>http://sayuan.github.io/categories/blog.html</loc>
-  <lastmod>2014-01-31</lastmod>
+  <lastmod>2015-09-05</lastmod>
  </url>
  <url>
   <loc>http://sayuan.github.io/categories/cjk-space-fix.html</loc>
-  <lastmod>2015-08-27</lastmod>
+  <lastmod>2015-09-05</lastmod>
  </url>
  <url>
   <loc>http://sayuan.github.io/categories/coloredlogcat.html</loc>
-  <lastmod>2015-08-27</lastmod>
+  <lastmod>2015-09-05</lastmod>
  </url>
  <url>
   <loc>http://sayuan.github.io/categories/competitive-programming.html</loc>
-  <lastmod>2015-08-27</lastmod>
+  <lastmod>2015-09-05</lastmod>
  </url>
  <url>
   <loc>http://sayuan.github.io/categories/cts.html</loc>
-  <lastmod>2015-08-27</lastmod>
+  <lastmod>2015-09-05</lastmod>
  </url>
  <url>
   <loc>http://sayuan.github.io/categories/debugging.html</loc>
-  <lastmod>2015-08-27</lastmod>
- </url>
- <url>
-  <loc>http://sayuan.github.io/categories/dex2jar.html</loc>
-  <lastmod>2014-02-09</lastmod>
+  <lastmod>2015-09-05</lastmod>
  </url>
  <url>
   <loc>http://sayuan.github.io/categories/dot.html</loc>
-  <lastmod>2015-08-27</lastmod>
+  <lastmod>2015-09-05</lastmod>
  </url>
  <url>
   <loc>http://sayuan.github.io/categories/eclipse.html</loc>
-  <lastmod>2015-08-27</lastmod>
+  <lastmod>2015-09-05</lastmod>
  </url>
  <url>
   <loc>http://sayuan.github.io/categories/graphviz.html</loc>
-  <lastmod>2015-08-27</lastmod>
+  <lastmod>2015-09-05</lastmod>
  </url>
  <url>
   <loc>http://sayuan.github.io/categories/index.html</loc>
-  <lastmod>2015-08-27</lastmod>
+  <lastmod>2015-09-05</lastmod>
  </url>
  <url>
   <loc>http://sayuan.github.io/categories/markdown.html</loc>
-  <lastmod>2015-08-27</lastmod>
+  <lastmod>2015-09-05</lastmod>
  </url>
  <url>
   <loc>http://sayuan.github.io/categories/mathjax.html</loc>
-  <lastmod>2015-08-27</lastmod>
+  <lastmod>2015-09-05</lastmod>
  </url>
  <url>
   <loc>http://sayuan.github.io/categories/network.html</loc>
-  <lastmod>2015-08-27</lastmod>
+  <lastmod>2015-09-05</lastmod>
  </url>
  <url>
   <loc>http://sayuan.github.io/categories/nikola.html</loc>
-  <lastmod>2015-08-27</lastmod>
+  <lastmod>2015-09-05</lastmod>
  </url>
  <url>
   <loc>http://sayuan.github.io/categories/nodejs.html</loc>
-  <lastmod>2015-08-27</lastmod>
+  <lastmod>2015-09-05</lastmod>
  </url>
  <url>
   <loc>http://sayuan.github.io/categories/programming-contest.html</loc>
-  <lastmod>2015-08-27</lastmod>
+  <lastmod>2015-09-05</lastmod>
  </url>
  <url>
   <loc>http://sayuan.github.io/categories/static-blog-generator.html</loc>
-  <lastmod>2015-08-27</lastmod>
+  <lastmod>2015-09-05</lastmod>
  </url>
  <url>
   <loc>http://sayuan.github.io/categories/traceview.html</loc>
-  <lastmod>2015-08-27</lastmod>
+  <lastmod>2015-09-05</lastmod>
  </url>
  <url>
   <loc>http://sayuan.github.io/categories/ydict.html</loc>
-  <lastmod>2015-08-27</lastmod>
+  <lastmod>2015-09-05</lastmod>
  </url>
  <url>
   <loc>http://sayuan.github.io/galleries/android-java-debug/index.html</loc>
-  <lastmod>2015-08-27</lastmod>
+  <lastmod>2015-09-05</lastmod>
  </url>
  <url>
   <loc>http://sayuan.github.io/galleries/index.html</loc>
-  <lastmod>2015-08-27</lastmod>
+  <lastmod>2015-09-05</lastmod>
  </url>
  <url>
   <loc>http://sayuan.github.io/galleries/misc/index.html</loc>
-  <lastmod>2015-08-27</lastmod>
+  <lastmod>2015-09-05</lastmod>
  </url>
  <url>
   <loc>http://sayuan.github.io/index.html</loc>
-  <lastmod>2015-08-27</lastmod>
- </url>
- <url>
-  <loc>http://sayuan.github.io/listings/index.html</loc>
-  <lastmod>2014-02-23</lastmod>
+  <lastmod>2015-09-05</lastmod>
  </url>
  <url>
   <loc>http://sayuan.github.io/posts/android-cts-report.html</loc>
-  <lastmod>2015-08-27</lastmod>
+  <lastmod>2015-09-05</lastmod>
  </url>
  <url>
   <loc>http://sayuan.github.io/posts/android-cts.html</loc>
-  <lastmod>2015-08-27</lastmod>
+  <lastmod>2015-09-05</lastmod>
  </url>
  <url>
   <loc>http://sayuan.github.io/posts/android-java-debugging-1.html</loc>
-  <lastmod>2015-08-27</lastmod>
+  <lastmod>2015-09-05</lastmod>
  </url>
  <url>
   <loc>http://sayuan.github.io/posts/android-java-debugging-2.html</loc>
-  <lastmod>2015-08-27</lastmod>
+  <lastmod>2015-09-05</lastmod>
  </url>
  <url>
   <loc>http://sayuan.github.io/posts/binary-search.html</loc>
-  <lastmod>2015-08-27</lastmod>
+  <lastmod>2015-09-05</lastmod>
  </url>
  <url>
   <loc>http://sayuan.github.io/posts/finally-my-new-blog.html</loc>
-  <lastmod>2015-08-27</lastmod>
+  <lastmod>2015-09-05</lastmod>
  </url>
  <url>
   <loc>http://sayuan.github.io/posts/network-topology-by-graphviz.html</loc>
-  <lastmod>2015-08-27</lastmod>
+  <lastmod>2015-09-05</lastmod>
  </url>
  <url>
   <loc>http://sayuan.github.io/posts/ydict.html</loc>
-  <lastmod>2015-08-27</lastmod>
+  <lastmod>2015-09-05</lastmod>
  </url>
  <url>
   <loc>http://sayuan.github.io/stories/about-me.html</loc>
-  <lastmod>2015-08-27</lastmod>
+  <lastmod>2015-09-05</lastmod>
  </url>
 </urlset>
