@@ -38,13 +38,13 @@ theme: [zen][]，也就是各位現在正在看著的 theme 了。
 
 顯示數學公式其實就只是使用了 [MathJax][]，沒有什麼特別的地方。
 
-* inline math: $e^{ix} = \cos x + i\sin x$
+* inline mathematics: \\(e^{ix} = \cos x + i\sin x\\)
 
-    對應的寫法: `$e^{ix} = \cos x + i\sin x$`
+    對應的寫法: `\\(e^{ix} = \cos x + i\sin x\\)`
 
-* display math: $$\sqrt{1+\sqrt[^p\!]{1+a^2}}$$
+* display mathematics: \\[\sqrt{1+\sqrt[^p\!]{1+a^2}}\\]
 
-    對應的寫法: `$$\sqrt{1+\sqrt[^p\!]{1+a^2}}$$`
+    對應的寫法: `\\[\sqrt{1+\sqrt[^p\!]{1+a^2}}\\]`
 
 ## Syntax Highlight
 
