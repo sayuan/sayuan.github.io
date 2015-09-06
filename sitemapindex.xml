@@ -18,7 +18,7 @@
  </sitemap>
  <sitemap>
   <loc>http://sayuan.github.io/categories/cjk-space-fix.xml</loc>
-  <lastmod>2015-09-05</lastmod>
+  <lastmod>2015-09-06</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://sayuan.github.io/categories/coloredlogcat.xml</loc>
@@ -50,11 +50,11 @@
  </sitemap>
  <sitemap>
   <loc>http://sayuan.github.io/categories/markdown.xml</loc>
-  <lastmod>2015-09-05</lastmod>
+  <lastmod>2015-09-06</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://sayuan.github.io/categories/mathjax.xml</loc>
-  <lastmod>2015-09-05</lastmod>
+  <lastmod>2015-09-06</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://sayuan.github.io/categories/network.xml</loc>
@@ -62,7 +62,7 @@
  </sitemap>
  <sitemap>
   <loc>http://sayuan.github.io/categories/nikola.xml</loc>
-  <lastmod>2015-09-05</lastmod>
+  <lastmod>2015-09-06</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://sayuan.github.io/categories/nodejs.xml</loc>
@@ -74,7 +74,7 @@
  </sitemap>
  <sitemap>
   <loc>http://sayuan.github.io/categories/static-blog-generator.xml</loc>
-  <lastmod>2015-09-05</lastmod>
+  <lastmod>2015-09-06</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://sayuan.github.io/categories/traceview.xml</loc>
@@ -98,10 +98,10 @@
  </sitemap>
  <sitemap>
   <loc>http://sayuan.github.io/rss.xml</loc>
-  <lastmod>2015-09-05</lastmod>
+  <lastmod>2015-09-06</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://sayuan.github.io/sitemap.xml</loc>
-  <lastmod>2015-09-05</lastmod>
+  <lastmod>2015-09-06</lastmod>
  </sitemap>
 </sitemapindex>
