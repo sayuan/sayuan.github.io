@@ -8,12 +8,12 @@
 .. type: text
 -->
 
-自詡為 Java 程式設計師，但近期越來越少寫它了……，最新的志向是成為一名資料科學家。
+對資訊各領域充滿熱情與好奇心，過去曾嘗試過數種不同類型的工作，皆能迅速上手並做出貢獻。
+喜愛學習， 完成多門線上課程，包含 Scala, Machine Learning, NLP 等七門課程，並持續增加中。
+擅長演算法，曾熱衷於程式競賽並取得不錯成績，目前則著迷於 Data Science。
 
-平常會參加 [TopCoder][], [Codeforces][], [Google Code Jam][] 等線上演算法競賽，
-最近則迷上 [Coursera][] 的線上課程。
-
-[TopCoder]: https://community.topcoder.com/tc
-[Codeforces]: http://codeforces.com/
-[Google Code Jam]: https://code.google.com/codejam
-[Coursera]: https://www.coursera.org/
+## Specialty
+* Algorithm
+* Linux
+* Java
+* Python
