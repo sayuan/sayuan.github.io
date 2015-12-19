@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>SAY something (CTS)</title><link>http://sayuan.github.io/</link><description></description><atom:link href="http://sayuan.github.io/categories/cts.xml" rel="self" type="application/rss+xml"></atom:link><language>en</language><lastBuildDate>Fri, 04 Sep 2015 17:58:48 GMT</lastBuildDate><generator>http://getnikola.com/</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Android CTS - 讓 Report 說話</title><link>http://sayuan.github.io/posts/android-cts-report.html</link><dc:creator>Shiao-An Yuan</dc:creator><description>&lt;div&gt;&lt;p&gt;接著來談談當初在負責 CTS 時遇到的最大困難，以及最後解決的方法。&lt;/p&gt;
+<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0"><channel><title>SAY something (CTS)</title><link>https://sayuan.github.io/</link><description></description><atom:link rel="self" href="https://sayuan.github.io/categories/cts.xml" type="application/rss+xml"></atom:link><language>en</language><lastBuildDate>Sat, 19 Dec 2015 06:55:32 GMT</lastBuildDate><generator>http://getnikola.com/</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Android CTS - 讓 Report 說話</title><link>https://sayuan.github.io/posts/android-cts-report.html</link><dc:creator>Shiao-An Yuan</dc:creator><description>&lt;div&gt;&lt;p&gt;接著來談談當初在負責 CTS 時遇到的最大困難，以及最後解決的方法。&lt;/p&gt;
 &lt;h3&gt;什麼是 CTS？&lt;/h3&gt;
 &lt;p&gt;Android 雖然是 Open Source Project，即任何的廠商都可以自行生產手機，但
 如果想在出廠時內建 Google Play 等 Google 所提供的 APP，就必須與 Google
@@ -41,7 +41,7 @@ Google 提供的 CTS 程式，並產生一份通過所有測試的 Report，Goog
 大家見笑。事實上，這個網站其實非常的簡單，甚至我放出的部份也沒有任何難度
 ，只是單純的 parsing XML 並存進資料庫而已，真要說有難度的地方，也只是
 parsing 時比較費工而已。所以我放出 parsing 的部份，希望有需要的人可以在
-略做修改的情況下就能夠使用，如果在使用上有遭遇什麼困難，也歡迎與我聯繫。&lt;/p&gt;&lt;/div&gt;</description><category>Android</category><category>CTS</category><guid>http://sayuan.github.io/posts/android-cts-report.html</guid><pubDate>Sun, 02 Feb 2014 15:37:47 GMT</pubDate></item><item><title>Android CTS 筆記</title><link>http://sayuan.github.io/posts/android-cts.html</link><dc:creator>Shiao-An Yuan</dc:creator><description>&lt;div&gt;&lt;p&gt;我過去曾經在國內的二線 Android 系統廠服務了約一年半的時間，當時所負責的
+略做修改的情況下就能夠使用，如果在使用上有遭遇什麼困難，也歡迎與我聯繫。&lt;/p&gt;&lt;/div&gt;</description><category>Android</category><category>CTS</category><guid>https://sayuan.github.io/posts/android-cts-report.html</guid><pubDate>Sun, 02 Feb 2014 15:37:47 GMT</pubDate></item><item><title>Android CTS 筆記</title><link>https://sayuan.github.io/posts/android-cts.html</link><dc:creator>Shiao-An Yuan</dc:creator><description>&lt;div&gt;&lt;p&gt;我過去曾經在國內的二線 Android 系統廠服務了約一年半的時間，當時所負責的
 工作之一，就是負責處理 Android CTS 問題。雖然不是所有的 Issue 都由我負責
 到底，但第一關的釐清、分配，和解決最後無明確歸屬的 Issue，都是我的任務。
 而這一年多來追蹤過的 CTS 問題少說也有百項，也因此累積了不少的筆記。&lt;/p&gt;
@@ -49,4 +49,4 @@ parsing 時比較費工而已。所以我放出 parsing 的部份，希望有需
 ，心血來潮花了整整一天的時間，終於有機會讓這些筆記重見天日。我把它們全部
 都重寫成 markdown 格式，並且上傳至 Github 的 wiki，連結就在&lt;a href="https://github.com/sayuan/Android-CTS-notes"&gt;這裡&lt;/a&gt;。&lt;/p&gt;
 &lt;p&gt;希望這些資訊能給還在和 CTS 奮鬥的工程師們一些幫助，如果其中有任何錯誤與
-不足的部份，還請不吝指出或著直接進行修正。&lt;/p&gt;&lt;/div&gt;</description><category>Android</category><category>CTS</category><guid>http://sayuan.github.io/posts/android-cts.html</guid><pubDate>Sun, 02 Feb 2014 11:25:16 GMT</pubDate></item></channel></rss>
+不足的部份，還請不吝指出或著直接進行修正。&lt;/p&gt;&lt;/div&gt;</description><category>Android</category><category>CTS</category><guid>https://sayuan.github.io/posts/android-cts.html</guid><pubDate>Sun, 02 Feb 2014 11:25:16 GMT</pubDate></item></channel></rss>

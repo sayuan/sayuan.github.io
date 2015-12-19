@@ -1,2 +1,2 @@
-Sitemap: http://sayuan.github.io/sitemapindex.xml
+Sitemap: https://sayuan.github.io/sitemapindex.xml
 
