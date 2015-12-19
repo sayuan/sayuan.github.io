@@ -1,6 +1,5 @@
 /cache
 /output
-/themes
 /conf.pyc
 /.doit.db*
 __pycache__

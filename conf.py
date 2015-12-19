@@ -21,7 +21,7 @@ BLOG_AUTHOR = "Shiao-An Yuan"  # (translatable)
 BLOG_TITLE = "SAY something"  # (translatable)
 # This is the main URL for your site. It will be used
 # in a prominent link
-SITE_URL = "http://sayuan.github.io/"
+SITE_URL = "https://sayuan.github.io/"
 # This is the URL where Nikola's output will be deployed.
 # If not set, defaults to SITE_URL
 # BASE_URL = "http://getnikola.com/"
@@ -134,13 +134,13 @@ NAVIGATION_LINKS = {
         ('https://twitter.com/shiaoanyuan', 'My Twitter', 'icon-twitter'),
         ('https://github.com/sayuan', 'My Github', 'icon-github'),
         ('https://plus.google.com/111763383423728987624/posts', 'My Google+', 'icon-google-plus'),
-        ('http://www.linkedin.com/in/sayuan', 'My LinkedIn', 'icon-linkedin'),
+        ('https://www.linkedin.com/in/sayuan', 'My LinkedIn', 'icon-linkedin'),
         ('/rss.xml', 'RSS', 'icon-rss'),
     ),
 }
 
 # Name of the theme to use.
-THEME = 'zen-ipython'
+THEME = 'zen'
 
 # Below this point, everything is optional
 
@@ -648,11 +648,11 @@ LICENSE = ""
 # I recommend using the Creative Commons' wizard:
 # http://creativecommons.org/choose/
 LICENSE = """
-<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">
+<a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">
 <img alt="Creative Commons License" style="border-width:0"
-src="http://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br />
+src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br />
 This work is licensed under a
-<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/deed.en_US">
+<a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.en_US">
 Creative Commons Attribution-ShareAlike 4.0 International License
 </a>."""
 
