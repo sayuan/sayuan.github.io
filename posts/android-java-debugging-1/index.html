@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<title>Android Java 層 Debug 工具介紹 (1) | SAY something</title>
+<link href="../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+<link rel="alternate" type="application/rss+xml" title="RSS" href="../../rss.xml">
+<link rel="canonical" href="https://sayuan.github.io/posts/android-java-debugging-1/">
+<!--[if lt IE 9]><script src="/assets/js/html5.js"></script><![endif]--><meta name="author" content="Shiao-An Yuan">
+<meta property="og:site_name" content="SAY something">
+<meta property="og:title" content="Android Java 層 Debug 工具介紹 (1)">
+<meta property="og:url" content="https://sayuan.github.io/posts/android-java-debugging-1/">
+<meta property="og:description" content="今天又從硬碟裡翻出一份還在前公司時製作的內訓資料，是當時所有我會的 Android Java
+debug 工具的介紹，於是整理之後就成為了現在這篇文章。
+本文中提及的工具與使用方法我都已測試過，即使在目前在最新的 Android 4.4
+上也還能正常使用，但畢竟這些已經是一年前的資料了，或許已經有更新的工具能替代
+使用，因此若是您知道其他更好用的工具，也希望您能不吝指出。:)
+Log Viewer">
+<meta property="og:type" content="article">
+<meta property="article:published_time" content="2014-02-09T20:36:56+08:00">
+<meta property="article:tag" content="Android">
+<meta property="article:tag" content="coloredlogcat">
+<meta property="article:tag" content="debugging">
+<meta property="article:tag" content="traceview">
+</head>
+<body>
+    <section class="social"><ul>
+<li><a href="../../index.html" title="Home"><i class="icon-home"></i></a></li>
+            <li><a href="../../archive.html" title="Archives"><i class="icon-folder-open-alt"></i></a></li>
+            <li><a href="../../categories/index.html" title="Tags"><i class="icon-tags"></i></a></li>
+            <li><a href="../../stories/about-me.html" title="About me"><i class="icon-user"></i></a></li>
+            <li><a href="https://twitter.com/shiaoanyuan" title="My Twitter"><i class="icon-twitter"></i></a></li>
+            <li><a href="https://github.com/sayuan" title="My Github"><i class="icon-github"></i></a></li>
+            <li><a href="https://www.linkedin.com/in/sayuan" title="My LinkedIn"><i class="icon-linkedin"></i></a></li>
+            <li><a href="../../rss.xml" title="RSS"><i class="icon-rss"></i></a></li>
+
+        </ul></section><section class="page-content"><div class="content" rel="main">
+            
+    <div class="post">
+    
+    <h1 class="p-name entry-title" itemprop="headline name">Android Java 層 Debug 工具介紹 (1)</h1>
+
+        <div class="meta">
+            <div class="authordate">
+                <time class="timeago" datetime="2014-02-09T20:36:56+08:00">2014-02-09 20:36</time>
+            
+
+            
+          |  
+        <a href="index.md" id="sourcelink">Source</a>
+
+            </div>
+            
+        <div itemprop="keywords" class="tags">
+        <ul>
+        Tags : 
+           <li><a class="tag p-category" href="../../categories/android/" rel="tag">Android</a></li>
+           <li><a class="tag p-category" href="../../categories/coloredlogcat/" rel="tag">coloredlogcat</a></li>
+           <li><a class="tag p-category" href="../../categories/debugging/" rel="tag">debugging</a></li>
+           <li><a class="tag p-category" href="../../categories/traceview/" rel="tag">traceview</a></li>
+        </ul>
+</div>
+
+        </div>
+        <div class="body">
+            <div>
+<p>今天又從硬碟裡翻出一份還在前公司時製作的內訓資料，是當時所有我會的 Android Java
+debug 工具的介紹，於是整理之後就成為了現在這篇文章。</p>
+<p>本文中提及的工具與使用方法我都已測試過，即使在目前在最新的 Android 4.4
+上也還能正常使用，但畢竟這些已經是一年前的資料了，或許已經有更新的工具能替代
+使用，因此若是您知道其他更好用的工具，也希望您能不吝指出。:)</p>
+<h3>Log Viewer</h3>
+<p>老實說我從來就不覺得 <code>ADT</code> 附的 Log Viewer 好用，身為 command line
+魔人，當然要選擇 command line 的作法。</p>
+<h4>Colored Logcat</h4>
+<p>雖然 <code>adb</code> 本身就有 <code>logcat</code> 指令，但既沒有對齊欄位，也沒有顏色識別，實在是
+不容易從中識別出自己所關心的 log，好在早就有現成的 <a href="http://jsharkey.org/blog/2009/04/22/modifying-the-android-logcat-stream-for-full-color-debugging/">Colored Logcat</a>。<code>Colored
+Logcat</code> 是由 <a href="http://jsharkey.org">Jeff Sharkey</a> 所開發的一個以 python 寫成，用來 parsing <code>adb
+logcat</code> 的輸出，並加上顏色與對齊後輸出的工具。</p>
+<p><img alt="coloredlogcat" src="../../galleries/android-java-debug/colorcat.png"></p>
+<p>由於原作者釋出 <code>Colored Logcat</code> 之後沒有持續維護，因此在 Github 及 Google Code
+上都可以找到其他人的分支。我自己所使用的版本則是對其做了兩個修改：</p>
+<ol>
+<li>增加 -v 參數使其可顯示每一筆 log 的時間</li>
+<li>補上原實作漏了的 log 層級：FATAL</li>
+</ol>
+<p>或許有人會問，這種工具怎麼看都還是比不上 <code>ADT</code> 內建的 Log Viewer 呀，究竟
+command line 有何神奇魔力？這些工具單獨使用的話確實是不怎麼樣，但厲害的地方在於
+它們可以很輕鬆的搭配其他 shell 指令而組合出更多彈性的功能，例如：</p>
+<ol>
+<li>搭配 grep 以過濾關鍵字</li>
+<li>將輸出 redirect (或 tee) 至檔案，方便後續處理</li>
+<li>如果有使用 screen, tmux，還可以隨時暫停，並在畫面上搜尋關鍵字</li>
+</ol>
+<h4>Debug function</h4>
+<pre class="code literal-block"><span></span><span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">debug</span><span class="o">(</span><span class="n">Object</span><span class="o">...</span> <span class="n">arr</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">StackTraceElement</span> <span class="n">call</span> <span class="o">=</span> <span class="n">Thread</span><span class="o">.</span><span class="na">currentThread</span><span class="o">().</span><span class="na">getStackTrace</span><span class="o">()[</span><span class="mi">3</span><span class="o">];</span>
+    <span class="n">String</span> <span class="n">className</span> <span class="o">=</span> <span class="n">call</span><span class="o">.</span><span class="na">getClassName</span><span class="o">();</span>
+    <span class="n">className</span> <span class="o">=</span> <span class="n">className</span><span class="o">.</span><span class="na">substring</span><span class="o">(</span><span class="n">className</span><span class="o">.</span><span class="na">lastIndexOf</span><span class="o">(</span><span class="sc">'.'</span><span class="o">)</span> <span class="o">+</span> <span class="mi">1</span><span class="o">);</span>
+    <span class="n">android</span><span class="o">.</span><span class="na">util</span><span class="o">.</span><span class="na">Log</span><span class="o">.</span><span class="na">v</span><span class="o">(</span><span class="s">"_DEBUG_"</span><span class="o">,</span> <span class="n">call</span><span class="o">.</span><span class="na">getLineNumber</span><span class="o">()</span> <span class="o">+</span> <span class="s">": "</span>
+            <span class="o">+</span> <span class="n">className</span> <span class="o">+</span> <span class="s">"."</span> <span class="o">+</span> <span class="n">call</span><span class="o">.</span><span class="na">getMethodName</span><span class="o">()</span> <span class="o">+</span> <span class="s">" "</span>
+            <span class="o">+</span> <span class="n">java</span><span class="o">.</span><span class="na">util</span><span class="o">.</span><span class="na">Arrays</span><span class="o">.</span><span class="na">deepToString</span><span class="o">(</span><span class="n">arr</span><span class="o">));</span>
+<span class="o">}</span>
+</pre>
+
+<p>這個其實既不是 Log Viewer，也不能算是 debug tool，勉強只能算是個小技巧吧。
+它的功用是在顯示的 log 前面加上 class name, method name 與行數，就像是 C 的
+<code>__FILE__</code>, <code>__LINE__</code> 與 <code>__func__</code>。</p>
+<p>由於參數 <code>arr</code> 使用了 Java 5.0 開始才有的 <code>Autoboxing</code> 與
+<code>Varargs</code>，因此無論是什麼參數、幾個參數都能接受，而輸出的部份又用了
+deepToString，所以連陣列內容都能印出。</p>
+<p>這個 method 其實不只能在 Android 上使用，一般的 Java
+環境下也能運作，但需要將第二行中的常數 <code>3</code> 改為 <code>2</code> 才行。</p>
+<h3>Profiler</h3>
+<p>接下來這個 profiler 其實只是 <code>ADT</code> 內建的工具，官方也有一篇詳細
+的<a href="http://developer.android.com/tools/debugging/debugging-tracing.html">教學</a>，所以我就只以圖片與簡短描述帶過。</p>
+<p>執行 profiler 共有兩種方式，第一種方式是在程式中安插程式碼：</p>
+<h4>第一種</h4>
+<pre class="code literal-block"><span></span><span class="c1">// start tracing to "/sdcard/calc.trace"</span>
+<span class="n">Debug</span><span class="o">.</span><span class="na">startMethodTracing</span><span class="o">(</span><span class="s">"calc"</span><span class="o">);</span>
+
+<span class="c1">// 做 profiling 的區域</span>
+
+<span class="c1">// stop tracing</span>
+<span class="n">Debug</span><span class="o">.</span><span class="na">stopMethodTracing</span><span class="o">();</span>
+</pre>
+
+<p>上述這個方法比較麻煩，但能確保 profiling 的對象只有自己關心的區域。</p>
+<h4>第二種</h4>
+<p><img alt="Start Profiling" src="../../galleries/android-java-debug/start_profiling.png"></p>
+<p>第二個方法則是直接在 Android Device Monitor 工具內，選好要 profiling 的
+process，然後點上圖中被藍色圓圈圈起的按鈕，並在打算停止 profiling
+時再按一下即可。</p>
+<p><img alt="Traceview" src="../../galleries/android-java-debug/traceview.png"></p>
+<p>接著畫面上就會出現 profiling 的結果。</p>
+<h4>Call Graph</h4>
+<p>第一種方法執行完的 trace file 會存在 SD card 內，而第二種則是存在
+<code>/tmp/ddms....</code>，可以從分頁名稱上得到確切的檔名。</p>
+<p>有了 trace file，接著只要執行：</p>
+<pre class="code literal-block"><span></span>dmtracedump -g callgraph.png calc.trace
+</pre>
+
+<p>就可以得到如下的 call graph。</p>
+<p><img alt="Call Graph" src="../../galleries/android-java-debug/callgraph.png"></p>
+<h4>debuggable flag</h4>
+<p>第二種方法在使用上有個限制，即操作的手機必須是 Engineering build，或著所觀察的
+App 具有 debuggable flag。</p>
+<p>不過即使兩像條件都不具備也不用擔心，您還是可以用後續文章將會提到的 reverse
+engineering tool: <code>apktool</code>，將原本的 apk 檔解開、加上 debuggable
+flag、重新包裝回 apk 檔，然後就能開心的使用了。運用這種重新打包的手法，就算沒有
+source code，也能將所需的 code 插入，因此正好可以拿來安插第一種 profiling
+所需的 code，細節將會在後續的文章中說明。</p>
+<p>篇幅好像差不多了，那麼就先在此打住吧。
+接下來預計還會寫一至兩篇文章介紹 remote debugging 與 reverse engineering
+tool，希望我能早日完成。:)</p>
+</div>
+        </div>
+        
+        <ul class="pager hidden-print">
+<li class="previous">
+                <a href="../android-cts-report/" rel="prev" title="Android CTS - 讓 Report 說話">Previous post</a>
+            </li>
+            <li class="next">
+                <a href="../android-java-debugging-2/" rel="next" title="Android Java 層 Debug 工具介紹 (2)">Next post</a>
+            </li>
+        </ul>
+<div id="disqus_thread"></div>
+        <script>
+        var disqus_shortname ="say-something",
+            disqus_url="https://sayuan.github.io/posts/android-java-debugging-1/",
+        disqus_title="Android Java \u5c64 Debug \u5de5\u5177\u4ecb\u7d39 (1)",
+        disqus_identifier="cache/posts/android-java-debug-1.html",
+        disqus_config = function () {
+            this.language = "en";
+        };
+        (function() {
+            var dsq = document.createElement('script'); dsq.async = true;
+            dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script><noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a>
+</noscript>
+    <a href="https://disqus.com" class="dsq-brlink" rel="nofollow">Comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+        
+    
+
+
+    </div>
+
+        
+       <script>var disqus_shortname="say-something";(function(){var a=document.createElement("script");a.async=true;a.src="https://"+disqus_shortname+".disqus.com/count.js";(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(a)}());</script><footer id="footer"><p>Contents © 2021         <a href="mailto:shiao.an.yuan@gmail.com">Shiao-An Yuan</a> - Powered by         <a href="https://getnikola.com" rel="nofollow">Nikola</a>         
+<a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">
+<img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png"></a><br>
+This work is licensed under a
+<a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.en_US">
+Creative Commons Attribution-ShareAlike 4.0 International License
+</a>.</p>
+            
+        </footer>
+</div>
+    </section><script type="text/javascript" src="../../assets/js/cjk_space_fix.js"></script><script type="text/javascript">
+  cjkSpaceFix();
+
+  // Google Analytics
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-47613541-1', 'sayuan.github.io');
+  ga('send', 'pageview');
+</script><script src="../../assets/js/all-nocdn.js" type="text/javascript"></script><script type="text/javascript">
+            $(function(){
+                $('.timeago').timeago();
+            });
+        </script>
+</body>
+</html>

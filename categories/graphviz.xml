@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0"><channel><title>SAY something (Graphviz)</title><link>https://sayuan.github.io/</link><description></description><atom:link rel="self" href="https://sayuan.github.io/categories/graphviz.xml" type="application/rss+xml"></atom:link><language>en</language><lastBuildDate>Sat, 19 Dec 2015 06:55:32 GMT</lastBuildDate><generator>http://getnikola.com/</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>使用 Graphviz 繪製網路拓樸</title><link>https://sayuan.github.io/posts/network-topology-by-graphviz.html</link><dc:creator>Shiao-An Yuan</dc:creator><description>&lt;div&gt;&lt;p&gt;自從離開了 Android 產業之後，我加入了一間與網路服務相關的新創公司。
+<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>SAY something (Posts about Graphviz)</title><link>https://sayuan.github.io/</link><description></description><atom:link href="https://sayuan.github.io/categories/graphviz.xml" rel="self" type="application/rss+xml"></atom:link><language>en</language><lastBuildDate>Fri, 12 Feb 2021 06:41:03 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>使用 Graphviz 繪製網路拓樸</title><link>https://sayuan.github.io/posts/network-topology-by-graphviz/</link><dc:creator>Shiao-An Yuan</dc:creator><description>&lt;div&gt;&lt;p&gt;自從離開了 Android 產業之後，我加入了一間與網路服務相關的新創公司。
 在工作內容上，經常會需要理解對方的網路環境，而解決這個問題最好的方法，
 就是事先準備好一份網路拓樸並歸檔。&lt;/p&gt;
 &lt;h3&gt;Requirements&lt;/h3&gt;
@@ -25,21 +25,18 @@
 的 Ubuntu 12.04 的套件庫中的版本只到 2.26，且一直到 14.04 才開始使用更新的版本。&lt;/p&gt;
 &lt;p&gt;這種類似的事情遇多了，最簡單的方法就是找個現成的 &lt;code&gt;PPA&lt;/code&gt;，通常我會從官方維護的開始
 找起，於是：&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;sudo apt-add-repository ppa:gviz-adm/graphviz-dev
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;sudo apt-add-repository ppa:gviz-adm/graphviz-dev
 &lt;/pre&gt;
-
 
 &lt;p&gt;接著要安裝時，&lt;code&gt;apt&lt;/code&gt; 卻又出現錯誤：&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;&lt;span class="n"&gt;graphviz&lt;/span&gt; &lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;Depends&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;libgraphviz4&lt;/span&gt; &lt;span class="o"&gt;(&amp;gt;=&lt;/span&gt; &lt;span class="mf"&gt;2.18&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="n"&gt;but&lt;/span&gt; &lt;span class="n"&gt;it&lt;/span&gt; &lt;span class="k"&gt;is&lt;/span&gt; &lt;span class="n"&gt;not&lt;/span&gt; &lt;span class="n"&gt;going&lt;/span&gt; &lt;span class="n"&gt;to&lt;/span&gt; &lt;span class="n"&gt;be&lt;/span&gt; &lt;span class="n"&gt;installed&lt;/span&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;graphviz&lt;/span&gt; &lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;Depends&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;libgraphviz4&lt;/span&gt; &lt;span class="o"&gt;(&amp;gt;=&lt;/span&gt; &lt;span class="mf"&gt;2.18&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="n"&gt;but&lt;/span&gt; &lt;span class="n"&gt;it&lt;/span&gt; &lt;span class="k"&gt;is&lt;/span&gt; &lt;span class="n"&gt;not&lt;/span&gt; &lt;span class="n"&gt;going&lt;/span&gt; &lt;span class="n"&gt;to&lt;/span&gt; &lt;span class="n"&gt;be&lt;/span&gt; &lt;span class="n"&gt;installed&lt;/span&gt;
 &lt;/pre&gt;
 
-
 &lt;p&gt;好在 &lt;a href="http://askubuntu.com/"&gt;Ask Ubuntu&lt;/a&gt; 上早有&lt;a href="http://askubuntu.com/questions/196230/how-do-i-install-graphviz-2-29-in-12-04"&gt;解答&lt;/a&gt;，照著做即可：&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;sudo apt-get update
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;sudo apt-get update
 sudo apt-get remove libcdt4 libpathplan4
 sudo apt-get install graphviz
 &lt;/pre&gt;
-
 
 &lt;h3&gt;Images&lt;/h3&gt;
 &lt;p&gt;裝好新版本的 Graphviz 後，還需要用來表示各種節點的圖片，這裡我所選擇的是
@@ -50,7 +47,7 @@ sudo apt-get install graphviz
 &lt;p&gt;最後的結果就是下圖：&lt;/p&gt;
 &lt;p&gt;&lt;img alt="Topology" src="https://sayuan.github.io/galleries/misc/topology.png"&gt;&lt;/p&gt;
 &lt;p&gt;而上圖對應的 dot 原始檔如下：&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;graph G {
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;graph G {
     node [shape=none, height=1.2]
     rankdir=LR
 
@@ -92,7 +89,6 @@ sudo apt-get install graphviz
 }
 &lt;/pre&gt;
 
-
 &lt;p&gt;如果是曾經接觸過 &lt;code&gt;dot&lt;/code&gt; 的讀者，或許會覺得我所使用的語法很怪異，因為原始碼中的
 那些大括號與縮排，在 &lt;code&gt;dot&lt;/code&gt; 語言中其實是完全沒有作用的，我這樣寫的目的，純粹是
 想降低使用 Graphviz 繪製網路拓樸的學習難度。以下是我的一些考量：&lt;/p&gt;
@@ -107,4 +103,4 @@ sudo apt-get install graphviz
 而&lt;a href="https://github.com/tckz/redmine-wiki_graphviz_plugin"&gt;這裡有一個 plugin&lt;/a&gt;，能夠直接將 wiki 中的純文字的 dot，在預覽和儲存後直接以
 轉換後的圖片顯示，實在是方常方便。&lt;/p&gt;
 &lt;p&gt;然而使用 Graphviz 有其極限，對於複雜的網路拓樸，或著對美觀極度要求時，使用其他
-的軟體搭配仍然有其必要。&lt;/p&gt;&lt;/div&gt;</description><category>Dot</category><category>Graphviz</category><category>Network</category><guid>https://sayuan.github.io/posts/network-topology-by-graphviz.html</guid><pubDate>Sun, 23 Feb 2014 14:02:59 GMT</pubDate></item></channel></rss>
+的軟體搭配仍然有其必要。&lt;/p&gt;&lt;/div&gt;</description><category>Dot</category><category>Graphviz</category><category>Network</category><guid>https://sayuan.github.io/posts/network-topology-by-graphviz/</guid><pubDate>Sun, 23 Feb 2014 14:02:59 GMT</pubDate></item></channel></rss>

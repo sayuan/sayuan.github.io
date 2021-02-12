@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0"><channel><title>SAY something (apktool)</title><link>https://sayuan.github.io/</link><description></description><atom:link rel="self" href="https://sayuan.github.io/categories/apktool.xml" type="application/rss+xml"></atom:link><language>en</language><lastBuildDate>Sat, 19 Dec 2015 06:55:32 GMT</lastBuildDate><generator>http://getnikola.com/</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Android Java 層 Debug 工具介紹 (2)</title><link>https://sayuan.github.io/posts/android-java-debugging-2.html</link><dc:creator>Shiao-An Yuan</dc:creator><description>&lt;div&gt;&lt;p&gt;在系列文的&lt;a href="https://sayuan.github.io/posts/android-java-debugging-1.html"&gt;第一篇文章&lt;/a&gt;中，我已經介紹過 Log Viewer 與
+<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>SAY something (Posts about apktool)</title><link>https://sayuan.github.io/</link><description></description><atom:link href="https://sayuan.github.io/categories/apktool.xml" rel="self" type="application/rss+xml"></atom:link><language>en</language><lastBuildDate>Fri, 12 Feb 2021 06:41:03 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Android Java 層 Debug 工具介紹 (2)</title><link>https://sayuan.github.io/posts/android-java-debugging-2/</link><dc:creator>Shiao-An Yuan</dc:creator><description>&lt;div&gt;&lt;p&gt;在系列文的&lt;a href="https://sayuan.github.io/posts/android-java-debugging-2/android-java-debugging-1.html"&gt;第一篇文章&lt;/a&gt;中，我已經介紹過 Log Viewer 與
 Profiler，而這次所要介紹的內容則是 Debugger，以及一些 Reverse Engineering 工具。
 那麼，就先從 Debugger 開始吧。&lt;/p&gt;
 &lt;h3&gt;Remote Debugging&lt;/h3&gt;
@@ -59,14 +59,12 @@ Android Device Monitor 也好，總之只要是這個畫面都好。&lt;/p&gt;
 並沒有因此就變得較好讀，但早就有現成的 Java decompiler 可以搭配使用，例如
 &lt;a href="http://jd.benow.ca/#jd-gui"&gt;JD-GUI&lt;/a&gt; 就是一個常見的搭配。&lt;/p&gt;
 &lt;p&gt;dex2jar 的執行方式非常的簡單，直接吃 apk 即可：&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;dex2jar.sh CtsVerifier.apk
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;dex2jar.sh CtsVerifier.apk
 &lt;/pre&gt;
-
 
 &lt;p&gt;產生的檔案是 &lt;code&gt;CtsVerifier_dex2jar.jar&lt;/code&gt;，接著用 &lt;code&gt;jd-gui&lt;/code&gt; 開啟：&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;jd-gui CtsVerifier_dex2jar.jar
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;jd-gui CtsVerifier_dex2jar.jar
 &lt;/pre&gt;
-
 
 &lt;p&gt;&lt;img alt="jd-gui" src="https://sayuan.github.io/galleries/android-java-debug/jd-gui.png"&gt;&lt;/p&gt;
 &lt;p&gt;不過不是每一次都能像上圖這樣順利，經常會遇到 decompile 的結果不正常的狀況。
@@ -77,14 +75,13 @@ JD-GUI 更好。&lt;/p&gt;
 但若是遇到應付不了的情形，或許這時候就該呼叫 apktool 了。&lt;/p&gt;
 &lt;h4&gt;apktool&lt;/h4&gt;
 &lt;p&gt;&lt;a href="https://code.google.com/p/android-apktool/"&gt;apktool&lt;/a&gt; 是一個 &lt;code&gt;decode&lt;/code&gt; / &lt;code&gt;rebuild&lt;/code&gt; apk 的工具，將 apk 解開後的目錄結構如下：&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;AndroidManifest.xml
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;AndroidManifest.xml
 apktool.yml
 assets
 lib
 res
 smali
 &lt;/pre&gt;
-
 
 &lt;p&gt;前面提了好幾次的 debuggable flag 就在 AndroidManifest.xml 裡，開啟 debuggable
 後 rebuild 並安裝至手機內，先前說過的工具就全部都能使用了。&lt;/p&gt;
@@ -100,17 +97,16 @@ source code 與實際產生的 smali 做對照，供各位做參考：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;source code (截取自 CtsVerifier)&lt;/li&gt;
 &lt;/ul&gt;
-&lt;pre class="code literal-block"&gt;    &lt;span class="kd"&gt;public&lt;/span&gt; &lt;span class="kt"&gt;void&lt;/span&gt; &lt;span class="nf"&gt;add&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;TestListItem&lt;/span&gt; &lt;span class="n"&gt;item&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;    &lt;span class="kd"&gt;public&lt;/span&gt; &lt;span class="kt"&gt;void&lt;/span&gt; &lt;span class="nf"&gt;add&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;TestListItem&lt;/span&gt; &lt;span class="n"&gt;item&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
         &lt;span class="n"&gt;mRows&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;add&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;item&lt;/span&gt;&lt;span class="o"&gt;);&lt;/span&gt;
         &lt;span class="n"&gt;notifyDataSetChanged&lt;/span&gt;&lt;span class="o"&gt;();&lt;/span&gt;
     &lt;span class="o"&gt;}&lt;/span&gt;
 &lt;/pre&gt;
 
-
 &lt;ul&gt;
 &lt;li&gt;smali&lt;/li&gt;
 &lt;/ul&gt;
-&lt;pre class="code literal-block"&gt;&lt;span class="c"&gt;# virtual methods&lt;/span&gt;
+&lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c"&gt;# virtual methods&lt;/span&gt;
 &lt;span class="k"&gt;.method&lt;/span&gt; &lt;span class="k"&gt;public&lt;/span&gt; &lt;span class="nf"&gt;add&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kt"&gt;L&lt;/span&gt;com/android/cts/verifier/&lt;span class="nc"&gt;TestListAdapter$TestListItem&lt;/span&gt;;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="kt"&gt;V&lt;/span&gt;    &lt;span class="c"&gt;# 回傳值為 void&lt;/span&gt;
 &lt;span class="k"&gt;    .locals&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;   &lt;span class="c"&gt;# 除了參數以外只有一個變數，即 v0&lt;/span&gt;
 &lt;span class="k"&gt;    .parameter&lt;/span&gt; &lt;span class="s"&gt;"item"&lt;/span&gt;
@@ -128,7 +124,6 @@ source code 與實際產生的 smali 做對照，供各位做參考：&lt;/p&gt;
     return-void
 &lt;span class="k"&gt;.end method&lt;/span&gt;
 &lt;/pre&gt;
-
 
 &lt;p&gt;smali 的語法其實並不難，因此在理解之後，少量的修改程式邏輯或著安插其他程式碼，
 也都不會是什麼困難的事了。&lt;/p&gt;
@@ -153,4 +148,4 @@ source code 與實際產生的 smali 做對照，供各位做參考：&lt;/p&gt;
 &lt;li&gt;不得已沒有 source code 的時候才用 XD&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;/ul&gt;&lt;/div&gt;</description><category>Android</category><category>apktool</category><category>debugging</category><category>Eclipse</category><guid>https://sayuan.github.io/posts/android-java-debugging-2.html</guid><pubDate>Fri, 14 Feb 2014 18:22:56 GMT</pubDate></item></channel></rss>
+&lt;/ul&gt;&lt;/div&gt;</description><category>Android</category><category>apktool</category><category>debugging</category><category>Eclipse</category><guid>https://sayuan.github.io/posts/android-java-debugging-2/</guid><pubDate>Fri, 14 Feb 2014 18:22:56 GMT</pubDate></item></channel></rss>

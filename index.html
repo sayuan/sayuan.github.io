@@ -1,59 +1,38 @@
 <!DOCTYPE html>
-<html prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article# " lang="en">
-    <head>
-    <meta charset="utf-8">
-    <meta name="description" content="Shiao-An Yuan personal blog">
-    <meta name="viewport" content="width=device-width">
-    <title>SAY something | SAY something</title>
-
-    
-            <link href="assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
-
-    
-            <link rel="alternate" type="application/rss+xml" title="RSS" href="rss.xml">
-
-      <link rel="canonical" href="https://sayuan.github.io/index.html">
-
-
-
-    
-        <!--[if lt IE 9]><script src="/assets/js/html5.js"></script><![endif]-->
-
-    
-
-
-
-
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="description" content="Shiao-An Yuan personal blog">
+<meta name="viewport" content="width=device-width">
+<title>SAY something | SAY something</title>
+<link href="assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+<link rel="alternate" type="application/rss+xml" title="RSS" href="rss.xml">
+<link rel="canonical" href="https://sayuan.github.io/">
+<!--[if lt IE 9]><script src="/assets/js/html5.js"></script><![endif]-->
 </head>
 <body>
-    <section class="social">
-        <ul>
-        
-            <li><a href="#" title="Home"><i class="icon-home"></i></a></li>
+    <section class="social"><ul>
+<li><a href="#" title="Home"><i class="icon-home"></i></a></li>
             <li><a href="archive.html" title="Archives"><i class="icon-folder-open-alt"></i></a></li>
             <li><a href="categories/index.html" title="Tags"><i class="icon-tags"></i></a></li>
             <li><a href="stories/about-me.html" title="About me"><i class="icon-user"></i></a></li>
             <li><a href="https://twitter.com/shiaoanyuan" title="My Twitter"><i class="icon-twitter"></i></a></li>
             <li><a href="https://github.com/sayuan" title="My Github"><i class="icon-github"></i></a></li>
-            <li><a href="https://plus.google.com/111763383423728987624/posts" title="My Google+"><i class="icon-google-plus"></i></a></li>
             <li><a href="https://www.linkedin.com/in/sayuan" title="My LinkedIn"><i class="icon-linkedin"></i></a></li>
             <li><a href="rss.xml" title="RSS"><i class="icon-rss"></i></a></li>
 
-        </ul>
-    </section>
-    <section class="page-content">
-        <div class="content" rel="main">
+        </ul></section><section class="page-content"><div class="content" rel="main">
             
         <div class="post">
-            <h1 class="title"><a href="posts/binary-search.html">程式競賽小技巧 - Binary Search</a></h1>
+            <h1 class="title"><a href="posts/what-makes-a-good-data-pipeline/">如何設計出好的 data pipeline</a></h1>
             <div class="meta">
                 <div class="authordate">
-                    <time class="timeago" datetime="2015-06-06T23:33:28+08:00">2015-06-06 23:33</time>
-                </div>
+                    <time class="timeago" datetime="2021-02-12T14:55:27+08:00">2021-02-12 14:55</time>
+</div>
                 <div class="stats">
                     
         
-    <a href="posts/binary-search.html#disqus_thread" data-disqus-identifier="cache/posts/binary-search.html">Comments</a>
+    <a href="posts/what-makes-a-good-data-pipeline/#disqus_thread" data-disqus-identifier="cache/posts/what-makes-a-good-pipeline.html">Comments</a>
 
 
                 </div>
@@ -61,11 +40,95 @@
         <div itemprop="keywords" class="tags">
         <ul>
         Tags : 
-           <li><a class="tag p-category" href="categories/algorithm.html" rel="tag">algorithm</a></li>
-           <li><a class="tag p-category" href="categories/competitive-programming.html" rel="tag">competitive programming</a></li>
-           <li><a class="tag p-category" href="categories/programming-contest.html" rel="tag">programming contest</a></li>
+           <li><a class="tag p-category" href="categories/data-engineering/" rel="tag">data engineering</a></li>
+           <li><a class="tag p-category" href="categories/data-pipeline/" rel="tag">data pipeline</a></li>
+           <li><a class="tag p-category" href="categories/etl/" rel="tag">ETL</a></li>
         </ul>
+</div>
+
+            </div>
+            <div class="body">
+                <div>
+<p>在 <a href="https://www.appier.com/">Appier</a> 擔任 Data Engineer 一職至今已滿五年，在這過程之中開發與維護 pipeline 一直是我最重要的工作項目之一。
+除了開發全新設計的 pipeline 以外，許多舊有的 pipeline 也在不斷的持續改進，也有些 pipeline 由於體質過差，也不得不全面重寫。
+有趣的是，許多 pipeline 在改寫或重寫過後，input 與 output 仍然與之前沒有太大差異，那麼，究竟是什麼性質造就了一條好的 pipeline？</p>
+<h2>Effectiveness</h2>
+<p>綜觀所有的特性，我認為效率是其中最重要的一項。我這裡指的並不是一條 pipeline 每秒鐘能處理多少資料，或著每天的花費是多少。
+之所以需要建立 pipeline，目的就是要讓後續使用 data 能更加有效率，如果不將下游使用一併納入考慮，單純計算 pipeline 本身的效率，我認為意義不大。
+事實上我認為整個 Big Data 領域在解決的問題，有很大一部份就是在針對讀取進行最佳化，NoSQL 的崛起正是絕佳的例子。</p>
+<p>在納入上述觀點之後，pipeline 的價值就很容易計算了：<strong>原先不透過這條 pipeline 讀取資料所需的花費</strong> 減去 <strong>改成透過讀取 pipeline 產出所需的花費和 pipeline 本身的花費</strong>，就是這條 pipeline 帶來的價值。</p>
+<p>基於 Cloud Storage 的特性，為了增加讀取的效率，可以考慮進行以下的設計：</p>
+<ul>
+<li>使用 Columnar Storage Format 如 Parquet</li>
+<li>若使用 Columnar Storage Format，可進一步在檔案內對指定欄位進行排序</li>
+<li>將檔案以 partitioned 形式存放</li>
+<li>適當控制每一個檔案的大小</li>
+</ul>
+<p>然而就像使用 NoSQL 一樣，一個 index 不太可能滿足所有的查詢；只用一種方式存放資料，也不太可能讓所有讀取都有效率。
+這時你就會需要輸出第二份資料，它可能是原先資料的另一種 partitioned 擺放方式，也可能是 pre-aggregated 之後的結果。
+而實作方式它可能是一條全新獨立的 pipeline、或著是基於原先資料的 downstream pipeline，也可以讓原本的 pipeline 同時輸出多份資料。</p>
+<p>在考慮多種輸出格式的情況下，效率的評估就變得極為困難了。如何決定每一種應用該讀取用哪一份資料？什麼時候該為了還沒被最佳化的應用多輸出一種格式？每一份輸出真的有帶來額外價值嗎？
+這問題雖然困難，但所幸我們也不需要追求完美解答，只要大方向不要偏離太多即可，尤其是當需求與應用也在不斷隨時間持續改變。</p>
+<h2>Extensibility &amp; Complexity</h2>
+<p>Pipeline 是一種需要穩定，卻又免不了根據需求持續演進的專案，而複雜的 pipeline 將會導致演進變得困難。</p>
+<p>在設計 pipeline 初期，我總是希望 pipeline 在架構上能夠儘可能的簡單，最好是能只用幾句話就說明清楚。
+既然註定了要隨需求持續演化，那一開始就要更加的避免過度設計。</p>
+<p>而在 pipeline 上線之後，面對持續演進的需求與急迫的時程，有時也會不得不做出大幅增加複雜度的設計。
+面對這樣的問題，我的方案是定期的 refactor，確保複雜度能收斂至合理的範圍。這個作法就像是 Refactor 書中提到的切換<a href="https://martinfowler.com/articles/preparatory-refactoring-example.html#TheTwoHats">兩頂帽子</a>，一個帽子負責功能演進，另一個負責降低複雜度。</p>
+<h2>Reliability</h2>
+<p>對於需要處理大量 input 資料的 pipeline 來說，出現異常資料幾乎是無可避免的事，尤其是當上游資料來自於公司外部。</p>
+<p>為了避免最終產生錯誤的 output，你可能會想讓 pipeline 在遭遇錯誤時停止運作，直到狀況釐清並完成 hotfix。
+但除非你能確認資料來源足夠乾淨，否則頻繁的緊急處理最終會耗光維護人員的心力，於是進入另一個選項。</p>
+<p>這個選項當然就是惡名昭彰的 silent exception，將有問題的資料通通丟掉，從此 pipeline 再也不會 crash，大家都很開心。
+直到有一天使用者回報，你才發現有大量合法的資料被視為有問題丟掉，而這個狀況已經不知道持續多久了……。</p>
+<p>我們針對這個問題的解法是，將有問題的資料輸出到特定的位址並搭配 alert。
+因為 pipeline 並沒有被中止，維護人員並不需要第一時間進行處理，疑似有問題的資料也因為集中擺放而容易分析，甚至在 hotfix 過後想重新加回這些資料時，也可以只針對這批資料進行。</p>
+<h2>Maintainability</h2>
+<p>當 pipeline 規模變得龐大，各種稀奇古怪的 bug 將變得不再那麼稀有，你可能會遇到故障的機器、各種 library 中的 bug，或著 pipeline 中自己犯的錯，也可能只是來自 input 資料本身的異常。
+這聽起來就跟一般的 bug 沒什麼不同，但讓事情變得棘手的是發生的機率。
+設想一下你的 pipeline 每天處理十億筆資料，不時接獲使用者反映懷疑資料有問題，你需要從上游的十億筆資料中找出對應的那筆，然後判斷錯誤是否來自資料本身。</p>
+<p>如果錯誤來自資料本身，對應的動作可能是通知上游，和使用者說明原因，讓他們相信 pipeline 其實是可靠的，然後祈禱類似的問題不要太頻繁的再次發生。</p>
+<p>然而如果問題來自 pipeline 本身，接下來就是殘酷的 debug 考驗。
+因為 cost 考量，你不太可能有一個完整規模的 staging 環境，而較小規模的實驗很可能難以複製出問題，特別是當問題只會機率性出現時。
+因此你必須將所有能夠獲取的訊息都納入考慮，嘗試從中找出蛛絲馬跡，並對所有的機制都保持懷疑。</p>
+<p>我遇過許多讓我印象深刻的 bug，像是某知名雲端供應商，當你開出數百台機器建立 cluster 時，可能會有其中幾台在互相通訊時，會有小機率出現封包中某一個 bit 有 flipping 的情況，導致最終產生的資料數值可能不正確。
+另一個是最近才剛找出來的 <a href="http://apache-spark-user-list.1001560.n3.nabble.com/Correctness-bug-on-Shuffle-Repartition-scenario-td39158.html">Spark correctness issue</a>，會在 "GROUP BY" 之後出現重複的資料。</p>
+<p>面對這樣的狀況，我的建議是必須要將 pipeline 設計成容易調查，例如紀錄每份 output 是在什麼時間產生、它對應的 input 分別是哪些檔案。
+如果 pipeline 有中間產物，或許可以保留一段時間再刪除。如果 pipeline 會需要修改過去資料，將檔案設計為 immutable 而避免 overwrite 也可能有幫助。
+這些零碎的小細節，很可能是你面對毫無頭緒的 bug 的唯一救命稻草。</p>
+<h2>Scalability</h2>
+<p>隨著資料量的增加，pipeline 免不了需要具備 scalability 的能力。
+所幸，現在常見的 big data framework 都能夠處理好這件事，頂多就是需要額外注意一下 data skew 的情況。</p>
+<h2>Usability</h2>
+<p>在顧及上述所有特性之後，別忘記，pipeline 的存在目的就是讓後續資料使用能更有效率。
+因此，將輸出的資料設計成容易理解、容易使用也是很重要的，簡單的例子像是將相同類型的欄位使用相同的 prefix/suffix，使用適當的型態與預設值，提供適當的文件……等等。</p>
+<p>以上就是我認為一個好的 pipeline 需具備的所有特性，只要遵從這些原則，多半就足以讓 pipeline 物有所值。
+至於體質真的有問題的 pipeline，有時就沒有辦法只靠 refactor 來改進，這時就需要更完整的 migration plan 來徹底改頭換面，不過這又是另一個故事了。</p>
+</div>
+            </div>
         </div>
+        <div class="post">
+            <h1 class="title"><a href="posts/binary-search/">程式競賽小技巧 - Binary Search</a></h1>
+            <div class="meta">
+                <div class="authordate">
+                    <time class="timeago" datetime="2015-06-06T23:33:28+08:00">2015-06-06 23:33</time>
+</div>
+                <div class="stats">
+                    
+        
+    <a href="posts/binary-search/#disqus_thread" data-disqus-identifier="cache/posts/binary-search.html">Comments</a>
+
+
+                </div>
+            
+        <div itemprop="keywords" class="tags">
+        <ul>
+        Tags : 
+           <li><a class="tag p-category" href="categories/algorithm/" rel="tag">algorithm</a></li>
+           <li><a class="tag p-category" href="categories/competitive-programming/" rel="tag">competitive programming</a></li>
+           <li><a class="tag p-category" href="categories/programming-contest/" rel="tag">programming contest</a></li>
+        </ul>
+</div>
 
             </div>
             <div class="body">
@@ -94,27 +157,23 @@
     <span class="k">else</span> <span class="n">lower</span> <span class="o">=</span> <span class="n">mid</span><span class="o">+</span><span class="mi">1</span><span class="o">;</span>
 <span class="o">}</span>
 </pre>
-
-
 <p>離開 <code>while</code> 迴圈時，<code>lower</code> 會與 <code>upper</code> 相等，並且就是所求答案。</p>
 <p>那麼在實數域會有什麼不同呢？這就是我覺得有意思的地方了。
 由於浮點數精確度的關係，是有可能發生 <code>mid</code> 等於 <code>lower</code> 的情況，導致形成無窮迴圈。</p>
 <p>好在我們知道比較浮點數應該要允許一點誤差。通常我的習慣是加上一個常數
 <code>Є</code>，於是 code 會長這樣：</p>
-<pre class="code literal-block"><span class="kd">public</span> <span class="kd">static</span> <span class="kd">final</span> <span class="kt">double</span> <span class="n">EPSILON</span> <span class="o">=</span> <span class="mi">1</span><span class="n">e</span><span class="o">-</span><span class="mi">8</span><span class="o">;</span>
+<pre class="code literal-block"><span class="kd">public</span> <span class="kd">static</span> <span class="kd">final</span> <span class="kt">double</span> <span class="n">EPSILON</span> <span class="o">=</span> <span class="mf">1e-8</span><span class="o">;</span>
 
 <span class="k">while</span> <span class="o">(</span><span class="n">lower</span><span class="o">+</span><span class="n">EPSILON</span> <span class="o">&lt;</span> <span class="n">upper</span><span class="o">)</span> <span class="o">{</span>
     <span class="c1">// ...</span>
 <span class="o">}</span>
 </pre>
-
-
 <p>使用這個技巧，只要你選擇了 "適當" 的 <code>Є</code>，程式就會是可以正確運行的。
 但什麼情況下會出問題呢？</p>
 <p>當你的 <code>lower</code> 很大，而 <code>Є</code> 很小時，同樣有可能發生 <code>lower+EPSILON==lower</code> 的情況。</p>
 <p>那有沒有更好的方法？看看以下的 code 吧。</p>
 <pre class="code literal-block"><span class="kt">double</span> <span class="n">lower</span> <span class="o">=</span> <span class="mf">0.0</span><span class="o">;</span>
-<span class="kt">double</span> <span class="n">upper</span> <span class="o">=</span> <span class="mi">1</span><span class="n">e30</span><span class="o">;</span>
+<span class="kt">double</span> <span class="n">upper</span> <span class="o">=</span> <span class="mf">1e30</span><span class="o">;</span>
 <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">times</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span> <span class="n">times</span><span class="o">&lt;</span><span class="mi">50</span><span class="o">;</span> <span class="n">times</span><span class="o">++)</span> <span class="o">{</span>      <span class="c1">// 注意這行</span>
     <span class="kt">double</span> <span class="n">mid</span> <span class="o">=</span> <span class="o">(</span><span class="n">lower</span><span class="o">+</span><span class="n">upper</span><span class="o">)/</span><span class="mi">2</span><span class="o">;</span>
     <span class="kt">boolean</span> <span class="n">satisfied</span> <span class="o">=</span> <span class="n">check</span><span class="o">(</span><span class="n">mid</span><span class="o">);</span>
@@ -122,23 +181,21 @@
     <span class="k">else</span> <span class="n">lower</span> <span class="o">=</span> <span class="n">mid</span><span class="o">;</span>
 <span class="o">}</span>
 </pre>
-
-
 <p>結果就是什麼都不要管，固定跑個足夠次數就好。:p</p>
 <p>我自己習慣跑 50 次，但也看過其他參賽者使用 40, 100, 200 次。</p>
 </div>
             </div>
         </div>
         <div class="post">
-            <h1 class="title"><a href="posts/network-topology-by-graphviz.html">使用 Graphviz 繪製網路拓樸</a></h1>
+            <h1 class="title"><a href="posts/network-topology-by-graphviz/">使用 Graphviz 繪製網路拓樸</a></h1>
             <div class="meta">
                 <div class="authordate">
                     <time class="timeago" datetime="2014-02-23T22:02:59+08:00">2014-02-23 22:02</time>
-                </div>
+</div>
                 <div class="stats">
                     
         
-    <a href="posts/network-topology-by-graphviz.html#disqus_thread" data-disqus-identifier="cache/posts/network-topology-by-graphviz.html">Comments</a>
+    <a href="posts/network-topology-by-graphviz/#disqus_thread" data-disqus-identifier="cache/posts/network-topology-by-graphviz.html">Comments</a>
 
 
                 </div>
@@ -146,11 +203,11 @@
         <div itemprop="keywords" class="tags">
         <ul>
         Tags : 
-           <li><a class="tag p-category" href="categories/dot.html" rel="tag">Dot</a></li>
-           <li><a class="tag p-category" href="categories/graphviz.html" rel="tag">Graphviz</a></li>
-           <li><a class="tag p-category" href="categories/network.html" rel="tag">Network</a></li>
+           <li><a class="tag p-category" href="categories/dot/" rel="tag">Dot</a></li>
+           <li><a class="tag p-category" href="categories/graphviz/" rel="tag">Graphviz</a></li>
+           <li><a class="tag p-category" href="categories/network/" rel="tag">Network</a></li>
         </ul>
-        </div>
+</div>
 
             </div>
             <div class="body">
@@ -181,21 +238,18 @@
 的 Ubuntu 12.04 的套件庫中的版本只到 2.26，且一直到 14.04 才開始使用更新的版本。</p>
 <p>這種類似的事情遇多了，最簡單的方法就是找個現成的 <code>PPA</code>，通常我會從官方維護的開始
 找起，於是：</p>
-<pre class="code literal-block">sudo apt-add-repository ppa:gviz-adm/graphviz-dev
+<pre class="code literal-block"><span></span>sudo apt-add-repository ppa:gviz-adm/graphviz-dev
 </pre>
-
 
 <p>接著要安裝時，<code>apt</code> 卻又出現錯誤：</p>
-<pre class="code literal-block"><span class="n">graphviz</span> <span class="o">:</span> <span class="n">Depends</span><span class="o">:</span> <span class="n">libgraphviz4</span> <span class="o">(&gt;=</span> <span class="mf">2.18</span><span class="o">)</span> <span class="n">but</span> <span class="n">it</span> <span class="k">is</span> <span class="n">not</span> <span class="n">going</span> <span class="n">to</span> <span class="n">be</span> <span class="n">installed</span>
+<pre class="code literal-block"><span></span><span class="n">graphviz</span> <span class="o">:</span> <span class="n">Depends</span><span class="o">:</span> <span class="n">libgraphviz4</span> <span class="o">(&gt;=</span> <span class="mf">2.18</span><span class="o">)</span> <span class="n">but</span> <span class="n">it</span> <span class="k">is</span> <span class="n">not</span> <span class="n">going</span> <span class="n">to</span> <span class="n">be</span> <span class="n">installed</span>
 </pre>
 
-
 <p>好在 <a href="http://askubuntu.com/">Ask Ubuntu</a> 上早有<a href="http://askubuntu.com/questions/196230/how-do-i-install-graphviz-2-29-in-12-04">解答</a>，照著做即可：</p>
-<pre class="code literal-block">sudo apt-get update
+<pre class="code literal-block"><span></span>sudo apt-get update
 sudo apt-get remove libcdt4 libpathplan4
 sudo apt-get install graphviz
 </pre>
-
 
 <h3>Images</h3>
 <p>裝好新版本的 Graphviz 後，還需要用來表示各種節點的圖片，這裡我所選擇的是
@@ -206,7 +260,7 @@ sudo apt-get install graphviz
 <p>最後的結果就是下圖：</p>
 <p><img alt="Topology" src="galleries/misc/topology.png"></p>
 <p>而上圖對應的 dot 原始檔如下：</p>
-<pre class="code literal-block">graph G {
+<pre class="code literal-block"><span></span>graph G {
     node [shape=none, height=1.2]
     rankdir=LR
 
@@ -248,7 +302,6 @@ sudo apt-get install graphviz
 }
 </pre>
 
-
 <p>如果是曾經接觸過 <code>dot</code> 的讀者，或許會覺得我所使用的語法很怪異，因為原始碼中的
 那些大括號與縮排，在 <code>dot</code> 語言中其實是完全沒有作用的，我這樣寫的目的，純粹是
 想降低使用 Graphviz 繪製網路拓樸的學習難度。以下是我的一些考量：</p>
@@ -268,15 +321,15 @@ sudo apt-get install graphviz
             </div>
         </div>
         <div class="post">
-            <h1 class="title"><a href="posts/android-java-debugging-2.html">Android Java 層 Debug 工具介紹 (2)</a></h1>
+            <h1 class="title"><a href="posts/android-java-debugging-2/">Android Java 層 Debug 工具介紹 (2)</a></h1>
             <div class="meta">
                 <div class="authordate">
                     <time class="timeago" datetime="2014-02-15T02:22:56+08:00">2014-02-15 02:22</time>
-                </div>
+</div>
                 <div class="stats">
                     
         
-    <a href="posts/android-java-debugging-2.html#disqus_thread" data-disqus-identifier="cache/posts/android-java-debug-2.html">Comments</a>
+    <a href="posts/android-java-debugging-2/#disqus_thread" data-disqus-identifier="cache/posts/android-java-debug-2.html">Comments</a>
 
 
                 </div>
@@ -284,17 +337,17 @@ sudo apt-get install graphviz
         <div itemprop="keywords" class="tags">
         <ul>
         Tags : 
-           <li><a class="tag p-category" href="categories/android.html" rel="tag">Android</a></li>
-           <li><a class="tag p-category" href="categories/apktool.html" rel="tag">apktool</a></li>
-           <li><a class="tag p-category" href="categories/debugging.html" rel="tag">debugging</a></li>
-           <li><a class="tag p-category" href="categories/eclipse.html" rel="tag">Eclipse</a></li>
+           <li><a class="tag p-category" href="categories/android/" rel="tag">Android</a></li>
+           <li><a class="tag p-category" href="categories/apktool/" rel="tag">apktool</a></li>
+           <li><a class="tag p-category" href="categories/debugging/" rel="tag">debugging</a></li>
+           <li><a class="tag p-category" href="categories/eclipse/" rel="tag">Eclipse</a></li>
         </ul>
-        </div>
+</div>
 
             </div>
             <div class="body">
                 <div>
-<p>在系列文的<a href="posts/android-java-debugging-1.html">第一篇文章</a>中，我已經介紹過 Log Viewer 與
+<p>在系列文的<a href="posts/android-java-debugging-2/android-java-debugging-1.html">第一篇文章</a>中，我已經介紹過 Log Viewer 與
 Profiler，而這次所要介紹的內容則是 Debugger，以及一些 Reverse Engineering 工具。
 那麼，就先從 Debugger 開始吧。</p>
 <h3>Remote Debugging</h3>
@@ -354,14 +407,12 @@ Android Device Monitor 也好，總之只要是這個畫面都好。</p>
 並沒有因此就變得較好讀，但早就有現成的 Java decompiler 可以搭配使用，例如
 <a href="http://jd.benow.ca/#jd-gui">JD-GUI</a> 就是一個常見的搭配。</p>
 <p>dex2jar 的執行方式非常的簡單，直接吃 apk 即可：</p>
-<pre class="code literal-block">dex2jar.sh CtsVerifier.apk
+<pre class="code literal-block"><span></span>dex2jar.sh CtsVerifier.apk
 </pre>
-
 
 <p>產生的檔案是 <code>CtsVerifier_dex2jar.jar</code>，接著用 <code>jd-gui</code> 開啟：</p>
-<pre class="code literal-block">jd-gui CtsVerifier_dex2jar.jar
+<pre class="code literal-block"><span></span>jd-gui CtsVerifier_dex2jar.jar
 </pre>
-
 
 <p><img alt="jd-gui" src="galleries/android-java-debug/jd-gui.png"></p>
 <p>不過不是每一次都能像上圖這樣順利，經常會遇到 decompile 的結果不正常的狀況。
@@ -372,14 +423,13 @@ JD-GUI 更好。</p>
 但若是遇到應付不了的情形，或許這時候就該呼叫 apktool 了。</p>
 <h4>apktool</h4>
 <p><a href="https://code.google.com/p/android-apktool/">apktool</a> 是一個 <code>decode</code> / <code>rebuild</code> apk 的工具，將 apk 解開後的目錄結構如下：</p>
-<pre class="code literal-block">AndroidManifest.xml
+<pre class="code literal-block"><span></span>AndroidManifest.xml
 apktool.yml
 assets
 lib
 res
 smali
 </pre>
-
 
 <p>前面提了好幾次的 debuggable flag 就在 AndroidManifest.xml 裡，開啟 debuggable
 後 rebuild 並安裝至手機內，先前說過的工具就全部都能使用了。</p>
@@ -395,17 +445,16 @@ source code 與實際產生的 smali 做對照，供各位做參考：</p>
 <ul>
 <li>source code (截取自 CtsVerifier)</li>
 </ul>
-<pre class="code literal-block">    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">add</span><span class="o">(</span><span class="n">TestListItem</span> <span class="n">item</span><span class="o">)</span> <span class="o">{</span>
+<pre class="code literal-block"><span></span>    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">add</span><span class="o">(</span><span class="n">TestListItem</span> <span class="n">item</span><span class="o">)</span> <span class="o">{</span>
         <span class="n">mRows</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">item</span><span class="o">);</span>
         <span class="n">notifyDataSetChanged</span><span class="o">();</span>
     <span class="o">}</span>
 </pre>
 
-
 <ul>
 <li>smali</li>
 </ul>
-<pre class="code literal-block"><span class="c"># virtual methods</span>
+<pre class="code literal-block"><span></span><span class="c"># virtual methods</span>
 <span class="k">.method</span> <span class="k">public</span> <span class="nf">add</span><span class="p">(</span><span class="kt">L</span>com/android/cts/verifier/<span class="nc">TestListAdapter$TestListItem</span>;<span class="p">)</span><span class="kt">V</span>    <span class="c"># 回傳值為 void</span>
 <span class="k">    .locals</span> <span class="mi">1</span>   <span class="c"># 除了參數以外只有一個變數，即 v0</span>
 <span class="k">    .parameter</span> <span class="s">"item"</span>
@@ -423,7 +472,6 @@ source code 與實際產生的 smali 做對照，供各位做參考：</p>
     return-void
 <span class="k">.end method</span>
 </pre>
-
 
 <p>smali 的語法其實並不難，因此在理解之後，少量的修改程式邏輯或著安插其他程式碼，
 也都不會是什麼困難的事了。</p>
@@ -453,15 +501,15 @@ source code 與實際產生的 smali 做對照，供各位做參考：</p>
             </div>
         </div>
         <div class="post">
-            <h1 class="title"><a href="posts/android-java-debugging-1.html">Android Java 層 Debug 工具介紹 (1)</a></h1>
+            <h1 class="title"><a href="posts/android-java-debugging-1/">Android Java 層 Debug 工具介紹 (1)</a></h1>
             <div class="meta">
                 <div class="authordate">
                     <time class="timeago" datetime="2014-02-09T20:36:56+08:00">2014-02-09 20:36</time>
-                </div>
+</div>
                 <div class="stats">
                     
         
-    <a href="posts/android-java-debugging-1.html#disqus_thread" data-disqus-identifier="cache/posts/android-java-debug-1.html">Comments</a>
+    <a href="posts/android-java-debugging-1/#disqus_thread" data-disqus-identifier="cache/posts/android-java-debug-1.html">Comments</a>
 
 
                 </div>
@@ -469,12 +517,12 @@ source code 與實際產生的 smali 做對照，供各位做參考：</p>
         <div itemprop="keywords" class="tags">
         <ul>
         Tags : 
-           <li><a class="tag p-category" href="categories/android.html" rel="tag">Android</a></li>
-           <li><a class="tag p-category" href="categories/coloredlogcat.html" rel="tag">coloredlogcat</a></li>
-           <li><a class="tag p-category" href="categories/debugging.html" rel="tag">debugging</a></li>
-           <li><a class="tag p-category" href="categories/traceview.html" rel="tag">traceview</a></li>
+           <li><a class="tag p-category" href="categories/android/" rel="tag">Android</a></li>
+           <li><a class="tag p-category" href="categories/coloredlogcat/" rel="tag">coloredlogcat</a></li>
+           <li><a class="tag p-category" href="categories/debugging/" rel="tag">debugging</a></li>
+           <li><a class="tag p-category" href="categories/traceview/" rel="tag">traceview</a></li>
         </ul>
-        </div>
+</div>
 
             </div>
             <div class="body">
@@ -508,7 +556,7 @@ command line 有何神奇魔力？這些工具單獨使用的話確實是不怎�
 <li>如果有使用 screen, tmux，還可以隨時暫停，並在畫面上搜尋關鍵字</li>
 </ol>
 <h4>Debug function</h4>
-<pre class="code literal-block"><span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">debug</span><span class="o">(</span><span class="n">Object</span><span class="o">...</span> <span class="n">arr</span><span class="o">)</span> <span class="o">{</span>
+<pre class="code literal-block"><span></span><span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">debug</span><span class="o">(</span><span class="n">Object</span><span class="o">...</span> <span class="n">arr</span><span class="o">)</span> <span class="o">{</span>
     <span class="n">StackTraceElement</span> <span class="n">call</span> <span class="o">=</span> <span class="n">Thread</span><span class="o">.</span><span class="na">currentThread</span><span class="o">().</span><span class="na">getStackTrace</span><span class="o">()[</span><span class="mi">3</span><span class="o">];</span>
     <span class="n">String</span> <span class="n">className</span> <span class="o">=</span> <span class="n">call</span><span class="o">.</span><span class="na">getClassName</span><span class="o">();</span>
     <span class="n">className</span> <span class="o">=</span> <span class="n">className</span><span class="o">.</span><span class="na">substring</span><span class="o">(</span><span class="n">className</span><span class="o">.</span><span class="na">lastIndexOf</span><span class="o">(</span><span class="sc">'.'</span><span class="o">)</span> <span class="o">+</span> <span class="mi">1</span><span class="o">);</span>
@@ -517,7 +565,6 @@ command line 有何神奇魔力？這些工具單獨使用的話確實是不怎�
             <span class="o">+</span> <span class="n">java</span><span class="o">.</span><span class="na">util</span><span class="o">.</span><span class="na">Arrays</span><span class="o">.</span><span class="na">deepToString</span><span class="o">(</span><span class="n">arr</span><span class="o">));</span>
 <span class="o">}</span>
 </pre>
-
 
 <p>這個其實既不是 Log Viewer，也不能算是 debug tool，勉強只能算是個小技巧吧。
 它的功用是在顯示的 log 前面加上 class name, method name 與行數，就像是 C 的
@@ -532,7 +579,7 @@ deepToString，所以連陣列內容都能印出。</p>
 的<a href="http://developer.android.com/tools/debugging/debugging-tracing.html">教學</a>，所以我就只以圖片與簡短描述帶過。</p>
 <p>執行 profiler 共有兩種方式，第一種方式是在程式中安插程式碼：</p>
 <h4>第一種</h4>
-<pre class="code literal-block"><span class="c1">// start tracing to "/sdcard/calc.trace"</span>
+<pre class="code literal-block"><span></span><span class="c1">// start tracing to "/sdcard/calc.trace"</span>
 <span class="n">Debug</span><span class="o">.</span><span class="na">startMethodTracing</span><span class="o">(</span><span class="s">"calc"</span><span class="o">);</span>
 
 <span class="c1">// 做 profiling 的區域</span>
@@ -540,7 +587,6 @@ deepToString，所以連陣列內容都能印出。</p>
 <span class="c1">// stop tracing</span>
 <span class="n">Debug</span><span class="o">.</span><span class="na">stopMethodTracing</span><span class="o">();</span>
 </pre>
-
 
 <p>上述這個方法比較麻煩，但能確保 profiling 的對象只有自己關心的區域。</p>
 <h4>第二種</h4>
@@ -554,9 +600,8 @@ process，然後點上圖中被藍色圓圈圈起的按鈕，並在打算停止 
 <p>第一種方法執行完的 trace file 會存在 SD card 內，而第二種則是存在
 <code>/tmp/ddms....</code>，可以從分頁名稱上得到確切的檔名。</p>
 <p>有了 trace file，接著只要執行：</p>
-<pre class="code literal-block">dmtracedump -g callgraph.png calc.trace
+<pre class="code literal-block"><span></span>dmtracedump -g callgraph.png calc.trace
 </pre>
-
 
 <p>就可以得到如下的 call graph。</p>
 <p><img alt="Call Graph" src="galleries/android-java-debug/callgraph.png"></p>
@@ -575,15 +620,15 @@ tool，希望我能早日完成。:)</p>
             </div>
         </div>
         <div class="post">
-            <h1 class="title"><a href="posts/android-cts-report.html">Android CTS - 讓 Report 說話</a></h1>
+            <h1 class="title"><a href="posts/android-cts-report/">Android CTS - 讓 Report 說話</a></h1>
             <div class="meta">
                 <div class="authordate">
                     <time class="timeago" datetime="2014-02-02T23:37:47+08:00">2014-02-02 23:37</time>
-                </div>
+</div>
                 <div class="stats">
                     
         
-    <a href="posts/android-cts-report.html#disqus_thread" data-disqus-identifier="cache/posts/android-cts-report.html">Comments</a>
+    <a href="posts/android-cts-report/#disqus_thread" data-disqus-identifier="cache/posts/android-cts-report.html">Comments</a>
 
 
                 </div>
@@ -591,10 +636,10 @@ tool，希望我能早日完成。:)</p>
         <div itemprop="keywords" class="tags">
         <ul>
         Tags : 
-           <li><a class="tag p-category" href="categories/android.html" rel="tag">Android</a></li>
-           <li><a class="tag p-category" href="categories/cts.html" rel="tag">CTS</a></li>
+           <li><a class="tag p-category" href="categories/android/" rel="tag">Android</a></li>
+           <li><a class="tag p-category" href="categories/cts/" rel="tag">CTS</a></li>
         </ul>
-        </div>
+</div>
 
             </div>
             <div class="body">
@@ -646,15 +691,15 @@ parsing 時比較費工而已。所以我放出 parsing 的部份，希望有需
             </div>
         </div>
         <div class="post">
-            <h1 class="title"><a href="posts/android-cts.html">Android CTS 筆記</a></h1>
+            <h1 class="title"><a href="posts/android-cts/">Android CTS 筆記</a></h1>
             <div class="meta">
                 <div class="authordate">
                     <time class="timeago" datetime="2014-02-02T19:25:16+08:00">2014-02-02 19:25</time>
-                </div>
+</div>
                 <div class="stats">
                     
         
-    <a href="posts/android-cts.html#disqus_thread" data-disqus-identifier="cache/posts/android-cts.html">Comments</a>
+    <a href="posts/android-cts/#disqus_thread" data-disqus-identifier="cache/posts/android-cts.html">Comments</a>
 
 
                 </div>
@@ -662,10 +707,10 @@ parsing 時比較費工而已。所以我放出 parsing 的部份，希望有需
         <div itemprop="keywords" class="tags">
         <ul>
         Tags : 
-           <li><a class="tag p-category" href="categories/android.html" rel="tag">Android</a></li>
-           <li><a class="tag p-category" href="categories/cts.html" rel="tag">CTS</a></li>
+           <li><a class="tag p-category" href="categories/android/" rel="tag">Android</a></li>
+           <li><a class="tag p-category" href="categories/cts/" rel="tag">CTS</a></li>
         </ul>
-        </div>
+</div>
 
             </div>
             <div class="body">
@@ -683,15 +728,15 @@ parsing 時比較費工而已。所以我放出 parsing 的部份，希望有需
             </div>
         </div>
         <div class="post">
-            <h1 class="title"><a href="posts/ydict.html">ydict - node.js 實作</a></h1>
+            <h1 class="title"><a href="posts/ydict/">ydict - node.js 實作</a></h1>
             <div class="meta">
                 <div class="authordate">
                     <time class="timeago" datetime="2014-01-30T15:07:52+08:00">2014-01-30 15:07</time>
-                </div>
+</div>
                 <div class="stats">
                     
         
-    <a href="posts/ydict.html#disqus_thread" data-disqus-identifier="cache/posts/ydict.html">Comments</a>
+    <a href="posts/ydict/#disqus_thread" data-disqus-identifier="cache/posts/ydict.html">Comments</a>
 
 
                 </div>
@@ -699,10 +744,10 @@ parsing 時比較費工而已。所以我放出 parsing 的部份，希望有需
         <div itemprop="keywords" class="tags">
         <ul>
         Tags : 
-           <li><a class="tag p-category" href="categories/nodejs.html" rel="tag">node.js</a></li>
-           <li><a class="tag p-category" href="categories/ydict.html" rel="tag">ydict</a></li>
+           <li><a class="tag p-category" href="categories/nodejs/" rel="tag">node.js</a></li>
+           <li><a class="tag p-category" href="categories/ydict/" rel="tag">ydict</a></li>
         </ul>
-        </div>
+</div>
 
             </div>
             <div class="body">
@@ -735,9 +780,8 @@ parsing，事情也許會簡單很多，於是 <a href="https://github.com/sayua
 可以直接引用，雖然我覺得這個功能完全只是雞肋。:p</p>
 <p>此外，我也已經將 ydict.js 上傳 npm，因此只要執行下述指令即可完成安裝，
 希望各位會喜歡。</p>
-<pre class="code literal-block">[sudo] npm install -g ydict.js
+<pre class="code literal-block"><span></span>[sudo] npm install -g ydict.js
 </pre>
-
 
 <h3>What else?</h3>
 <p>我的好友 Andrew 與 Jeff 也和我一樣依賴 ydict，因此在去年 Yahoo
@@ -746,21 +790,21 @@ parsing，事情也許會簡單很多，於是 <a href="https://github.com/sayua
 麻雀雖小卻是五臟俱全。(<strong>使用前請先安裝 w3m 套件。</strong>)</p>
 <p>另外就是 <a href="https://github.com/JeffChien/jydict">Jeff 開發的 LiveScript 版</a>，和 ydict.js 一樣使用 <a href="https://github.com/MatthewMueller/cheerio">cheerio</a>
 來處理 parsing，並且同樣也已經上傳 npm，因此只要執行下述指令即可安裝：</p>
-<pre class="code literal-block">[sudo] npm install -g jydict
+<pre class="code literal-block"><span></span>[sudo] npm install -g jydict
 </pre>
 </div>
             </div>
         </div>
         <div class="post">
-            <h1 class="title"><a href="posts/finally-my-new-blog.html">終於，新居落成</a></h1>
+            <h1 class="title"><a href="posts/finally-my-new-blog/">終於，新居落成</a></h1>
             <div class="meta">
                 <div class="authordate">
                     <time class="timeago" datetime="2014-01-29T21:05:42+08:00">2014-01-29 21:05</time>
-                </div>
+</div>
                 <div class="stats">
                     
         
-    <a href="posts/finally-my-new-blog.html#disqus_thread" data-disqus-identifier="cache/posts/finally-my-new-blog.html">Comments</a>
+    <a href="posts/finally-my-new-blog/#disqus_thread" data-disqus-identifier="cache/posts/finally-my-new-blog.html">Comments</a>
 
 
                 </div>
@@ -768,13 +812,13 @@ parsing，事情也許會簡單很多，於是 <a href="https://github.com/sayua
         <div itemprop="keywords" class="tags">
         <ul>
         Tags : 
-           <li><a class="tag p-category" href="categories/cjk-space-fix.html" rel="tag">CJK-space-fix</a></li>
-           <li><a class="tag p-category" href="categories/markdown.html" rel="tag">Markdown</a></li>
-           <li><a class="tag p-category" href="categories/mathjax.html" rel="tag">mathjax</a></li>
-           <li><a class="tag p-category" href="categories/nikola.html" rel="tag">Nikola</a></li>
-           <li><a class="tag p-category" href="categories/static-blog-generator.html" rel="tag">static blog generator</a></li>
+           <li><a class="tag p-category" href="categories/cjk-space-fix/" rel="tag">CJK-space-fix</a></li>
+           <li><a class="tag p-category" href="categories/markdown/" rel="tag">Markdown</a></li>
+           <li><a class="tag p-category" href="categories/mathjax/" rel="tag">mathjax</a></li>
+           <li><a class="tag p-category" href="categories/nikola/" rel="tag">Nikola</a></li>
+           <li><a class="tag p-category" href="categories/static-blog-generator/" rel="tag">static blog generator</a></li>
         </ul>
-        </div>
+</div>
 
             </div>
             <div class="body">
@@ -809,13 +853,12 @@ theme: <a href="http://www.damian.oquanta.info/posts/nikolas-zen-theme-finally-r
 </ul>
 <h3>Syntax Highlight</h3>
 <p>Syntax highlight 則是 <a href="http://pythonhosted.org/Markdown/extensions/code_hilite.html">CodeHilite</a> 和 <a href="http://pythonhosted.org/Markdown/extensions/fenced_code_blocks.html">Fenced Code Blocks</a> 的功勞。</p>
-<pre class="code literal-block"><span class="kd">class</span> <span class="nc">HelloWorld</span> <span class="o">{</span>
+<pre class="code literal-block"><span></span><span class="kd">class</span> <span class="nc">HelloWorld</span> <span class="o">{</span>
     <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
         <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Hello World!"</span><span class="o">);</span>
     <span class="o">}</span>
 <span class="o">}</span>
 </pre>
-
 
 <p>對應的寫法：</p>
 <pre>```java
@@ -829,23 +872,23 @@ class HelloWorld {
 <h3>CJK-space-fix</h3>
 <p>最後來個置入式行銷介紹一下我自己開發的 <a href="https://github.com/sayuan/CJK-space-fix/">CJK-space-fix</a>。</p>
 <p>很多人在寫 markdown 或著其他格式的檔案時，會習慣在不超過 column 80 的位置
-換行。例如：
-</p>
+換行。例如：</p>
 <pre>
 很多人在寫 markdown 或著其他格式的檔案時，會習慣在不超過 column 80 的位置
 換行。例如：
 </pre>
-<p>這在 Python-Markdown 會被處理成如下
-</p>
+
+<p>這在 Python-Markdown 會被處理成如下</p>
 <pre>
-<code>&lt;p&gt;</code>很多人在寫 markdown 或著其他格式的檔案時，會習慣在不超過 column 80 的位置
-換行。例如：<code>&lt;/p&gt;</code>
+`<p>`很多人在寫 markdown 或著其他格式的檔案時，會習慣在不超過 column 80 的位置
+換行。例如：`</p>`
 </pre>
-<p>然後顯示在瀏覽器上時，就會在 "位置" 和 "換行" 之間有一個多餘的空白，像是這樣：
-</p>
+
+<p>然後顯示在瀏覽器上時，就會在 "位置" 和 "換行" 之間有一個多餘的空白，像是這樣：</p>
 <pre>
 很多人在寫 markdown 或著其他格式的檔案時，會習慣在不超過 column 80 的位置 換行。例如：
 </pre>
+
 <p>這在許多以空白作為單字分隔的語言中都不是問題，但是在中文卻會顯得很突兀。</p>
 <p>有些人的解決方式是編輯 markdown 時故意不換行；
 也有些人是在編輯文章時，故意選在標點符號的位置換行。
@@ -866,18 +909,9 @@ markdown，但找不到針對 markdown 的說明文件，很多功能我也都�
 
     
         
-       <script>var disqus_shortname="say-something";(function(){var a=document.createElement("script");a.async=true;a.src="//"+disqus_shortname+".disqus.com/count.js";(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(a)}());</script>
-
-
-    
-        <script type="text/x-mathjax-config">
-        MathJax.Hub.Config({tex2jax: {inlineMath: [['$latex ','$'], ['\\(','\\)']]}});</script>
-        <script src="assets/js/mathjax.js"></script>
-
-
-             
-        <footer id="footer" role="contentinfo">
-            <p>Contents © 2015         <a href="mailto:shiao.an.yuan@gmail.com">Shiao-An Yuan</a> - Powered by         <a href="https://getnikola.com" rel="nofollow">Nikola</a>         
+       <script>var disqus_shortname="say-something";(function(){var a=document.createElement("script");a.async=true;a.src="https://"+disqus_shortname+".disqus.com/count.js";(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(a)}());</script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML" integrity="sha384-3lJUsx1TJHt7BA4udB5KPnDrlkO8T6J6v/op7ui0BbCjvZ9WqV4Xm6DTP6kQ/iBH" crossorigin="anonymous"></script><script type="text/x-mathjax-config">
+        MathJax.Hub.Config({tex2jax: {inlineMath: [['$latex ','$'], ['\\(','\\)']]}});
+        </script><footer id="footer"><p>Contents © 2021         <a href="mailto:shiao.an.yuan@gmail.com">Shiao-An Yuan</a> - Powered by         <a href="https://getnikola.com" rel="nofollow">Nikola</a>         
 <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">
 <img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png"></a><br>
 This work is licensed under a
@@ -886,12 +920,8 @@ Creative Commons Attribution-ShareAlike 4.0 International License
 </a>.</p>
             
         </footer>
-
-        </div>
-    </section>
-    
-<script type="text/javascript" src="assets/js/cjk_space_fix.js"></script>
-<script type="text/javascript">
+</div>
+    </section><script type="text/javascript" src="assets/js/cjk_space_fix.js"></script><script type="text/javascript">
   cjkSpaceFix();
 
   // Google Analytics
@@ -902,19 +932,10 @@ Creative Commons Attribution-ShareAlike 4.0 International License
 
   ga('create', 'UA-47613541-1', 'sayuan.github.io');
   ga('send', 'pageview');
-</script>
-
-    
-    
-            <script src="assets/js/all-nocdn.js" type="text/javascript"></script>
-    
-
-    
-        <script type="text/javascript">
+</script><script src="assets/js/all-nocdn.js" type="text/javascript"></script><script type="text/javascript">
             $(function(){
                 $('.timeago').timeago();
             });
         </script>
-    
 </body>
 </html>
