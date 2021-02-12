@@ -133,7 +133,6 @@ NAVIGATION_LINKS = {
         ('/stories/about-me.html', 'About me', 'icon-user'),
         ('https://twitter.com/shiaoanyuan', 'My Twitter', 'icon-twitter'),
         ('https://github.com/sayuan', 'My Github', 'icon-github'),
-        ('https://plus.google.com/111763383423728987624/posts', 'My Google+', 'icon-google-plus'),
         ('https://www.linkedin.com/in/sayuan', 'My LinkedIn', 'icon-linkedin'),
         ('/rss.xml', 'RSS', 'icon-rss'),
     ),
