@@ -21,7 +21,7 @@ BLOG_AUTHOR = "Shiao-An Yuan"  # (translatable)
 BLOG_TITLE = "SAY something"  # (translatable)
 # This is the main URL for your site. It will be used
 # in a prominent link
-SITE_URL = "https://sayuan.github.io/"
+SITE_URL = "https://blog.sayuan.net/"
 # This is the URL where Nikola's output will be deployed.
 # If not set, defaults to SITE_URL
 # BASE_URL = "http://getnikola.com/"
