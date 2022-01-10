@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>SAY something (Posts about Android)</title><link>https://sayuan.github.io/</link><description></description><atom:link href="https://sayuan.github.io/categories/android.xml" rel="self" type="application/rss+xml"></atom:link><language>en</language><lastBuildDate>Fri, 12 Feb 2021 06:41:02 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Android Java 層 Debug 工具介紹 (2)</title><link>https://sayuan.github.io/posts/android-java-debugging-2/</link><dc:creator>Shiao-An Yuan</dc:creator><description>&lt;div&gt;&lt;p&gt;在系列文的&lt;a href="https://sayuan.github.io/posts/android-java-debugging-2/android-java-debugging-1.html"&gt;第一篇文章&lt;/a&gt;中，我已經介紹過 Log Viewer 與
+<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>SAY something (Posts about Android)</title><link>https://blog.sayuan.net/</link><description></description><atom:link href="https://blog.sayuan.net/categories/android.xml" rel="self" type="application/rss+xml"></atom:link><language>en</language><lastBuildDate>Mon, 10 Jan 2022 15:36:14 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Android Java 層 Debug 工具介紹 (2)</title><link>https://blog.sayuan.net/posts/android-java-debugging-2/</link><dc:creator>Shiao-An Yuan</dc:creator><description>&lt;p&gt;在系列文的&lt;a href="https://blog.sayuan.net/posts/android-java-debugging-2/android-java-debugging-1.html"&gt;第一篇文章&lt;/a&gt;中，我已經介紹過 Log Viewer 與
 Profiler，而這次所要介紹的內容則是 Debugger，以及一些 Reverse Engineering 工具。
 那麼，就先從 Debugger 開始吧。&lt;/p&gt;
 &lt;h3&gt;Remote Debugging&lt;/h3&gt;
@@ -19,7 +19,7 @@ Profiler，而這次所要介紹的內容則是 Debugger，以及一些 Reverse 
 過程比較手動一些。我會以 Eclipse 進行以下的示範，但其實使用任何一款支援 Remote
 Debugging 的 debugger 皆可，甚至連 Android plugin 都不需要安裝。&lt;/p&gt;
 &lt;h4&gt;1. Select debug port&lt;/h4&gt;
-&lt;p&gt;&lt;img alt="Select debug port" src="https://sayuan.github.io/galleries/android-java-debug/debug_port.png" title="caption test"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Select debug port" src="https://blog.sayuan.net/galleries/android-java-debug/debug_port.png" title="caption test"&gt;&lt;/p&gt;
 &lt;p&gt;首先到任何一個看得見這畫面的地方，不管是 Eclipse 內建的 DDMS 也好，或著獨立的
 Android Device Monitor 也好，總之只要是這個畫面都好。&lt;/p&gt;
 &lt;p&gt;對著想要進行 debug 的 process 點一下。在點選之前，最後一欄的文字本來會是 &lt;code&gt;8600&lt;/code&gt;
@@ -30,7 +30,7 @@ Android Device Monitor 也好，總之只要是這個畫面都好。&lt;/p&gt;
 就會額外準備一組 port 8700。因為數字是固定的，因此在後續設定 debugger 時會比較方
 便，所以這個步驟其實並不是必要的。&lt;/p&gt;
 &lt;h4&gt;2. Create debug configure&lt;/h4&gt;
-&lt;p&gt;&lt;img alt="Create debug configure" src="https://sayuan.github.io/galleries/android-java-debug/debug_config.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Create debug configure" src="https://blog.sayuan.net/galleries/android-java-debug/debug_config.png"&gt;&lt;/p&gt;
 &lt;p&gt;接下來，在 &lt;code&gt;Debug Configurations&lt;/code&gt; 中建立一個新的 &lt;code&gt;Remote Java Application&lt;/code&gt;，
 右邊的 &lt;code&gt;Project&lt;/code&gt; 則視您 debug 的對象選擇，若是沒有對應的專案則請保持空白，
 &lt;code&gt;Port&lt;/code&gt; 則填上在前一步驟看到的數字。因為所有我打算進行 debug 的 process 都會事先
@@ -44,7 +44,7 @@ Android Device Monitor 也好，總之只要是這個畫面都好。&lt;/p&gt;
 對應的程式碼並試圖在上面建立中斷點，也壓根不會有作用。&lt;/p&gt;
 &lt;p&gt;現在請回到前一張圖，注意到視窗右半邊共有三個分頁，其中第二個分頁 &lt;code&gt;Source&lt;/code&gt; 就是我
 們要找的答案！&lt;/p&gt;
-&lt;p&gt;&lt;img alt="Add source" src="https://sayuan.github.io/galleries/android-java-debug/add_source.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Add source" src="https://blog.sayuan.net/galleries/android-java-debug/add_source.png"&gt;&lt;/p&gt;
 &lt;p&gt;將所有需要用到的 source code 的 &lt;code&gt;root&lt;/code&gt; 都用 &lt;code&gt;File System Directory&lt;/code&gt; 加入後，您就
 可以正常的建立中斷點，並隨著 debugger 在程式碼間遨遊了。若以 Android Framework
 為例，您所需要加入的路徑大概會是 &lt;code&gt;.../android/frameworks/base/core/java&lt;/code&gt;。
@@ -66,7 +66,7 @@ Android Device Monitor 也好，總之只要是這個畫面都好。&lt;/p&gt;
 &lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;jd-gui CtsVerifier_dex2jar.jar
 &lt;/pre&gt;
 
-&lt;p&gt;&lt;img alt="jd-gui" src="https://sayuan.github.io/galleries/android-java-debug/jd-gui.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="jd-gui" src="https://blog.sayuan.net/galleries/android-java-debug/jd-gui.png"&gt;&lt;/p&gt;
 &lt;p&gt;不過不是每一次都能像上圖這樣順利，經常會遇到 decompile 的結果不正常的狀況。
 這時候也許您可以考慮換一套 decompiler 試試，像 &lt;a href="http://varaneckas.com/jad/"&gt;JAD&lt;/a&gt; 就是另一個常見的選擇。
 這幾天我也剛好在 &lt;a href="http://androidcracking.blogspot.tw/2014/02/zerdeis-luyten-worthwhile-jd-gui.html"&gt;android cracking&lt;/a&gt; 上看到另一套工具 &lt;a href="https://github.com/deathmarine/Luyten/"&gt;Luyten&lt;/a&gt;，聽說效果比
@@ -148,7 +148,7 @@ source code 與實際產生的 smali 做對照，供各位做參考：&lt;/p&gt;
 &lt;li&gt;不得已沒有 source code 的時候才用 XD&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;/ul&gt;&lt;/div&gt;</description><category>Android</category><category>apktool</category><category>debugging</category><category>Eclipse</category><guid>https://sayuan.github.io/posts/android-java-debugging-2/</guid><pubDate>Fri, 14 Feb 2014 18:22:56 GMT</pubDate></item><item><title>Android Java 層 Debug 工具介紹 (1)</title><link>https://sayuan.github.io/posts/android-java-debugging-1/</link><dc:creator>Shiao-An Yuan</dc:creator><description>&lt;div&gt;&lt;p&gt;今天又從硬碟裡翻出一份還在前公司時製作的內訓資料，是當時所有我會的 Android Java
+&lt;/ul&gt;</description><category>Android</category><category>apktool</category><category>debugging</category><category>Eclipse</category><guid>https://blog.sayuan.net/posts/android-java-debugging-2/</guid><pubDate>Fri, 14 Feb 2014 18:22:56 GMT</pubDate></item><item><title>Android Java 層 Debug 工具介紹 (1)</title><link>https://blog.sayuan.net/posts/android-java-debugging-1/</link><dc:creator>Shiao-An Yuan</dc:creator><description>&lt;p&gt;今天又從硬碟裡翻出一份還在前公司時製作的內訓資料，是當時所有我會的 Android Java
 debug 工具的介紹，於是整理之後就成為了現在這篇文章。&lt;/p&gt;
 &lt;p&gt;本文中提及的工具與使用方法我都已測試過，即使在目前在最新的 Android 4.4
 上也還能正常使用，但畢竟這些已經是一年前的資料了，或許已經有更新的工具能替代
@@ -161,7 +161,7 @@ debug 工具的介紹，於是整理之後就成為了現在這篇文章。&lt;/
 不容易從中識別出自己所關心的 log，好在早就有現成的 &lt;a href="http://jsharkey.org/blog/2009/04/22/modifying-the-android-logcat-stream-for-full-color-debugging/"&gt;Colored Logcat&lt;/a&gt;。&lt;code&gt;Colored
 Logcat&lt;/code&gt; 是由 &lt;a href="http://jsharkey.org"&gt;Jeff Sharkey&lt;/a&gt; 所開發的一個以 python 寫成，用來 parsing &lt;code&gt;adb
 logcat&lt;/code&gt; 的輸出，並加上顏色與對齊後輸出的工具。&lt;/p&gt;
-&lt;p&gt;&lt;img alt="coloredlogcat" src="https://sayuan.github.io/galleries/android-java-debug/colorcat.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="coloredlogcat" src="https://blog.sayuan.net/galleries/android-java-debug/colorcat.png"&gt;&lt;/p&gt;
 &lt;p&gt;由於原作者釋出 &lt;code&gt;Colored Logcat&lt;/code&gt; 之後沒有持續維護，因此在 Github 及 Google Code
 上都可以找到其他人的分支。我自己所使用的版本則是對其做了兩個修改：&lt;/p&gt;
 &lt;ol&gt;
@@ -211,11 +211,11 @@ deepToString，所以連陣列內容都能印出。&lt;/p&gt;
 
 &lt;p&gt;上述這個方法比較麻煩，但能確保 profiling 的對象只有自己關心的區域。&lt;/p&gt;
 &lt;h4&gt;第二種&lt;/h4&gt;
-&lt;p&gt;&lt;img alt="Start Profiling" src="https://sayuan.github.io/galleries/android-java-debug/start_profiling.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Start Profiling" src="https://blog.sayuan.net/galleries/android-java-debug/start_profiling.png"&gt;&lt;/p&gt;
 &lt;p&gt;第二個方法則是直接在 Android Device Monitor 工具內，選好要 profiling 的
 process，然後點上圖中被藍色圓圈圈起的按鈕，並在打算停止 profiling
 時再按一下即可。&lt;/p&gt;
-&lt;p&gt;&lt;img alt="Traceview" src="https://sayuan.github.io/galleries/android-java-debug/traceview.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Traceview" src="https://blog.sayuan.net/galleries/android-java-debug/traceview.png"&gt;&lt;/p&gt;
 &lt;p&gt;接著畫面上就會出現 profiling 的結果。&lt;/p&gt;
 &lt;h4&gt;Call Graph&lt;/h4&gt;
 &lt;p&gt;第一種方法執行完的 trace file 會存在 SD card 內，而第二種則是存在
@@ -225,7 +225,7 @@ process，然後點上圖中被藍色圓圈圈起的按鈕，並在打算停止 
 &lt;/pre&gt;
 
 &lt;p&gt;就可以得到如下的 call graph。&lt;/p&gt;
-&lt;p&gt;&lt;img alt="Call Graph" src="https://sayuan.github.io/galleries/android-java-debug/callgraph.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Call Graph" src="https://blog.sayuan.net/galleries/android-java-debug/callgraph.png"&gt;&lt;/p&gt;
 &lt;h4&gt;debuggable flag&lt;/h4&gt;
 &lt;p&gt;第二種方法在使用上有個限制，即操作的手機必須是 Engineering build，或著所觀察的
 App 具有 debuggable flag。&lt;/p&gt;
@@ -236,7 +236,7 @@ source code，也能將所需的 code 插入，因此正好可以拿來安插第
 所需的 code，細節將會在後續的文章中說明。&lt;/p&gt;
 &lt;p&gt;篇幅好像差不多了，那麼就先在此打住吧。
 接下來預計還會寫一至兩篇文章介紹 remote debugging 與 reverse engineering
-tool，希望我能早日完成。:)&lt;/p&gt;&lt;/div&gt;</description><category>Android</category><category>coloredlogcat</category><category>debugging</category><category>traceview</category><guid>https://sayuan.github.io/posts/android-java-debugging-1/</guid><pubDate>Sun, 09 Feb 2014 12:36:56 GMT</pubDate></item><item><title>Android CTS - 讓 Report 說話</title><link>https://sayuan.github.io/posts/android-cts-report/</link><dc:creator>Shiao-An Yuan</dc:creator><description>&lt;div&gt;&lt;p&gt;接著來談談當初在負責 CTS 時遇到的最大困難，以及最後解決的方法。&lt;/p&gt;
+tool，希望我能早日完成。:)&lt;/p&gt;</description><category>Android</category><category>coloredlogcat</category><category>debugging</category><category>traceview</category><guid>https://blog.sayuan.net/posts/android-java-debugging-1/</guid><pubDate>Sun, 09 Feb 2014 12:36:56 GMT</pubDate></item><item><title>Android CTS - 讓 Report 說話</title><link>https://blog.sayuan.net/posts/android-cts-report/</link><dc:creator>Shiao-An Yuan</dc:creator><description>&lt;p&gt;接著來談談當初在負責 CTS 時遇到的最大困難，以及最後解決的方法。&lt;/p&gt;
 &lt;h3&gt;什麼是 CTS？&lt;/h3&gt;
 &lt;p&gt;Android 雖然是 Open Source Project，即任何的廠商都可以自行生產手機，但
 如果想在出廠時內建 Google Play 等 Google 所提供的 APP，就必須與 Google
@@ -278,7 +278,7 @@ Google 提供的 CTS 程式，並產生一份通過所有測試的 Report，Goog
 大家見笑。事實上，這個網站其實非常的簡單，甚至我放出的部份也沒有任何難度
 ，只是單純的 parsing XML 並存進資料庫而已，真要說有難度的地方，也只是
 parsing 時比較費工而已。所以我放出 parsing 的部份，希望有需要的人可以在
-略做修改的情況下就能夠使用，如果在使用上有遭遇什麼困難，也歡迎與我聯繫。&lt;/p&gt;&lt;/div&gt;</description><category>Android</category><category>CTS</category><guid>https://sayuan.github.io/posts/android-cts-report/</guid><pubDate>Sun, 02 Feb 2014 15:37:47 GMT</pubDate></item><item><title>Android CTS 筆記</title><link>https://sayuan.github.io/posts/android-cts/</link><dc:creator>Shiao-An Yuan</dc:creator><description>&lt;div&gt;&lt;p&gt;我過去曾經在國內的二線 Android 系統廠服務了約一年半的時間，當時所負責的
+略做修改的情況下就能夠使用，如果在使用上有遭遇什麼困難，也歡迎與我聯繫。&lt;/p&gt;</description><category>Android</category><category>CTS</category><guid>https://blog.sayuan.net/posts/android-cts-report/</guid><pubDate>Sun, 02 Feb 2014 15:37:47 GMT</pubDate></item><item><title>Android CTS 筆記</title><link>https://blog.sayuan.net/posts/android-cts/</link><dc:creator>Shiao-An Yuan</dc:creator><description>&lt;p&gt;我過去曾經在國內的二線 Android 系統廠服務了約一年半的時間，當時所負責的
 工作之一，就是負責處理 Android CTS 問題。雖然不是所有的 Issue 都由我負責
 到底，但第一關的釐清、分配，和解決最後無明確歸屬的 Issue，都是我的任務。
 而這一年多來追蹤過的 CTS 問題少說也有百項，也因此累積了不少的筆記。&lt;/p&gt;
@@ -286,4 +286,4 @@ parsing 時比較費工而已。所以我放出 parsing 的部份，希望有需
 ，心血來潮花了整整一天的時間，終於有機會讓這些筆記重見天日。我把它們全部
 都重寫成 markdown 格式，並且上傳至 Github 的 wiki，連結就在&lt;a href="https://github.com/sayuan/Android-CTS-notes"&gt;這裡&lt;/a&gt;。&lt;/p&gt;
 &lt;p&gt;希望這些資訊能給還在和 CTS 奮鬥的工程師們一些幫助，如果其中有任何錯誤與
-不足的部份，還請不吝指出或著直接進行修正。&lt;/p&gt;&lt;/div&gt;</description><category>Android</category><category>CTS</category><guid>https://sayuan.github.io/posts/android-cts/</guid><pubDate>Sun, 02 Feb 2014 11:25:16 GMT</pubDate></item></channel></rss>
+不足的部份，還請不吝指出或著直接進行修正。&lt;/p&gt;</description><category>Android</category><category>CTS</category><guid>https://blog.sayuan.net/posts/android-cts/</guid><pubDate>Sun, 02 Feb 2014 11:25:16 GMT</pubDate></item></channel></rss>

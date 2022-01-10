@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>SAY something (Posts about Network)</title><link>https://sayuan.github.io/</link><description></description><atom:link href="https://sayuan.github.io/categories/network.xml" rel="self" type="application/rss+xml"></atom:link><language>en</language><lastBuildDate>Fri, 12 Feb 2021 06:41:03 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>使用 Graphviz 繪製網路拓樸</title><link>https://sayuan.github.io/posts/network-topology-by-graphviz/</link><dc:creator>Shiao-An Yuan</dc:creator><description>&lt;div&gt;&lt;p&gt;自從離開了 Android 產業之後，我加入了一間與網路服務相關的新創公司。
+<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>SAY something (Posts about Network)</title><link>https://blog.sayuan.net/</link><description></description><atom:link href="https://blog.sayuan.net/categories/network.xml" rel="self" type="application/rss+xml"></atom:link><language>en</language><lastBuildDate>Mon, 10 Jan 2022 15:36:14 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>使用 Graphviz 繪製網路拓樸</title><link>https://blog.sayuan.net/posts/network-topology-by-graphviz/</link><dc:creator>Shiao-An Yuan</dc:creator><description>&lt;p&gt;自從離開了 Android 產業之後，我加入了一間與網路服務相關的新創公司。
 在工作內容上，經常會需要理解對方的網路環境，而解決這個問題最好的方法，
 就是事先準備好一份網路拓樸並歸檔。&lt;/p&gt;
 &lt;h3&gt;Requirements&lt;/h3&gt;
@@ -45,7 +45,7 @@ sudo apt-get install graphviz
 但不知道是哪裡出了問題，我並沒有辦法順利使用，所以我是自行轉成 &lt;code&gt;PNG&lt;/code&gt;。&lt;/p&gt;
 &lt;h3&gt;Results&lt;/h3&gt;
 &lt;p&gt;最後的結果就是下圖：&lt;/p&gt;
-&lt;p&gt;&lt;img alt="Topology" src="https://sayuan.github.io/galleries/misc/topology.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Topology" src="https://blog.sayuan.net/galleries/misc/topology.png"&gt;&lt;/p&gt;
 &lt;p&gt;而上圖對應的 dot 原始檔如下：&lt;/p&gt;
 &lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;graph G {
     node [shape=none, height=1.2]
@@ -103,4 +103,4 @@ sudo apt-get install graphviz
 而&lt;a href="https://github.com/tckz/redmine-wiki_graphviz_plugin"&gt;這裡有一個 plugin&lt;/a&gt;，能夠直接將 wiki 中的純文字的 dot，在預覽和儲存後直接以
 轉換後的圖片顯示，實在是方常方便。&lt;/p&gt;
 &lt;p&gt;然而使用 Graphviz 有其極限，對於複雜的網路拓樸，或著對美觀極度要求時，使用其他
-的軟體搭配仍然有其必要。&lt;/p&gt;&lt;/div&gt;</description><category>Dot</category><category>Graphviz</category><category>Network</category><guid>https://sayuan.github.io/posts/network-topology-by-graphviz/</guid><pubDate>Sun, 23 Feb 2014 14:02:59 GMT</pubDate></item></channel></rss>
+的軟體搭配仍然有其必要。&lt;/p&gt;</description><category>Dot</category><category>Graphviz</category><category>Network</category><guid>https://blog.sayuan.net/posts/network-topology-by-graphviz/</guid><pubDate>Sun, 23 Feb 2014 14:02:59 GMT</pubDate></item></channel></rss>

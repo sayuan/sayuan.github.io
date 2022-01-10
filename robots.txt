@@ -1,2 +1,4 @@
-Sitemap: https://sayuan.github.io/sitemapindex.xml
+Sitemap: https://blog.sayuan.net/sitemapindex.xml
 
+User-Agent: *
+Host: blog.sayuan.net

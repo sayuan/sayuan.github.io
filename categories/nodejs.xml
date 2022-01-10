@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>SAY something (Posts about node.js)</title><link>https://sayuan.github.io/</link><description></description><atom:link href="https://sayuan.github.io/categories/nodejs.xml" rel="self" type="application/rss+xml"></atom:link><language>en</language><lastBuildDate>Fri, 12 Feb 2021 06:41:03 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>ydict - node.js 實作</title><link>https://sayuan.github.io/posts/ydict/</link><dc:creator>Shiao-An Yuan</dc:creator><description>&lt;div&gt;&lt;h3&gt;What is "ydict"&lt;/h3&gt;
+<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>SAY something (Posts about node.js)</title><link>https://blog.sayuan.net/</link><description></description><atom:link href="https://blog.sayuan.net/categories/nodejs.xml" rel="self" type="application/rss+xml"></atom:link><language>en</language><lastBuildDate>Mon, 10 Jan 2022 15:36:14 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>ydict - node.js 實作</title><link>https://blog.sayuan.net/posts/ydict/</link><dc:creator>Shiao-An Yuan</dc:creator><description>&lt;h3&gt;What is "ydict"&lt;/h3&gt;
 &lt;p&gt;身為一名 command line 魔人，儘可能的將所有在電腦上的操作在 command line
 之內完成，是一件理所當然的事情，就連查字典也不例外，而 ydict
 就是這樣的工具。&lt;/p&gt;
-&lt;p&gt;&lt;img alt="ydict" src="https://sayuan.github.io/galleries/misc/ydict.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="ydict" src="https://blog.sayuan.net/galleries/misc/ydict.png"&gt;&lt;/p&gt;
 &lt;p&gt;ydict 的資料來自於 &lt;a href="http://tw.dictionary.yahoo.com/"&gt;Yahoo 字典&lt;/a&gt;，事實上 ydict
 所作的事情就只是以使用者的輸入詞在 Yahoo 字典上查詢，然後 parsing
 出重要的資訊，並以適合 terminal 的格式顯示在螢幕上。&lt;/p&gt;
@@ -38,4 +38,4 @@ parsing，事情也許會簡單很多，於是 &lt;a href="https://github.com/sa
 &lt;p&gt;另外就是 &lt;a href="https://github.com/JeffChien/jydict"&gt;Jeff 開發的 LiveScript 版&lt;/a&gt;，和 ydict.js 一樣使用 &lt;a href="https://github.com/MatthewMueller/cheerio"&gt;cheerio&lt;/a&gt;
 來處理 parsing，並且同樣也已經上傳 npm，因此只要執行下述指令即可安裝：&lt;/p&gt;
 &lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;[sudo] npm install -g jydict
-&lt;/pre&gt;&lt;/div&gt;</description><category>node.js</category><category>ydict</category><guid>https://sayuan.github.io/posts/ydict/</guid><pubDate>Thu, 30 Jan 2014 07:07:52 GMT</pubDate></item></channel></rss>
+&lt;/pre&gt;</description><category>node.js</category><category>ydict</category><guid>https://blog.sayuan.net/posts/ydict/</guid><pubDate>Thu, 30 Jan 2014 07:07:52 GMT</pubDate></item></channel></rss>

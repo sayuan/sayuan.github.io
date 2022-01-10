@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>SAY something (Posts about Eclipse)</title><link>https://sayuan.github.io/</link><description></description><atom:link href="https://sayuan.github.io/categories/eclipse.xml" rel="self" type="application/rss+xml"></atom:link><language>en</language><lastBuildDate>Fri, 12 Feb 2021 06:41:03 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Android Java 層 Debug 工具介紹 (2)</title><link>https://sayuan.github.io/posts/android-java-debugging-2/</link><dc:creator>Shiao-An Yuan</dc:creator><description>&lt;div&gt;&lt;p&gt;在系列文的&lt;a href="https://sayuan.github.io/posts/android-java-debugging-2/android-java-debugging-1.html"&gt;第一篇文章&lt;/a&gt;中，我已經介紹過 Log Viewer 與
+<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>SAY something (Posts about Eclipse)</title><link>https://blog.sayuan.net/</link><description></description><atom:link href="https://blog.sayuan.net/categories/eclipse.xml" rel="self" type="application/rss+xml"></atom:link><language>en</language><lastBuildDate>Mon, 10 Jan 2022 15:36:14 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Android Java 層 Debug 工具介紹 (2)</title><link>https://blog.sayuan.net/posts/android-java-debugging-2/</link><dc:creator>Shiao-An Yuan</dc:creator><description>&lt;p&gt;在系列文的&lt;a href="https://blog.sayuan.net/posts/android-java-debugging-2/android-java-debugging-1.html"&gt;第一篇文章&lt;/a&gt;中，我已經介紹過 Log Viewer 與
 Profiler，而這次所要介紹的內容則是 Debugger，以及一些 Reverse Engineering 工具。
 那麼，就先從 Debugger 開始吧。&lt;/p&gt;
 &lt;h3&gt;Remote Debugging&lt;/h3&gt;
@@ -19,7 +19,7 @@ Profiler，而這次所要介紹的內容則是 Debugger，以及一些 Reverse 
 過程比較手動一些。我會以 Eclipse 進行以下的示範，但其實使用任何一款支援 Remote
 Debugging 的 debugger 皆可，甚至連 Android plugin 都不需要安裝。&lt;/p&gt;
 &lt;h4&gt;1. Select debug port&lt;/h4&gt;
-&lt;p&gt;&lt;img alt="Select debug port" src="https://sayuan.github.io/galleries/android-java-debug/debug_port.png" title="caption test"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Select debug port" src="https://blog.sayuan.net/galleries/android-java-debug/debug_port.png" title="caption test"&gt;&lt;/p&gt;
 &lt;p&gt;首先到任何一個看得見這畫面的地方，不管是 Eclipse 內建的 DDMS 也好，或著獨立的
 Android Device Monitor 也好，總之只要是這個畫面都好。&lt;/p&gt;
 &lt;p&gt;對著想要進行 debug 的 process 點一下。在點選之前，最後一欄的文字本來會是 &lt;code&gt;8600&lt;/code&gt;
@@ -30,7 +30,7 @@ Android Device Monitor 也好，總之只要是這個畫面都好。&lt;/p&gt;
 就會額外準備一組 port 8700。因為數字是固定的，因此在後續設定 debugger 時會比較方
 便，所以這個步驟其實並不是必要的。&lt;/p&gt;
 &lt;h4&gt;2. Create debug configure&lt;/h4&gt;
-&lt;p&gt;&lt;img alt="Create debug configure" src="https://sayuan.github.io/galleries/android-java-debug/debug_config.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Create debug configure" src="https://blog.sayuan.net/galleries/android-java-debug/debug_config.png"&gt;&lt;/p&gt;
 &lt;p&gt;接下來，在 &lt;code&gt;Debug Configurations&lt;/code&gt; 中建立一個新的 &lt;code&gt;Remote Java Application&lt;/code&gt;，
 右邊的 &lt;code&gt;Project&lt;/code&gt; 則視您 debug 的對象選擇，若是沒有對應的專案則請保持空白，
 &lt;code&gt;Port&lt;/code&gt; 則填上在前一步驟看到的數字。因為所有我打算進行 debug 的 process 都會事先
@@ -44,7 +44,7 @@ Android Device Monitor 也好，總之只要是這個畫面都好。&lt;/p&gt;
 對應的程式碼並試圖在上面建立中斷點，也壓根不會有作用。&lt;/p&gt;
 &lt;p&gt;現在請回到前一張圖，注意到視窗右半邊共有三個分頁，其中第二個分頁 &lt;code&gt;Source&lt;/code&gt; 就是我
 們要找的答案！&lt;/p&gt;
-&lt;p&gt;&lt;img alt="Add source" src="https://sayuan.github.io/galleries/android-java-debug/add_source.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Add source" src="https://blog.sayuan.net/galleries/android-java-debug/add_source.png"&gt;&lt;/p&gt;
 &lt;p&gt;將所有需要用到的 source code 的 &lt;code&gt;root&lt;/code&gt; 都用 &lt;code&gt;File System Directory&lt;/code&gt; 加入後，您就
 可以正常的建立中斷點，並隨著 debugger 在程式碼間遨遊了。若以 Android Framework
 為例，您所需要加入的路徑大概會是 &lt;code&gt;.../android/frameworks/base/core/java&lt;/code&gt;。
@@ -66,7 +66,7 @@ Android Device Monitor 也好，總之只要是這個畫面都好。&lt;/p&gt;
 &lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;jd-gui CtsVerifier_dex2jar.jar
 &lt;/pre&gt;
 
-&lt;p&gt;&lt;img alt="jd-gui" src="https://sayuan.github.io/galleries/android-java-debug/jd-gui.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="jd-gui" src="https://blog.sayuan.net/galleries/android-java-debug/jd-gui.png"&gt;&lt;/p&gt;
 &lt;p&gt;不過不是每一次都能像上圖這樣順利，經常會遇到 decompile 的結果不正常的狀況。
 這時候也許您可以考慮換一套 decompiler 試試，像 &lt;a href="http://varaneckas.com/jad/"&gt;JAD&lt;/a&gt; 就是另一個常見的選擇。
 這幾天我也剛好在 &lt;a href="http://androidcracking.blogspot.tw/2014/02/zerdeis-luyten-worthwhile-jd-gui.html"&gt;android cracking&lt;/a&gt; 上看到另一套工具 &lt;a href="https://github.com/deathmarine/Luyten/"&gt;Luyten&lt;/a&gt;，聽說效果比
@@ -148,4 +148,4 @@ source code 與實際產生的 smali 做對照，供各位做參考：&lt;/p&gt;
 &lt;li&gt;不得已沒有 source code 的時候才用 XD&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;/ul&gt;&lt;/div&gt;</description><category>Android</category><category>apktool</category><category>debugging</category><category>Eclipse</category><guid>https://sayuan.github.io/posts/android-java-debugging-2/</guid><pubDate>Fri, 14 Feb 2014 18:22:56 GMT</pubDate></item></channel></rss>
+&lt;/ul&gt;</description><category>Android</category><category>apktool</category><category>debugging</category><category>Eclipse</category><guid>https://blog.sayuan.net/posts/android-java-debugging-2/</guid><pubDate>Fri, 14 Feb 2014 18:22:56 GMT</pubDate></item></channel></rss>

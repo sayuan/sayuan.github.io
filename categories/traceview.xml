@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>SAY something (Posts about traceview)</title><link>https://sayuan.github.io/</link><description></description><atom:link href="https://sayuan.github.io/categories/traceview.xml" rel="self" type="application/rss+xml"></atom:link><language>en</language><lastBuildDate>Fri, 12 Feb 2021 06:41:02 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Android Java 層 Debug 工具介紹 (1)</title><link>https://sayuan.github.io/posts/android-java-debugging-1/</link><dc:creator>Shiao-An Yuan</dc:creator><description>&lt;div&gt;&lt;p&gt;今天又從硬碟裡翻出一份還在前公司時製作的內訓資料，是當時所有我會的 Android Java
+<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>SAY something (Posts about traceview)</title><link>https://blog.sayuan.net/</link><description></description><atom:link href="https://blog.sayuan.net/categories/traceview.xml" rel="self" type="application/rss+xml"></atom:link><language>en</language><lastBuildDate>Mon, 10 Jan 2022 15:36:14 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Android Java 層 Debug 工具介紹 (1)</title><link>https://blog.sayuan.net/posts/android-java-debugging-1/</link><dc:creator>Shiao-An Yuan</dc:creator><description>&lt;p&gt;今天又從硬碟裡翻出一份還在前公司時製作的內訓資料，是當時所有我會的 Android Java
 debug 工具的介紹，於是整理之後就成為了現在這篇文章。&lt;/p&gt;
 &lt;p&gt;本文中提及的工具與使用方法我都已測試過，即使在目前在最新的 Android 4.4
 上也還能正常使用，但畢竟這些已經是一年前的資料了，或許已經有更新的工具能替代
@@ -12,7 +12,7 @@ debug 工具的介紹，於是整理之後就成為了現在這篇文章。&lt;/
 不容易從中識別出自己所關心的 log，好在早就有現成的 &lt;a href="http://jsharkey.org/blog/2009/04/22/modifying-the-android-logcat-stream-for-full-color-debugging/"&gt;Colored Logcat&lt;/a&gt;。&lt;code&gt;Colored
 Logcat&lt;/code&gt; 是由 &lt;a href="http://jsharkey.org"&gt;Jeff Sharkey&lt;/a&gt; 所開發的一個以 python 寫成，用來 parsing &lt;code&gt;adb
 logcat&lt;/code&gt; 的輸出，並加上顏色與對齊後輸出的工具。&lt;/p&gt;
-&lt;p&gt;&lt;img alt="coloredlogcat" src="https://sayuan.github.io/galleries/android-java-debug/colorcat.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="coloredlogcat" src="https://blog.sayuan.net/galleries/android-java-debug/colorcat.png"&gt;&lt;/p&gt;
 &lt;p&gt;由於原作者釋出 &lt;code&gt;Colored Logcat&lt;/code&gt; 之後沒有持續維護，因此在 Github 及 Google Code
 上都可以找到其他人的分支。我自己所使用的版本則是對其做了兩個修改：&lt;/p&gt;
 &lt;ol&gt;
@@ -62,11 +62,11 @@ deepToString，所以連陣列內容都能印出。&lt;/p&gt;
 
 &lt;p&gt;上述這個方法比較麻煩，但能確保 profiling 的對象只有自己關心的區域。&lt;/p&gt;
 &lt;h4&gt;第二種&lt;/h4&gt;
-&lt;p&gt;&lt;img alt="Start Profiling" src="https://sayuan.github.io/galleries/android-java-debug/start_profiling.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Start Profiling" src="https://blog.sayuan.net/galleries/android-java-debug/start_profiling.png"&gt;&lt;/p&gt;
 &lt;p&gt;第二個方法則是直接在 Android Device Monitor 工具內，選好要 profiling 的
 process，然後點上圖中被藍色圓圈圈起的按鈕，並在打算停止 profiling
 時再按一下即可。&lt;/p&gt;
-&lt;p&gt;&lt;img alt="Traceview" src="https://sayuan.github.io/galleries/android-java-debug/traceview.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Traceview" src="https://blog.sayuan.net/galleries/android-java-debug/traceview.png"&gt;&lt;/p&gt;
 &lt;p&gt;接著畫面上就會出現 profiling 的結果。&lt;/p&gt;
 &lt;h4&gt;Call Graph&lt;/h4&gt;
 &lt;p&gt;第一種方法執行完的 trace file 會存在 SD card 內，而第二種則是存在
@@ -76,7 +76,7 @@ process，然後點上圖中被藍色圓圈圈起的按鈕，並在打算停止 
 &lt;/pre&gt;
 
 &lt;p&gt;就可以得到如下的 call graph。&lt;/p&gt;
-&lt;p&gt;&lt;img alt="Call Graph" src="https://sayuan.github.io/galleries/android-java-debug/callgraph.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Call Graph" src="https://blog.sayuan.net/galleries/android-java-debug/callgraph.png"&gt;&lt;/p&gt;
 &lt;h4&gt;debuggable flag&lt;/h4&gt;
 &lt;p&gt;第二種方法在使用上有個限制，即操作的手機必須是 Engineering build，或著所觀察的
 App 具有 debuggable flag。&lt;/p&gt;
@@ -87,4 +87,4 @@ source code，也能將所需的 code 插入，因此正好可以拿來安插第
 所需的 code，細節將會在後續的文章中說明。&lt;/p&gt;
 &lt;p&gt;篇幅好像差不多了，那麼就先在此打住吧。
 接下來預計還會寫一至兩篇文章介紹 remote debugging 與 reverse engineering
-tool，希望我能早日完成。:)&lt;/p&gt;&lt;/div&gt;</description><category>Android</category><category>coloredlogcat</category><category>debugging</category><category>traceview</category><guid>https://sayuan.github.io/posts/android-java-debugging-1/</guid><pubDate>Sun, 09 Feb 2014 12:36:56 GMT</pubDate></item></channel></rss>
+tool，希望我能早日完成。:)&lt;/p&gt;</description><category>Android</category><category>coloredlogcat</category><category>debugging</category><category>traceview</category><guid>https://blog.sayuan.net/posts/android-java-debugging-1/</guid><pubDate>Sun, 09 Feb 2014 12:36:56 GMT</pubDate></item></channel></rss>

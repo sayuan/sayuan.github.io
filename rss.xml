@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>SAY something</title><link>https://sayuan.github.io/</link><description>Shiao-An Yuan personal blog</description><atom:link href="https://sayuan.github.io/rss.xml" rel="self" type="application/rss+xml"></atom:link><language>en</language><lastBuildDate>Fri, 12 Feb 2021 12:32:26 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>如何設計出好的 data pipeline</title><link>https://sayuan.github.io/posts/what-makes-a-good-data-pipeline/</link><dc:creator>Shiao-An Yuan</dc:creator><description>&lt;div&gt;&lt;p&gt;在 &lt;a href="https://www.appier.com/"&gt;Appier&lt;/a&gt; 擔任 Data Engineer 一職至今已滿五年，在這過程之中開發與維護 pipeline 一直是我最重要的工作項目之一。
+<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>SAY something</title><link>https://blog.sayuan.net/</link><description>Shiao-An Yuan personal blog</description><atom:link href="https://blog.sayuan.net/rss.xml" rel="self" type="application/rss+xml"></atom:link><language>en</language><lastBuildDate>Mon, 10 Jan 2022 15:36:14 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>如何設計出好的 data pipeline</title><link>https://blog.sayuan.net/posts/what-makes-a-good-data-pipeline/</link><dc:creator>Shiao-An Yuan</dc:creator><description>&lt;p&gt;在 &lt;a href="https://www.appier.com/"&gt;Appier&lt;/a&gt; 擔任 Data Engineer 一職至今已滿五年，在這過程之中開發與維護 pipeline 一直是我最重要的工作項目之一。
 除了開發全新設計的 pipeline 以外，許多舊有的 pipeline 也在不斷的持續改進，也有些 pipeline 由於體質過差，也不得不全面重寫。
 有趣的是，許多 pipeline 在改寫或重寫過後，input 與 output 仍然與之前沒有太大差異，那麼，究竟是什麼性質造就了一條好的 pipeline？&lt;/p&gt;
 &lt;h2&gt;Effectiveness&lt;/h2&gt;
@@ -53,7 +53,7 @@
 &lt;p&gt;在顧及上述所有特性之後，別忘記，pipeline 的存在目的就是讓後續資料使用能更有效率。
 因此，將輸出的資料設計成容易理解、容易使用也是很重要的，簡單的例子像是將相同類型的欄位使用相同的 prefix/suffix，使用適當的型態與預設值，提供適當的文件……等等。&lt;/p&gt;
 &lt;p&gt;以上就是我認為一個好的 pipeline 需具備的所有特性，只要遵從這些原則，多半就足以讓 pipeline 物有所值。
-至於體質真的有問題的 pipeline，有時就沒有辦法只靠 refactor 來改進，這時就需要更完整的 migration plan 來徹底改頭換面，不過這又是另一個故事了。&lt;/p&gt;&lt;/div&gt;</description><category>data engineering</category><category>data pipeline</category><category>ETL</category><guid>https://sayuan.github.io/posts/what-makes-a-good-data-pipeline/</guid><pubDate>Fri, 12 Feb 2021 06:55:27 GMT</pubDate></item><item><title>程式競賽小技巧 - Binary Search</title><link>https://sayuan.github.io/posts/binary-search/</link><dc:creator>Shiao-An Yuan</dc:creator><description>&lt;div&gt;&lt;p&gt;最近在 &lt;a href="https://kaif.io"&gt;Kaif&lt;/a&gt; 開了一個 &lt;a href="https://kaif.io/z/programming-contest"&gt;程式競賽&lt;/a&gt; 區，打算在上面提一些我在競賽中學到的技巧，
+至於體質真的有問題的 pipeline，有時就沒有辦法只靠 refactor 來改進，這時就需要更完整的 migration plan 來徹底改頭換面，不過這又是另一個故事了。&lt;/p&gt;</description><category>data engineering</category><category>data pipeline</category><category>ETL</category><guid>https://blog.sayuan.net/posts/what-makes-a-good-data-pipeline/</guid><pubDate>Fri, 12 Feb 2021 06:55:27 GMT</pubDate></item><item><title>程式競賽小技巧 - Binary Search</title><link>https://blog.sayuan.net/posts/binary-search/</link><dc:creator>Shiao-An Yuan</dc:creator><description>&lt;p&gt;最近在 &lt;a href="https://kaif.io"&gt;Kaif&lt;/a&gt; 開了一個 &lt;a href="https://kaif.io/z/programming-contest"&gt;程式競賽&lt;/a&gt; 區，打算在上面提一些我在競賽中學到的技巧，
 不過既然我有一個很久沒動筆的 Blog，不如就直接寫在這裡，再把連結貼到 Kaif 吧。&lt;/p&gt;
 &lt;p&gt;Binary Search 在程式競賽中，指的不是用來檢查元素在 sorted list 中位置的方法，
 而是一種解題技巧。適用 Binary Search 的題目，通常會有兩個特性：&lt;/p&gt;
@@ -102,7 +102,7 @@
 &lt;span class="o"&gt;}&lt;/span&gt;
 &lt;/pre&gt;
 &lt;p&gt;結果就是什麼都不要管，固定跑個足夠次數就好。:p&lt;/p&gt;
-&lt;p&gt;我自己習慣跑 50 次，但也看過其他參賽者使用 40, 100, 200 次。&lt;/p&gt;&lt;/div&gt;</description><category>algorithm</category><category>competitive programming</category><category>programming contest</category><guid>https://sayuan.github.io/posts/binary-search/</guid><pubDate>Sat, 06 Jun 2015 15:33:28 GMT</pubDate></item><item><title>使用 Graphviz 繪製網路拓樸</title><link>https://sayuan.github.io/posts/network-topology-by-graphviz/</link><dc:creator>Shiao-An Yuan</dc:creator><description>&lt;div&gt;&lt;p&gt;自從離開了 Android 產業之後，我加入了一間與網路服務相關的新創公司。
+&lt;p&gt;我自己習慣跑 50 次，但也看過其他參賽者使用 40, 100, 200 次。&lt;/p&gt;</description><category>algorithm</category><category>competitive programming</category><category>programming contest</category><guid>https://blog.sayuan.net/posts/binary-search/</guid><pubDate>Sat, 06 Jun 2015 15:33:28 GMT</pubDate></item><item><title>使用 Graphviz 繪製網路拓樸</title><link>https://blog.sayuan.net/posts/network-topology-by-graphviz/</link><dc:creator>Shiao-An Yuan</dc:creator><description>&lt;p&gt;自從離開了 Android 產業之後，我加入了一間與網路服務相關的新創公司。
 在工作內容上，經常會需要理解對方的網路環境，而解決這個問題最好的方法，
 就是事先準備好一份網路拓樸並歸檔。&lt;/p&gt;
 &lt;h3&gt;Requirements&lt;/h3&gt;
@@ -148,7 +148,7 @@ sudo apt-get install graphviz
 但不知道是哪裡出了問題，我並沒有辦法順利使用，所以我是自行轉成 &lt;code&gt;PNG&lt;/code&gt;。&lt;/p&gt;
 &lt;h3&gt;Results&lt;/h3&gt;
 &lt;p&gt;最後的結果就是下圖：&lt;/p&gt;
-&lt;p&gt;&lt;img alt="Topology" src="https://sayuan.github.io/galleries/misc/topology.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Topology" src="https://blog.sayuan.net/galleries/misc/topology.png"&gt;&lt;/p&gt;
 &lt;p&gt;而上圖對應的 dot 原始檔如下：&lt;/p&gt;
 &lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;graph G {
     node [shape=none, height=1.2]
@@ -206,7 +206,7 @@ sudo apt-get install graphviz
 而&lt;a href="https://github.com/tckz/redmine-wiki_graphviz_plugin"&gt;這裡有一個 plugin&lt;/a&gt;，能夠直接將 wiki 中的純文字的 dot，在預覽和儲存後直接以
 轉換後的圖片顯示，實在是方常方便。&lt;/p&gt;
 &lt;p&gt;然而使用 Graphviz 有其極限，對於複雜的網路拓樸，或著對美觀極度要求時，使用其他
-的軟體搭配仍然有其必要。&lt;/p&gt;&lt;/div&gt;</description><category>Dot</category><category>Graphviz</category><category>Network</category><guid>https://sayuan.github.io/posts/network-topology-by-graphviz/</guid><pubDate>Sun, 23 Feb 2014 14:02:59 GMT</pubDate></item><item><title>Android Java 層 Debug 工具介紹 (2)</title><link>https://sayuan.github.io/posts/android-java-debugging-2/</link><dc:creator>Shiao-An Yuan</dc:creator><description>&lt;div&gt;&lt;p&gt;在系列文的&lt;a href="https://sayuan.github.io/posts/android-java-debugging-2/android-java-debugging-1.html"&gt;第一篇文章&lt;/a&gt;中，我已經介紹過 Log Viewer 與
+的軟體搭配仍然有其必要。&lt;/p&gt;</description><category>Dot</category><category>Graphviz</category><category>Network</category><guid>https://blog.sayuan.net/posts/network-topology-by-graphviz/</guid><pubDate>Sun, 23 Feb 2014 14:02:59 GMT</pubDate></item><item><title>Android Java 層 Debug 工具介紹 (2)</title><link>https://blog.sayuan.net/posts/android-java-debugging-2/</link><dc:creator>Shiao-An Yuan</dc:creator><description>&lt;p&gt;在系列文的&lt;a href="https://blog.sayuan.net/posts/android-java-debugging-2/android-java-debugging-1.html"&gt;第一篇文章&lt;/a&gt;中，我已經介紹過 Log Viewer 與
 Profiler，而這次所要介紹的內容則是 Debugger，以及一些 Reverse Engineering 工具。
 那麼，就先從 Debugger 開始吧。&lt;/p&gt;
 &lt;h3&gt;Remote Debugging&lt;/h3&gt;
@@ -226,7 +226,7 @@ Profiler，而這次所要介紹的內容則是 Debugger，以及一些 Reverse 
 過程比較手動一些。我會以 Eclipse 進行以下的示範，但其實使用任何一款支援 Remote
 Debugging 的 debugger 皆可，甚至連 Android plugin 都不需要安裝。&lt;/p&gt;
 &lt;h4&gt;1. Select debug port&lt;/h4&gt;
-&lt;p&gt;&lt;img alt="Select debug port" src="https://sayuan.github.io/galleries/android-java-debug/debug_port.png" title="caption test"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Select debug port" src="https://blog.sayuan.net/galleries/android-java-debug/debug_port.png" title="caption test"&gt;&lt;/p&gt;
 &lt;p&gt;首先到任何一個看得見這畫面的地方，不管是 Eclipse 內建的 DDMS 也好，或著獨立的
 Android Device Monitor 也好，總之只要是這個畫面都好。&lt;/p&gt;
 &lt;p&gt;對著想要進行 debug 的 process 點一下。在點選之前，最後一欄的文字本來會是 &lt;code&gt;8600&lt;/code&gt;
@@ -237,7 +237,7 @@ Android Device Monitor 也好，總之只要是這個畫面都好。&lt;/p&gt;
 就會額外準備一組 port 8700。因為數字是固定的，因此在後續設定 debugger 時會比較方
 便，所以這個步驟其實並不是必要的。&lt;/p&gt;
 &lt;h4&gt;2. Create debug configure&lt;/h4&gt;
-&lt;p&gt;&lt;img alt="Create debug configure" src="https://sayuan.github.io/galleries/android-java-debug/debug_config.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Create debug configure" src="https://blog.sayuan.net/galleries/android-java-debug/debug_config.png"&gt;&lt;/p&gt;
 &lt;p&gt;接下來，在 &lt;code&gt;Debug Configurations&lt;/code&gt; 中建立一個新的 &lt;code&gt;Remote Java Application&lt;/code&gt;，
 右邊的 &lt;code&gt;Project&lt;/code&gt; 則視您 debug 的對象選擇，若是沒有對應的專案則請保持空白，
 &lt;code&gt;Port&lt;/code&gt; 則填上在前一步驟看到的數字。因為所有我打算進行 debug 的 process 都會事先
@@ -251,7 +251,7 @@ Android Device Monitor 也好，總之只要是這個畫面都好。&lt;/p&gt;
 對應的程式碼並試圖在上面建立中斷點，也壓根不會有作用。&lt;/p&gt;
 &lt;p&gt;現在請回到前一張圖，注意到視窗右半邊共有三個分頁，其中第二個分頁 &lt;code&gt;Source&lt;/code&gt; 就是我
 們要找的答案！&lt;/p&gt;
-&lt;p&gt;&lt;img alt="Add source" src="https://sayuan.github.io/galleries/android-java-debug/add_source.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Add source" src="https://blog.sayuan.net/galleries/android-java-debug/add_source.png"&gt;&lt;/p&gt;
 &lt;p&gt;將所有需要用到的 source code 的 &lt;code&gt;root&lt;/code&gt; 都用 &lt;code&gt;File System Directory&lt;/code&gt; 加入後，您就
 可以正常的建立中斷點，並隨著 debugger 在程式碼間遨遊了。若以 Android Framework
 為例，您所需要加入的路徑大概會是 &lt;code&gt;.../android/frameworks/base/core/java&lt;/code&gt;。
@@ -273,7 +273,7 @@ Android Device Monitor 也好，總之只要是這個畫面都好。&lt;/p&gt;
 &lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;jd-gui CtsVerifier_dex2jar.jar
 &lt;/pre&gt;
 
-&lt;p&gt;&lt;img alt="jd-gui" src="https://sayuan.github.io/galleries/android-java-debug/jd-gui.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="jd-gui" src="https://blog.sayuan.net/galleries/android-java-debug/jd-gui.png"&gt;&lt;/p&gt;
 &lt;p&gt;不過不是每一次都能像上圖這樣順利，經常會遇到 decompile 的結果不正常的狀況。
 這時候也許您可以考慮換一套 decompiler 試試，像 &lt;a href="http://varaneckas.com/jad/"&gt;JAD&lt;/a&gt; 就是另一個常見的選擇。
 這幾天我也剛好在 &lt;a href="http://androidcracking.blogspot.tw/2014/02/zerdeis-luyten-worthwhile-jd-gui.html"&gt;android cracking&lt;/a&gt; 上看到另一套工具 &lt;a href="https://github.com/deathmarine/Luyten/"&gt;Luyten&lt;/a&gt;，聽說效果比
@@ -355,7 +355,7 @@ source code 與實際產生的 smali 做對照，供各位做參考：&lt;/p&gt;
 &lt;li&gt;不得已沒有 source code 的時候才用 XD&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;/ul&gt;&lt;/div&gt;</description><category>Android</category><category>apktool</category><category>debugging</category><category>Eclipse</category><guid>https://sayuan.github.io/posts/android-java-debugging-2/</guid><pubDate>Fri, 14 Feb 2014 18:22:56 GMT</pubDate></item><item><title>Android Java 層 Debug 工具介紹 (1)</title><link>https://sayuan.github.io/posts/android-java-debugging-1/</link><dc:creator>Shiao-An Yuan</dc:creator><description>&lt;div&gt;&lt;p&gt;今天又從硬碟裡翻出一份還在前公司時製作的內訓資料，是當時所有我會的 Android Java
+&lt;/ul&gt;</description><category>Android</category><category>apktool</category><category>debugging</category><category>Eclipse</category><guid>https://blog.sayuan.net/posts/android-java-debugging-2/</guid><pubDate>Fri, 14 Feb 2014 18:22:56 GMT</pubDate></item><item><title>Android Java 層 Debug 工具介紹 (1)</title><link>https://blog.sayuan.net/posts/android-java-debugging-1/</link><dc:creator>Shiao-An Yuan</dc:creator><description>&lt;p&gt;今天又從硬碟裡翻出一份還在前公司時製作的內訓資料，是當時所有我會的 Android Java
 debug 工具的介紹，於是整理之後就成為了現在這篇文章。&lt;/p&gt;
 &lt;p&gt;本文中提及的工具與使用方法我都已測試過，即使在目前在最新的 Android 4.4
 上也還能正常使用，但畢竟這些已經是一年前的資料了，或許已經有更新的工具能替代
@@ -368,7 +368,7 @@ debug 工具的介紹，於是整理之後就成為了現在這篇文章。&lt;/
 不容易從中識別出自己所關心的 log，好在早就有現成的 &lt;a href="http://jsharkey.org/blog/2009/04/22/modifying-the-android-logcat-stream-for-full-color-debugging/"&gt;Colored Logcat&lt;/a&gt;。&lt;code&gt;Colored
 Logcat&lt;/code&gt; 是由 &lt;a href="http://jsharkey.org"&gt;Jeff Sharkey&lt;/a&gt; 所開發的一個以 python 寫成，用來 parsing &lt;code&gt;adb
 logcat&lt;/code&gt; 的輸出，並加上顏色與對齊後輸出的工具。&lt;/p&gt;
-&lt;p&gt;&lt;img alt="coloredlogcat" src="https://sayuan.github.io/galleries/android-java-debug/colorcat.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="coloredlogcat" src="https://blog.sayuan.net/galleries/android-java-debug/colorcat.png"&gt;&lt;/p&gt;
 &lt;p&gt;由於原作者釋出 &lt;code&gt;Colored Logcat&lt;/code&gt; 之後沒有持續維護，因此在 Github 及 Google Code
 上都可以找到其他人的分支。我自己所使用的版本則是對其做了兩個修改：&lt;/p&gt;
 &lt;ol&gt;
@@ -418,11 +418,11 @@ deepToString，所以連陣列內容都能印出。&lt;/p&gt;
 
 &lt;p&gt;上述這個方法比較麻煩，但能確保 profiling 的對象只有自己關心的區域。&lt;/p&gt;
 &lt;h4&gt;第二種&lt;/h4&gt;
-&lt;p&gt;&lt;img alt="Start Profiling" src="https://sayuan.github.io/galleries/android-java-debug/start_profiling.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Start Profiling" src="https://blog.sayuan.net/galleries/android-java-debug/start_profiling.png"&gt;&lt;/p&gt;
 &lt;p&gt;第二個方法則是直接在 Android Device Monitor 工具內，選好要 profiling 的
 process，然後點上圖中被藍色圓圈圈起的按鈕，並在打算停止 profiling
 時再按一下即可。&lt;/p&gt;
-&lt;p&gt;&lt;img alt="Traceview" src="https://sayuan.github.io/galleries/android-java-debug/traceview.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Traceview" src="https://blog.sayuan.net/galleries/android-java-debug/traceview.png"&gt;&lt;/p&gt;
 &lt;p&gt;接著畫面上就會出現 profiling 的結果。&lt;/p&gt;
 &lt;h4&gt;Call Graph&lt;/h4&gt;
 &lt;p&gt;第一種方法執行完的 trace file 會存在 SD card 內，而第二種則是存在
@@ -432,7 +432,7 @@ process，然後點上圖中被藍色圓圈圈起的按鈕，並在打算停止 
 &lt;/pre&gt;
 
 &lt;p&gt;就可以得到如下的 call graph。&lt;/p&gt;
-&lt;p&gt;&lt;img alt="Call Graph" src="https://sayuan.github.io/galleries/android-java-debug/callgraph.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Call Graph" src="https://blog.sayuan.net/galleries/android-java-debug/callgraph.png"&gt;&lt;/p&gt;
 &lt;h4&gt;debuggable flag&lt;/h4&gt;
 &lt;p&gt;第二種方法在使用上有個限制，即操作的手機必須是 Engineering build，或著所觀察的
 App 具有 debuggable flag。&lt;/p&gt;
@@ -443,7 +443,7 @@ source code，也能將所需的 code 插入，因此正好可以拿來安插第
 所需的 code，細節將會在後續的文章中說明。&lt;/p&gt;
 &lt;p&gt;篇幅好像差不多了，那麼就先在此打住吧。
 接下來預計還會寫一至兩篇文章介紹 remote debugging 與 reverse engineering
-tool，希望我能早日完成。:)&lt;/p&gt;&lt;/div&gt;</description><category>Android</category><category>coloredlogcat</category><category>debugging</category><category>traceview</category><guid>https://sayuan.github.io/posts/android-java-debugging-1/</guid><pubDate>Sun, 09 Feb 2014 12:36:56 GMT</pubDate></item><item><title>Android CTS - 讓 Report 說話</title><link>https://sayuan.github.io/posts/android-cts-report/</link><dc:creator>Shiao-An Yuan</dc:creator><description>&lt;div&gt;&lt;p&gt;接著來談談當初在負責 CTS 時遇到的最大困難，以及最後解決的方法。&lt;/p&gt;
+tool，希望我能早日完成。:)&lt;/p&gt;</description><category>Android</category><category>coloredlogcat</category><category>debugging</category><category>traceview</category><guid>https://blog.sayuan.net/posts/android-java-debugging-1/</guid><pubDate>Sun, 09 Feb 2014 12:36:56 GMT</pubDate></item><item><title>Android CTS - 讓 Report 說話</title><link>https://blog.sayuan.net/posts/android-cts-report/</link><dc:creator>Shiao-An Yuan</dc:creator><description>&lt;p&gt;接著來談談當初在負責 CTS 時遇到的最大困難，以及最後解決的方法。&lt;/p&gt;
 &lt;h3&gt;什麼是 CTS？&lt;/h3&gt;
 &lt;p&gt;Android 雖然是 Open Source Project，即任何的廠商都可以自行生產手機，但
 如果想在出廠時內建 Google Play 等 Google 所提供的 APP，就必須與 Google
@@ -485,7 +485,7 @@ Google 提供的 CTS 程式，並產生一份通過所有測試的 Report，Goog
 大家見笑。事實上，這個網站其實非常的簡單，甚至我放出的部份也沒有任何難度
 ，只是單純的 parsing XML 並存進資料庫而已，真要說有難度的地方，也只是
 parsing 時比較費工而已。所以我放出 parsing 的部份，希望有需要的人可以在
-略做修改的情況下就能夠使用，如果在使用上有遭遇什麼困難，也歡迎與我聯繫。&lt;/p&gt;&lt;/div&gt;</description><category>Android</category><category>CTS</category><guid>https://sayuan.github.io/posts/android-cts-report/</guid><pubDate>Sun, 02 Feb 2014 15:37:47 GMT</pubDate></item><item><title>Android CTS 筆記</title><link>https://sayuan.github.io/posts/android-cts/</link><dc:creator>Shiao-An Yuan</dc:creator><description>&lt;div&gt;&lt;p&gt;我過去曾經在國內的二線 Android 系統廠服務了約一年半的時間，當時所負責的
+略做修改的情況下就能夠使用，如果在使用上有遭遇什麼困難，也歡迎與我聯繫。&lt;/p&gt;</description><category>Android</category><category>CTS</category><guid>https://blog.sayuan.net/posts/android-cts-report/</guid><pubDate>Sun, 02 Feb 2014 15:37:47 GMT</pubDate></item><item><title>Android CTS 筆記</title><link>https://blog.sayuan.net/posts/android-cts/</link><dc:creator>Shiao-An Yuan</dc:creator><description>&lt;p&gt;我過去曾經在國內的二線 Android 系統廠服務了約一年半的時間，當時所負責的
 工作之一，就是負責處理 Android CTS 問題。雖然不是所有的 Issue 都由我負責
 到底，但第一關的釐清、分配，和解決最後無明確歸屬的 Issue，都是我的任務。
 而這一年多來追蹤過的 CTS 問題少說也有百項，也因此累積了不少的筆記。&lt;/p&gt;
@@ -493,11 +493,11 @@ parsing 時比較費工而已。所以我放出 parsing 的部份，希望有需
 ，心血來潮花了整整一天的時間，終於有機會讓這些筆記重見天日。我把它們全部
 都重寫成 markdown 格式，並且上傳至 Github 的 wiki，連結就在&lt;a href="https://github.com/sayuan/Android-CTS-notes"&gt;這裡&lt;/a&gt;。&lt;/p&gt;
 &lt;p&gt;希望這些資訊能給還在和 CTS 奮鬥的工程師們一些幫助，如果其中有任何錯誤與
-不足的部份，還請不吝指出或著直接進行修正。&lt;/p&gt;&lt;/div&gt;</description><category>Android</category><category>CTS</category><guid>https://sayuan.github.io/posts/android-cts/</guid><pubDate>Sun, 02 Feb 2014 11:25:16 GMT</pubDate></item><item><title>ydict - node.js 實作</title><link>https://sayuan.github.io/posts/ydict/</link><dc:creator>Shiao-An Yuan</dc:creator><description>&lt;div&gt;&lt;h3&gt;What is "ydict"&lt;/h3&gt;
+不足的部份，還請不吝指出或著直接進行修正。&lt;/p&gt;</description><category>Android</category><category>CTS</category><guid>https://blog.sayuan.net/posts/android-cts/</guid><pubDate>Sun, 02 Feb 2014 11:25:16 GMT</pubDate></item><item><title>ydict - node.js 實作</title><link>https://blog.sayuan.net/posts/ydict/</link><dc:creator>Shiao-An Yuan</dc:creator><description>&lt;h3&gt;What is "ydict"&lt;/h3&gt;
 &lt;p&gt;身為一名 command line 魔人，儘可能的將所有在電腦上的操作在 command line
 之內完成，是一件理所當然的事情，就連查字典也不例外，而 ydict
 就是這樣的工具。&lt;/p&gt;
-&lt;p&gt;&lt;img alt="ydict" src="https://sayuan.github.io/galleries/misc/ydict.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="ydict" src="https://blog.sayuan.net/galleries/misc/ydict.png"&gt;&lt;/p&gt;
 &lt;p&gt;ydict 的資料來自於 &lt;a href="http://tw.dictionary.yahoo.com/"&gt;Yahoo 字典&lt;/a&gt;，事實上 ydict
 所作的事情就只是以使用者的輸入詞在 Yahoo 字典上查詢，然後 parsing
 出重要的資訊，並以適合 terminal 的格式顯示在螢幕上。&lt;/p&gt;
@@ -532,7 +532,7 @@ parsing，事情也許會簡單很多，於是 &lt;a href="https://github.com/sa
 &lt;p&gt;另外就是 &lt;a href="https://github.com/JeffChien/jydict"&gt;Jeff 開發的 LiveScript 版&lt;/a&gt;，和 ydict.js 一樣使用 &lt;a href="https://github.com/MatthewMueller/cheerio"&gt;cheerio&lt;/a&gt;
 來處理 parsing，並且同樣也已經上傳 npm，因此只要執行下述指令即可安裝：&lt;/p&gt;
 &lt;pre class="code literal-block"&gt;&lt;span&gt;&lt;/span&gt;[sudo] npm install -g jydict
-&lt;/pre&gt;&lt;/div&gt;</description><category>node.js</category><category>ydict</category><guid>https://sayuan.github.io/posts/ydict/</guid><pubDate>Thu, 30 Jan 2014 07:07:52 GMT</pubDate></item><item><title>終於，新居落成</title><link>https://sayuan.github.io/posts/finally-my-new-blog/</link><dc:creator>Shiao-An Yuan</dc:creator><description>&lt;div&gt;&lt;h3&gt;塵埃落定&lt;/h3&gt;
+&lt;/pre&gt;</description><category>node.js</category><category>ydict</category><guid>https://blog.sayuan.net/posts/ydict/</guid><pubDate>Thu, 30 Jan 2014 07:07:52 GMT</pubDate></item><item><title>終於，新居落成</title><link>https://blog.sayuan.net/posts/finally-my-new-blog/</link><dc:creator>Shiao-An Yuan</dc:creator><description>&lt;h3&gt;塵埃落定&lt;/h3&gt;
 &lt;p&gt;嚷著說要寫 blog 也差不多拖了一、兩年了，除了單純的因為我懶以外，找不到合適的
 static blog generator 也是一大主因。為了讓 blog
 能完全在自己的掌控之中，我必須選一個自己看得懂、改得動的語言所實作的
@@ -610,4 +610,4 @@ class HelloWorld {
 markdown，但找不到針對 markdown 的說明文件，很多功能我也都沒能試出來。
 但要是再這樣挑三揀四，我想我大概永遠也沒有辦法開始 blogging 吧。
 所以還是就先這樣吧！後續還有很多問題想要處理，像是站內搜尋、轉換至 HTML5、增加適當的 meta 標籤……等等。
-不過我想最大的問題應該是我能堅持 blogging 多久吧？&lt;/p&gt;&lt;/div&gt;</description><category>CJK-space-fix</category><category>Markdown</category><category>mathjax</category><category>Nikola</category><category>static blog generator</category><guid>https://sayuan.github.io/posts/finally-my-new-blog/</guid><pubDate>Wed, 29 Jan 2014 13:05:42 GMT</pubDate></item></channel></rss>
+不過我想最大的問題應該是我能堅持 blogging 多久吧？&lt;/p&gt;</description><category>CJK-space-fix</category><category>Markdown</category><category>mathjax</category><category>Nikola</category><category>static blog generator</category><guid>https://blog.sayuan.net/posts/finally-my-new-blog/</guid><pubDate>Wed, 29 Jan 2014 13:05:42 GMT</pubDate></item></channel></rss>
