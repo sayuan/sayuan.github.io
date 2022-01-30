@@ -7,7 +7,7 @@
                         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
  <url>
   <loc>https://blog.sayuan.net/</loc>
-  <lastmod>2022-01-10T15:36:00Z</lastmod>
+  <lastmod>2022-01-29T12:48:00Z</lastmod>
  </url>
  <url>
   <loc>https://blog.sayuan.net/2014/</loc>
@@ -22,12 +22,16 @@
   <lastmod>2022-01-10T15:36:00Z</lastmod>
  </url>
  <url>
+  <loc>https://blog.sayuan.net/2022/</loc>
+  <lastmod>2022-01-29T12:48:00Z</lastmod>
+ </url>
+ <url>
   <loc>https://blog.sayuan.net/archive.html</loc>
-  <lastmod>2022-01-10T15:36:00Z</lastmod>
+  <lastmod>2022-01-29T12:48:00Z</lastmod>
  </url>
  <url>
   <loc>https://blog.sayuan.net/categories/</loc>
-  <lastmod>2022-01-10T15:36:00Z</lastmod>
+  <lastmod>2022-01-30T07:04:00Z</lastmod>
  </url>
  <url>
   <loc>https://blog.sayuan.net/categories/algorithm/</loc>
@@ -40,6 +44,10 @@
  <url>
   <loc>https://blog.sayuan.net/categories/apktool/</loc>
   <lastmod>2022-01-10T15:36:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://blog.sayuan.net/categories/best-practice/</loc>
+  <lastmod>2022-01-29T12:48:00Z</lastmod>
  </url>
  <url>
   <loc>https://blog.sayuan.net/categories/cjk-space-fix/</loc>
@@ -76,6 +84,14 @@
  <url>
   <loc>https://blog.sayuan.net/categories/eclipse/</loc>
   <lastmod>2022-01-10T15:36:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://blog.sayuan.net/categories/efficiency/</loc>
+  <lastmod>2022-01-30T07:04:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://blog.sayuan.net/categories/efficient/</loc>
+  <lastmod>2022-01-29T12:48:00Z</lastmod>
  </url>
  <url>
   <loc>https://blog.sayuan.net/categories/etl/</loc>
@@ -160,6 +176,14 @@
  <url>
   <loc>https://blog.sayuan.net/posts/network-topology-by-graphviz/</loc>
   <lastmod>2022-01-10T15:36:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://blog.sayuan.net/posts/things-i-hope-my-colleagues-know-about-efficient/</loc>
+  <lastmod>2022-01-30T07:04:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://blog.sayuan.net/posts/things-i-hope-my-colleagues-know/</loc>
+  <lastmod>2022-01-29T12:48:00Z</lastmod>
  </url>
  <url>
   <loc>https://blog.sayuan.net/posts/what-makes-a-good-data-pipeline/</loc>

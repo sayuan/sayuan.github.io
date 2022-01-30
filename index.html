@@ -24,6 +24,61 @@
         </ul></section><section class="page-content"><div class="content" rel="main">
             
         <div class="post">
+            <h1 class="title"><a href="posts/things-i-hope-my-colleagues-know-about-efficient/">關於效率 - 那些我希望同事知道的事</a></h1>
+            <div class="meta">
+                <div class="authordate">
+                    <time class="timeago" datetime="2022-01-29T17:05:08+08:00">2022-01-29 17:05</time>
+</div>
+                <div class="stats">
+                    
+    
+
+
+                </div>
+            
+        <div itemprop="keywords" class="tags">
+        <ul>
+        Tags : 
+           <li><a class="tag p-category" href="categories/best-practice/" rel="tag">best practice</a></li>
+           <li><a class="tag p-category" href="categories/efficiency/" rel="tag">efficiency</a></li>
+        </ul>
+</div>
+
+            </div>
+            <div class="body">
+                <p>身為一位非常在乎效率的工程師，我經常在思考如何進一步提昇自己的效率，而對於那些拖累我效率的事物，則總是令我感到厭惡。
+以前的我總以為這些我所在乎的事是常識，無法理解其他人為什麼不選擇這樣的做事方式，但隨著經驗越來越多，我才理解到一個簡單的道理，那就是每個人都不一樣，工作模式也大不相同，我認為理想的方案，或許其他人並不這麼認為。</p>
+<p>這篇文章的內容其實我已構思許久，但直到理解了人與人的差異之後，我才真的有動力來完成這篇文章。
+我的方案不見得是對的，也未必適合每個人，但至少可以讓其他人知道我是怎麼想的。唯有先互相理解，才能夠彼此尊重。</p>
+<h2>我的效率秘訣</h2>
+<p>軟體工程師的主要任務是開發，但有趣的是，幾乎所有其他的任務都有著更高的優先權。如果一個功能需要開發兩天，你不太可能等到兩天後才開始處理 alert、著手老闆新交待的事項、回答同事問題。
+既然頻繁的 context switch 是免不了的，如何有效率的 context switch 便成了我的主要目標。</p>
+<p>我最核心的思想是使用 <strong>Priority Queue</strong> 的概念，總是優先做最高優先權的任務，並在完成後繼續這個步驟挑選下一個任務來處理。如果這個任務需要較長的時間才能完成 (超過一小時)，我會在這期間尋找適合的中斷點去檢查 Email 與 Slack 訊息，並將新的任務加入 Priority Queue。如果新的任務需要立刻執行，那我就會改作新的任務，並將手上原先的任務重新放進 Queue 中。</p>
+<p>那麼這個 Priority Queue 具體怎麼實行？一直將任務移進移出不會很麻煩嗎？事實上我的 Priority Queue 很大一部份就是 Gmail 本身，那些來自外部的任務，本身經常就是一封信件。而我會將信箱視作一個 To-do List，只有在一件事完全結束後，我才會將這封信 Archive。因此所謂的將任務放進 queue、移出 queue，其實很多時候都只是在心裡上的操作，而實際上卻是什麼都不用做。Gmail 本身沒有任意排序的功能，在待處理信件太多時，要從中找出最高優先權的任務並不容易，而我的對應方案是 snooze 短期不會處理的信件，讓我能只專注在較高優先權的任務。</p>
+<p>如果任務需要其他同事的介入，早期我會在回信後就將整串 thread archive，畢竟現在的狀態是被同事 blocking，而且等同事處理完回信給我時，這整個 thread 又會重新回到我的信箱中。然而這世界並沒有這麼理想，總是會有些不回信的同事。雖然面對這樣的情況感到無奈，但只要我們改用 snooze 即可，若在一段時間後沒收到回信，這個 thread 還是會重新出現在信箱中，方便我再次提醒同事或著採取其他手段。</p>
+<p>Slack 也是我 Priority Queue 的另一部份，不過相比於 Gmail 有個集中的 inbox，分散在 Slack 各個 channel 的訊息，如果在讀訊息當下沒有馬上做出處理，後續很容易就會忘掉。幸好 Slack 上有提供 Saved items，只要是沒有辦法立刻處理完畢的訊息，我都會把它們加進 Saved items，確保我最終不會漏掉。</p>
+<p>Gmail 與 Slack 仍無法滿足的部份，我是在 personal wiki 內建一個 To-do List 來達成，所有臨時出現的需求，我都會暫時紀錄在 wiki 內，後續再找時間執行或著開成 ticket。</p>
+<h2>我常看到的問題</h2>
+<ol>
+<li>
+<strong>Slack 溝通盡量一次說完</strong>。Instant Message 從來就不是有效率的溝通工具，請一開始就說明來意，不要在 tag 了對方之後，還要對方花時間等你打字。</li>
+<li>
+<strong>除了緊急事件，不要在非上班時間 tag 同事</strong>。</li>
+<li>
+<strong>詢問 SQL 問題，請把 query 排版好，並附上相關資訊</strong>。請儘可能簡化 query，只留下與你問題相關的部份，並說明 query 想要達成的目的。</li>
+<li>
+<strong>邀請同事參加會議，請讓對方事先知道主題</strong>，如果有相關文件也應該儘早提供。</li>
+<li>
+<strong>週期性的會儘早確認是否要召開，若取消則儘早通知</strong>。</li>
+</ol>
+<h2>我的一些實踐</h2>
+<p>我在工作上所扮演的其中一個角色是 Data Governance Team 的成員，這個 team 負責掌管公司的 Data Lake，所以這個角色經常會需要向同事發布新訊息，像是新增了哪些表格、哪些欄位即將退休等等。</p>
+<p>為了讓同事們能夠有效率的掌握這些資訊，我所作的其中一個改進是<strong>每個月只寄一封信</strong>，信件上會明確說明這個月有哪些新表格與欄位、將在什麼時候退休什麼欄位，以及其他注意事項。對於需要 migrate 的項目，我通常會提供至少兩個月以上的時間，讓同事有充分的時間處理。寄信頻率降低，雖然某種程度上來說延後了訊息發布的時間，也確實會讓整件事情被完成的時間被拉長。但 <a href="https://github.com/donnemartin/system-design-primer/#latency-vs-throughput">latency 跟 throughput 從來就是不同的東西</a>，在可接受的時間內追求更高的執行效率，才是我們真正的目的。</p>
+<p>即使有了以上的機制，在退休欄位這件事上，仍舊會發生意外。偶爾我們會在實際刪除某個欄位後，才發現仍有重要的服務依舊依賴這個欄位，並且沒有辦法立刻的完成 migration，這時候只好 rollback 並重新發布新的 deadline，而這個過程則相當的令人沮喪。我們最新的方案是，要求每個 project 將自己所需要用到的表格與欄位，紀錄在各自 repository 內的一個指定檔案，並且我們有自動化的檢查工具，當我們發布退休欄位的公告時，當下就能找出還在使用這些欄位的 project 並做出通知。對於 project 的維護者來說，在 repository 內多維護一個檔案，也並不是什麼太麻煩的事。</p>
+<p>追求效率的提昇是個無止盡的過程，唯有不斷探索，才能持續進步。May the Efficiency be with you.</p>
+            </div>
+        </div>
+        <div class="post">
             <h1 class="title"><a href="posts/what-makes-a-good-data-pipeline/">如何設計出好的 data pipeline</a></h1>
             <div class="meta">
                 <div class="authordate">

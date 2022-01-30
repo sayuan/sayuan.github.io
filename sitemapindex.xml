@@ -18,6 +18,10 @@
   <lastmod>2022-01-10T15:36:00Z</lastmod>
  </sitemap>
  <sitemap>
+  <loc>https://blog.sayuan.net/categories/best-practice.xml</loc>
+  <lastmod>2022-01-30T07:04:00Z</lastmod>
+ </sitemap>
+ <sitemap>
   <loc>https://blog.sayuan.net/categories/cjk-space-fix.xml</loc>
   <lastmod>2022-01-10T15:36:00Z</lastmod>
  </sitemap>
@@ -52,6 +56,14 @@
  <sitemap>
   <loc>https://blog.sayuan.net/categories/eclipse.xml</loc>
   <lastmod>2022-01-10T15:36:00Z</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>https://blog.sayuan.net/categories/efficiency.xml</loc>
+  <lastmod>2022-01-30T07:04:00Z</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>https://blog.sayuan.net/categories/efficient.xml</loc>
+  <lastmod>2022-01-29T13:20:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://blog.sayuan.net/categories/etl.xml</loc>
@@ -111,10 +123,10 @@
  </sitemap>
  <sitemap>
   <loc>https://blog.sayuan.net/rss.xml</loc>
-  <lastmod>2022-01-10T15:36:00Z</lastmod>
+  <lastmod>2022-01-30T07:04:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://blog.sayuan.net/sitemap.xml</loc>
-  <lastmod>2022-01-10T15:36:00Z</lastmod>
+  <lastmod>2022-01-30T07:04:00Z</lastmod>
  </sitemap>
 </sitemapindex>
