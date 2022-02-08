@@ -129,8 +129,6 @@ NAVIGATION_LINKS = {
         ('/index.html', 'Home', 'icon-home'),
         ('/archive.html', 'Archives', 'icon-folder-open-alt'),
         ('/categories/index.html', 'Tags', 'icon-tags'),
-        # ('/portfolio/portfolio.slides.html', 'Portfolio', 'icon-briefcase'),
-        ('/stories/about-me.html', 'About me', 'icon-user'),
         ('https://twitter.com/shiaoanyuan', 'My Twitter', 'icon-twitter'),
         ('https://github.com/sayuan', 'My Github', 'icon-github'),
         ('https://www.linkedin.com/in/sayuan', 'My LinkedIn', 'icon-linkedin'),
